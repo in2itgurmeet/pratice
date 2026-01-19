@@ -2,18 +2,18 @@
     <form class="user-form" [formGroup]="userForm">
         <div class="form-group mb-3">
             <label>Heigest Qualification</label>
-            <input type="text" class="form-control" placeholder="Enter father name" formControlName="fatherName">
+            <input type="text" class="form-control" placeholder="Enter father name"
+                formControlName="heigestQualification">
         </div>
-
-        <div class="form-group mb-3" style="display: flex; gap: 3px;">
+        <div class="form-group mb-3" formArrayName="subject" style="display: flex; gap: 8px;">
             @for (item of subject.controls; track $index) {
-            <input [formControlName]="$index" placeholder="subjects" />
-            <i-feather name="minus" (click)="removeSkill($index)"></i-feather>
-
+            <div style="display: flex; gap: 4px;">
+                <input class="form-control" placeholder="Subject" [formControlName]="$index" />
+                <i-feather name="minus" (click)="removeSkill($index)"></i-feather>
+            </div>
             }
             <i-feather name="plus" (click)="addSkill()"></i-feather>
         </div>
-
         <div class="footer">
             <div class="left">
                 <button class="outline_btn" (click)="previous()">Back</button>

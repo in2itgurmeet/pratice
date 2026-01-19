@@ -3,9 +3,7 @@
     <div class="custom_model_header">
       <div class="custom_model_progress_bar d-flex">
         @for (step of stepsConfigArray; track $index) {
-        <div
-          [ngClass]="step?.state === 'done' || step?.state === 'active' ? 'progress_done' : 'w-100'"
-        ></div>
+        <div [ngClass]="step?.state === 'done' || step?.state === 'active' ? 'progress_done' : 'w-100'"></div>
         }
       </div>
       <div class="header_content">
@@ -21,9 +19,7 @@
 
     <div class="custom_model_body h-100">
       @if (currentStepComponent) {
-      <ng-container
-        *ngComponentOutlet="currentStepComponent; inputs: getComponentInputs()"
-      ></ng-container>
+      <ng-container *ngComponentOutlet="currentStepComponent; inputs: getComponentInputs()"></ng-container>
       }
     </div>
   </div>

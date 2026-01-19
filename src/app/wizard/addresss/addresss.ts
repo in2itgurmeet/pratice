@@ -43,19 +43,13 @@ export class Addresss {
       stepKey: 'addresss',
       data: this.adrressForm.value,
     })
-
     this.common.nextStep(this.wizardId);
   }
-
 
   onSubmit() {
     this.next();
     this.adrressForm.reset();
   }
-
-
-
-
 
   ngOnInit(): void {
     this.getCountry();
@@ -68,7 +62,6 @@ export class Addresss {
   }
 
   onSelectedChangeCountry(event: any) {
-    console.log(event);
     this.service.getStatedata(event.isoCode).subscribe((stateData) => {
       this.state = stateData;
       this.stateCode = this.state.stateCode;
@@ -82,5 +75,7 @@ export class Addresss {
         this.city = citydata;
       });
   }
+
+
 
 }

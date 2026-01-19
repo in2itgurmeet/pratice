@@ -4,6 +4,7 @@ import { Common } from '../../commmon/common';
 import { CommonModule } from '@angular/common';
 import { FeatherModule } from 'angular-feather';
 import { allIcons } from 'angular-feather/icons';
+import { CommonService } from '../../service/common-service';
 
 @Component({
   selector: 'app-aducationdetails',
@@ -19,31 +20,29 @@ export class Educationdetails {
     textField: 'name',
   };
 
-  constructor(private common: Common) { }
+  constructor(private common: Common, private commonService: CommonService) { }
 
   previous() {
     this.common.previousStep(this.wizardId);
   }
   next() {
+    this.commonService.setCurrentWizardData({
+      stepKey: 'aducationdetails',
+      data: this.userForm.value,
+    })
     this.common.nextStep(this.wizardId);
   }
 
   ngOnInit(): void {
     this.userForm = new FormGroup({
-      age: new FormControl('', Validators.required),
-      fatherName: new FormControl('', Validators.required),
-      motherName: new FormControl('', Validators.required),
+      heigestQualification: new FormControl('', Validators.required),
       subject: new FormArray([
         new FormControl(''),
       ]),
     });
   }
 
-  onSubmit() {
-    console.log(this.userForm.value);
-    this.userForm.reset();
-    this.next();
-  }
+
   get subject() {
     return this.userForm.get('subject') as FormArray;
   }
@@ -53,6 +52,11 @@ export class Educationdetails {
   removeSkill(i: number) {
     this.subject.removeAt(i);
   }
-
+  onSubmit() {
+    this.next();
+    this.userForm.reset();
+    this.subject.clear();
+    this.commonService.closeConnectionWizard();
+  }
 }
 

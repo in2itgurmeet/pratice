@@ -7,19 +7,21 @@
                 <div class="mb-3">
                     <label for="countrySelect" class="form-label">Country</label>
                     <cats-ui-single-select [singleSelectConfig]="configue" [optionList]="country"
+                        formControlName="country"
                         (onSelection)="onSelectedChangeCountry($event)"></cats-ui-single-select>
 
                 </div>
                 <div class="mb-3">
                     <label for="stateSelect" class="form-label">State</label>
-                    <cats-ui-single-select [singleSelectConfig]="configue" [optionList]="state"
+                    <cats-ui-single-select [singleSelectConfig]="configue" [optionList]="state" formControlName="state"
                         (onSelection)="onSelectedChangeState($event)"></cats-ui-single-select>
 
                 </div>
 
                 <div class="mb-3">
                     <label for="citySelect" class="form-label">City</label>
-                    <cats-ui-single-select [singleSelectConfig]="configue" [optionList]="city"></cats-ui-single-select>
+                    <cats-ui-single-select [singleSelectConfig]="configue" [optionList]="city"
+                        formControlName="city"></cats-ui-single-select>
                 </div>
             </div>
         </div>

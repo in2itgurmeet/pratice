@@ -32,7 +32,6 @@ export class CommonWizard {
       title: s.title,
       state: i === 0 ? 'active' : 'normal',
     }));
-
     this.commonService.activeStep.set({ [this.wizardId]: 1 });
     this.commonService.stepConfig.set({ [this.wizardId]: initialConfig });
   }
@@ -72,17 +71,12 @@ export class CommonWizard {
     if (!config) {
       return {};
     }
-
-    // Start with the required context ID
     const inputs: { [key: string]: any } = {
       contextId: this.wizardId,
     };
-
-    // Merge any additional custom data provided in the step configuration
     if (config.data) {
       Object.assign(inputs, config.data);
     }
-
     return inputs;
   }
 }

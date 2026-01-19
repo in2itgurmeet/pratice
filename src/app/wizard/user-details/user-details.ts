@@ -35,11 +35,19 @@ export class UserDetails implements OnInit {
       fatherName: new FormControl('', Validators.required),
       motherName: new FormControl('', Validators.required),
     });
+    let selectedData = this.commonService.stepData()?.['userDetails'];
+    console.log(selectedData);
+    if (selectedData) {
+      this.userForm.patchValue(selectedData);
+    }
   }
 
   onSubmit() {
     this.next();
     this.userForm.reset();
+  }
+  getPreviousdata() {
+    let selectedData = this.commonService.stepData()?.['userDetails'];
   }
 
 

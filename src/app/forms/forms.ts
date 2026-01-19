@@ -119,7 +119,6 @@ export class Forms implements OnInit {
   }
 
   onSubmitForm() {
-    console.log(this.form.value);
     console.log(this.form.getRawValue());
   }
 

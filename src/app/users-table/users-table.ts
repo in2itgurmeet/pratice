@@ -146,12 +146,10 @@ export class UsersTable implements OnInit, AfterViewInit {
 
   updateRow(row: any) {
     const updatedData = this.updateRowDataObject;
-
     this.apiService.updateUser(row.id, updatedData).subscribe(() => {
       this.rowData = this.rowData.map((r) =>
         r.id === row.id ? { ...r, ...updatedData, isInEdit: false } : r
       );
-
       this.updateRowDataObject = {};
       this.flagValueChanged = false;
     });
@@ -163,10 +161,11 @@ export class UsersTable implements OnInit, AfterViewInit {
     });
   }
   onSelectiondata(event: any) {
-    console.log(event);
+    // console.log(event);
   }
 
   closeConnectionWizard(e: any) {
+    console.log(e);
     this.modalService.hide();
   }
   addUserModal(modal: any) {
