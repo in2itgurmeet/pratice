@@ -1,0 +1,186 @@
+@use '../sass-utils/function' as f;
+@use '../sass-utils/mixin' as m;
+
+.myForm {
+  // --------- INPUT
+  input {
+    @include m.box(100%, f.rem(56px));
+    border: f.rem(1px) solid var(--neutral-300);
+    border-radius: f.rem(8px);
+    @include m.flex(flex-start, center);
+    color: var(--neutral-900);
+    @include m.fontStyle(var(--fs-20), f.rem(24px), 400);
+    outline: none;
+    padding: 0 f.rem(16px);
+
+    &.disabled {
+      background-color: var(--neutral-50);
+      color: var(--neutral-500);
+      pointer-events: none;
+    }
+
+    &::placeholder {
+      color: var(--light-grey);
+      @include m.fontStyle(var(--fs-20), f.rem(24px), 400);
+    }
+  }
+
+  textarea {
+    border-radius: f.rem(8px);
+    border: f.rem(1px) solid var(--neutral-300);
+    padding: f.rem(16px);
+    color: var(--neutral-900);
+    @include m.fontStyle(var(--fs-20), f.rem(24px));
+
+    &::placeholder {
+      color: var(--light-grey);
+      @include m.fontStyle(var(--fs-20), f.rem(24px));
+    }
+  }
+
+  label {
+    @include m.fontStyle(var(--fs-18), f.rem(20px), 600);
+    color: var(--neutral-500);
+    min-width: f.rem(200px);
+  }
+
+  sup {
+    color: var(--red);
+    @include m.fontStyle(var(--fs-18), f.rem(20px), 600);
+    margin-left: f.rem(5px);
+    top: 0px;
+  }
+
+  .error {
+    @include m.fontStyle(var(--fs-14), 2);
+    color: var(--red);
+  }
+
+  .row_div {
+    margin-bottom: f.rem(16px);
+    gap: f.rem(8px);
+    display: flex;
+    align-items: baseline;
+  }
+
+  .min_row_height {
+    height: f.rem(56px);
+  }
+
+  // ----------------  CUSTOM RADIO INPUT START HERE
+  .custom_radio {
+    display: inline-flex;
+    align-items: center;
+    min-width: f.rem(20px) !important;
+
+    .name {
+      color: var(--neutral-600);
+      @include m.fontStyle(var(--fs-20), f.rem(24px), 400);
+    }
+
+    &.disabled {
+      pointer-events: none;
+
+      .radio_mark {
+        background-color: var(--neutral-100);
+        border: f.rem(1px) solid var(--neutral-200);
+      }
+
+      .name {
+        color: var(--neutral-300);
+      }
+    }
+
+    .name {
+      padding-right: f.rem(23px);
+    }
+  }
+
+  .custom_radio input[type='radio'] {
+    display: none;
+  }
+
+  .radio_mark {
+    @include m.box(f.rem(24px), f.rem(24px));
+    border: f.rem(1.5px) solid var(--blue-600);
+    border-radius: 50%;
+    margin-right: f.rem(8px);
+    position: relative;
+    background-color: var(--white);
+  }
+
+  .custom_radio input[type='radio']:checked + .radio_mark {
+    background-color: var(--white);
+  }
+
+  .radio_mark::after {
+    content: '';
+    @include m.box(f.rem(9px), f.rem(9px));
+    background: var(--blue-600);
+    border-radius: 50%;
+    position: absolute;
+    @include m.positioning(50%, 50%);
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: opacity 0.2s;
+  }
+
+  .custom_radio input[type='radio']:checked + .radio_mark::after {
+    opacity: 1;
+  }
+
+  // ----------------  CUSTOM RADIO INPUT ENDS HERE
+
+  // ------------------------UPLOAD INPUT START HERE...
+  .upload_input {
+    padding-left: 0;
+
+    &[type='file']::file-selector-button {
+      border: none;
+      height: 100%;
+      padding: 0px f.rem(15px);
+      margin-right: f.rem(10px);
+    }
+  }
+
+  .row_div.disabled {
+    opacity: 0.3;
+  }
+}
+
+.checkbox_disabled {
+  color: var(--neutral-300);
+  pointer-events: none;
+}
+
+.form-check-input:focus {
+  box-shadow: unset;
+}
+
+input[type='checkbox'] {
+  padding: 0;
+}
+
+.border-danger {
+  border: f.rem(1px) solid var(--red);
+
+  .file-label {
+    background-color: var(--red-200);
+  }
+}
+
+input[type='checkbox'] {
+  width: f.rem(16px);
+  height: f.rem(16px);
+}
+
+input[type='date'] {
+  position: relative;
+  &::-webkit-calendar-picker-indicator {
+    position: absolute;
+    right: f.rem(16px);
+    cursor: pointer;
+    // color: red;
+    opacity: 0.5;
+  }
+}

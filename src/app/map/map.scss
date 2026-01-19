@@ -1,0 +1,143 @@
+/* Map box */
+.map-box {
+  width: 400px;
+  height: 250px;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+#map {
+  width: 800px;
+  height: 500px;
+  border-radius: 8px;
+}
+
+.mapboxgl-ctrl-bottom-right {
+  display: none !important;
+}
+
+.myForm {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* Map container */
+.map_container {
+  position: relative;
+}
+
+.map_container .custom_field {
+  position: absolute;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  padding: 24px;
+  width: 100%;
+  top: 0;
+}
+
+.map_container .custom_field .expand_icon {
+  width: 52px;
+  height: 52px;
+  cursor: pointer;
+}
+
+.map_container .custom_field .search_location_filed {
+  width: 400px;
+  display: flex;
+  align-items: center;
+  background: var(--white);
+  border-radius: 8px;
+  margin-top: 4px;
+  height: 52px;
+  box-shadow: 0px 1px 2px 0px var(--chunk-shadow);
+  border: 1px solid var(--neutral-200);
+  padding-right: 14px;
+}
+
+.map_container .custom_field .search_location_filed .search_filed {
+  border: 0;
+  height: 100%;
+  font-size: 20px;
+  line-height: 24px;
+}
+
+.map_container .custom_field .search_location_filed .search_icon {
+  width: 24px;
+  height: 24px;
+  stroke: var(--neutral-400);
+}
+
+.map_container .custom_field .suggestions-list {
+  background: var(--white);
+  border-radius: 3px;
+  margin-top: 2px;
+  width: 100%;
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.map_container .custom_field .suggestions-list li {
+  padding: 0 16px;
+  font-size: 22px;
+  line-height: 24px;
+  color: var(--neutral-600);
+  min-height: 52px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+/* Delete location */
+.map_container .delete_location {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  width: 160px;
+  height: 52px;
+  background: var(--white);
+  border-radius: 8px;
+  box-shadow: 0px 1px 2px 0px var(--chunk-shadow);
+  border: 1px solid var(--orange-400);
+  cursor: pointer;
+}
+
+.map_container .delete_location .head {
+  font-size: 18px;
+  line-height: 26px;
+  font-weight: 600;
+  color: var(--red-700);
+}
+
+.map_container .delete_location i-feather {
+  stroke: var(--red-700);
+}
+
+/* Zoom in / out */
+.zoom_in_out_section {
+  position: absolute;
+  bottom: 25px;
+  right: 28px;
+  width: 48px;
+  height: 102px;
+  background-color: var(--white);
+  border-radius: 8px;
+  box-shadow: 0px 4px 6.5px 0px var(--box-shadow-100);
+  padding: 14px 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.zoom_in_out_section .underline {
+  border: 1px solid var(--neutral-300);
+}
+
+.zoom_in_out_section .zoom {
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  stroke: var(--neutral-600);
+}

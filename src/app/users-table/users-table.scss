@@ -1,7 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
-/* You can add global styles to this file, and also import other style files */
 
-@use './common-utils.scss' as *;
+@use '../../common-utils.scss' as *;
 
 .textTruncate {
   text-overflow: ellipsis;

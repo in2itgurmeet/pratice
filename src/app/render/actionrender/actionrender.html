@@ -1,0 +1,10 @@
+<div class="d-flex">
+    @if(!params.data.isInEdit) {
+    <i-feather name="Edit" (click)="params.cellParams.edit(params.data)"> </i-feather>
+    } @if(params.data.isInEdit) {
+    <i-feather name="Save" (click)="params.cellParams.update(params.data)"> </i-feather>
+    }
+
+    <i-feather name="Trash" (click)="params.cellParams.delete(params.data)"> </i-feather>
+
+</div>

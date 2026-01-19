@@ -1,0 +1,43 @@
+<div class="custom_model_body myForm">
+    <form class="user-form" [formGroup]="userForm">
+
+        <div class="form-group mb-3">
+            <label>First Name</label>
+            <input type="text" class="form-control" placeholder="Enter first name" formControlName="firstName">
+        </div>
+
+        <div class="form-group mb-3">
+            <label>Last Name</label>
+            <input type="text" class="form-control" placeholder="Enter last name" formControlName="lastName">
+        </div>
+
+        <div class="form-group mb-3">
+            <label>Age</label>
+            <input type="number" class="form-control" placeholder="Enter age" formControlName="age">
+        </div>
+
+        <div class="form-group mb-3">
+            <label>Father Name</label>
+            <input type="text" class="form-control" placeholder="Enter father name" formControlName="fatherName">
+        </div>
+
+        <div class="form-group mb-3">
+            <label>Mother Name</label>
+            <input type="text" class="form-control" placeholder="Enter mother name" formControlName="motherName">
+        </div>
+
+
+
+        <div class="footer">
+            <div class="left">
+                <button class="outline_btn" (click)="previous()">Back</button>
+            </div>
+            <div class="right d-flex gap_16">
+
+                <button class="fill_btn" [ngClass]="{'fill_disable_btn': userForm.invalid}" (click)="onSubmit()">
+                    Save & Proceed
+                </button>
+            </div>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,38 @@
+<div class="custom_model_body myForm">
+    <form action="" class="address_form" [formGroup]="adrressForm">
+        <div class="address_form">
+            <div class="form-group">
+
+
+                <div class="mb-3">
+                    <label for="countrySelect" class="form-label">Country</label>
+                    <cats-ui-single-select [singleSelectConfig]="configue" [optionList]="country"
+                        (onSelection)="onSelectedChangeCountry($event)"></cats-ui-single-select>
+
+                </div>
+                <div class="mb-3">
+                    <label for="stateSelect" class="form-label">State</label>
+                    <cats-ui-single-select [singleSelectConfig]="configue" [optionList]="state"
+                        (onSelection)="onSelectedChangeState($event)"></cats-ui-single-select>
+
+                </div>
+
+                <div class="mb-3">
+                    <label for="citySelect" class="form-label">City</label>
+                    <cats-ui-single-select [singleSelectConfig]="configue" [optionList]="city"></cats-ui-single-select>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <div class="left">
+                <button class="outline_btn" (click)="previous()">Back</button>
+            </div>
+            <div class="right d-flex gap_16">
+                <button class="fill_btn" [ngClass]="{'fill_disable_btn': adrressForm.invalid}" (click)="onSubmit()">
+                    Save & Proceed
+                </button>
+            </div>
+        </div>
+    </form>
+
+</div>

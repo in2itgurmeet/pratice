@@ -1,0 +1,7 @@
+@if (data?.isInEdit) {
+<div class="myForm">
+  <input type="text" (input)="onChange($event)" [value]="value" />
+</div>
+} @else {
+{{ value }}
+}

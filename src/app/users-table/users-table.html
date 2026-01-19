@@ -1,0 +1,24 @@
+<cats-data-grid #showData [rowData]="rowData" [colDefs]="colDefs" [height]="800" [sortingRequired]="true"
+  [pageSizeList]="[5, 10, 15, 30]" (onCheckboxSelection)="onSelectiondata($event)" [filterRequired]="true"
+  [checkBoxSelection]="true" [filterRequired]="true" [tableOptions]="tableOption">
+</cats-data-grid>
+
+<ng-template #noData>
+  <div class="col-12">
+    <div class="main_container">
+      <img
+        src="https://img.freepik.com/premium-vector/no-data-found-empty-file-folder-concept-design-vector-illustration_620585-1698.jpg?semt=ais_hybrid&w=740&q=80"
+        alt="" srcset="" />
+      no data found
+    </div>
+  </div>
+</ng-template>
+<ng-template #addUserModalTemplate>
+  <userManagement-common-wizard [wizardId]="'user-details'" [dynamicSteps]="wizardSteps"
+    (closeWizardEmitter)="closeConnectionWizard($event)" [wizardTitle]="'Add User Connection'">
+  </userManagement-common-wizard>
+</ng-template>
+
+<button class="accordion-button" (click)="addUserModal(addUserModalTemplate)">
+  Open UserModal
+</button>

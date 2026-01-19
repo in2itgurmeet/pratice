@@ -1,0 +1,10 @@
+@use "sass:math";
+$font-size: 12px;
+html {
+  font-size: $font-size;
+}
+@function rem($pxValue) {
+  // @return calc(math.div($pxValue, $font-size) * 1rem / var(--scale));
+  $val: calc($pxValue/$font-size);
+  @return calc($val * 1rem / var(--scale));
+}

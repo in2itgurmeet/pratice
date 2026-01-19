@@ -1,0 +1,28 @@
+<div class="custom_model_body myForm">
+    <form class="user-form" [formGroup]="userForm">
+        <div class="form-group mb-3">
+            <label>Heigest Qualification</label>
+            <input type="text" class="form-control" placeholder="Enter father name" formControlName="fatherName">
+        </div>
+
+        <div class="form-group mb-3" style="display: flex; gap: 3px;">
+            @for (item of subject.controls; track $index) {
+            <input [formControlName]="$index" placeholder="subjects" />
+            <i-feather name="minus" (click)="removeSkill($index)"></i-feather>
+
+            }
+            <i-feather name="plus" (click)="addSkill()"></i-feather>
+        </div>
+
+        <div class="footer">
+            <div class="left">
+                <button class="outline_btn" (click)="previous()">Back</button>
+            </div>
+            <div class="right d-flex gap_16">
+                <button class="fill_btn" [ngClass]="{'fill_disable_btn': userForm.invalid}" (click)="onSubmit()">
+                    Save & Proceed
+                </button>
+            </div>
+        </div>
+    </form>
+</div>

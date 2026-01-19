@@ -1,0 +1,47 @@
+<div class="conatiner-fluid">
+  <div class="row">
+    <div class="col-4">
+      <form #userForm="ngForm" (ngSubmit)="onSubmit(userForm)">
+        <h3>User Details</h3>
+
+        <input type="text" name="name" [(ngModel)]="user.name" placeholder="Name" required />
+        <input type="text" name="username" [(ngModel)]="user.username" placeholder="Username" />
+        <input type="email" name="email" [(ngModel)]="user.email" placeholder="Email" />
+        <input type="text" name="phone" [(ngModel)]="user.phone" placeholder="Phone" />
+        <input type="text" name="website" [(ngModel)]="user.website" placeholder="Website" />
+        <h3>Address</h3>
+        <input type="text" name="street" [(ngModel)]="user.address.street" placeholder="Street" />
+        <input type="text" name="suite" [(ngModel)]="user.address.suite" placeholder="Suite" />
+        <input type="text" name="city" [(ngModel)]="user.address.city" placeholder="City" />
+        <input type="text" name="zipcode" [(ngModel)]="user.address.zipcode" placeholder="Zipcode" />
+        <button type="button" (click)="openModal()">open</button>
+        <h4>Geo Location</h4>
+        <input type="text" name="lat" [(ngModel)]="user.address.geo.lat" placeholder="Latitude" />
+        <input type="text" name="lng" [(ngModel)]="user.address.geo.lng" placeholder="Longitude" />
+        <h3>Company</h3>
+        <input type="text" name="companyName" [(ngModel)]="user.company.name" placeholder="Company Name" />
+
+        <input type="text" name="catchPhrase" [(ngModel)]="user.company.catchPhrase" placeholder="Catch Phrase" />
+        <input type="text" name="bs" [(ngModel)]="user.company.bs" placeholder="BS" />
+        <button type="submit" [disabled]="userForm.invalid">Submit</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<ng-template #location>
+  <app-pick-location-map (locationSaved)="patchLocation($event)" (closed)="closeMapModal()"></app-pick-location-map>
+</ng-template>
+
+<form [formGroup]="form" style="width: 400px">
+  <input type="text" formControlName="name" placeholder="type here Name" />
+  <input type="email" formControlName="email" placeholder="type here Email" />
+  <div formArrayName="skill">
+    @for (item of skill.controls; track $index) {
+    <input [formControlName]="$index" placeholder="Skill" />
+    <button type="button" (click)="removeSkill($index)" [disabled]="skill.controls.length === 1">Remove</button>
+    }
+  </div>
+  <button type="button" (click)="addSkill()">Add Skill</button>
+  <button type="submit" [disabled]="form.invalid" (click)="onSubmitForm()">Submit</button>
+</form>

@@ -1,0 +1,17 @@
+.myForm input {
+  height: 40px;
+  padding: 0 12px;
+  box-sizing: border-box;
+
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 400;
+
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  outline: none;
+}
+
+.myForm input:focus {
+  border-color: #1976d2;
+}

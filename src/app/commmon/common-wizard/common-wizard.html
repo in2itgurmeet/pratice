@@ -1,0 +1,30 @@
+<div class="create_adaptor h-100">
+  <div class="custom_model">
+    <div class="custom_model_header">
+      <div class="custom_model_progress_bar d-flex">
+        @for (step of stepsConfigArray; track $index) {
+        <div
+          [ngClass]="step?.state === 'done' || step?.state === 'active' ? 'progress_done' : 'w-100'"
+        ></div>
+        }
+      </div>
+      <div class="header_content">
+        <div class="heading">
+          <span class="name">{{ wizardTitle }}</span>
+          @if (currentStepConfig) { @if(currentStepConfig.title){
+          <span class="step">Step {{ activeStepNumber }}: {{ currentStepConfig.title }}</span>
+          } }
+        </div>
+        <i-feather name="x" class="pointer" (click)="closeWizard('closeModal')"></i-feather>
+      </div>
+    </div>
+
+    <div class="custom_model_body h-100">
+      @if (currentStepComponent) {
+      <ng-container
+        *ngComponentOutlet="currentStepComponent; inputs: getComponentInputs()"
+      ></ng-container>
+      }
+    </div>
+  </div>
+</div>

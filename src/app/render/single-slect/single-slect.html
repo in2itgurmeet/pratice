@@ -1,0 +1,8 @@
+@if(data?.isInEdit) {
+<div class="myForm">
+    <cats-ui-single-select [optionList]="optionList" [singleSelectConfig]="configue"
+        [formControl]="signleSelectvalue"></cats-ui-single-select>
+</div>
+} @else {
+{{ value }}
+}

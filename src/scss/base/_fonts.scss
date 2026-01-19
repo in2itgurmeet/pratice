@@ -1,0 +1,84 @@
+@use '../../scss/sass-utils/mixin' as *;
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+:root {
+  --fs-6: 6px;
+  --fs-9: 9px;
+  --fs-12: 12px;
+  --fs-14: 14px;
+  --fs-16: 16px;
+  --fs-18: 18px;
+  --fs-20: 20px;
+  --fs-22: 22px;
+  --fs-24: 24px;
+  --fs-28: 28px;
+  --fs-32: 32px;
+  --fs-40: 40px;
+  --img-w: 28px;
+  --img-h: 24px;
+  --animated-search-width: 507px;
+  --scale: 1;
+}
+
+@include width-range($tablet, $mediumDesktop) {
+  :root {
+    --scale: 1.5;
+    --fs-6: calc(6px / var(--scale));
+    --fs-9: calc(9px / var(--scale));
+    --fs-12: calc(12px / var(--scale));
+    --fs-14: calc(14px / var(--scale));
+    --fs-16: calc(16px / var(--scale));
+    --fs-18: calc(18px / var(--scale));
+    --fs-20: calc(20px / var(--scale));
+    --fs-22: calc(22px / var(--scale));
+    --fs-24: calc(24px / var(--scale));
+    --fs-28: calc(28px / var(--scale));
+    --fs-32: calc(32px / var(--scale));
+    --fs-40: calc(40px / var(--scale));
+    --img-w: calc(28px / var(--scale));
+    --img-h: calc(24px / var(--scale));
+    --animated-search-width: calc(507px / var(--scale));
+  }
+}
+
+@include width-range($largeDesktop, $extraLargeDesktop) {
+  :root {
+    --scale: 1.33;
+    --fs-6: calc(6px / var(--scale));
+    --fs-9: calc(9px / var(--scale));
+    --fs-12: calc(12px / var(--scale));
+    --fs-14: calc(14px / var(--scale));
+    --fs-16: calc(16px / var(--scale));
+    --fs-18: calc(18px / var(--scale));
+    --fs-20: calc(20px / var(--scale));
+    --fs-22: calc(22px / var(--scale));
+    --fs-24: calc(24px / var(--scale));
+    --fs-28: calc(28px / var(--scale));
+    --fs-32: calc(32px / var(--scale));
+    --fs-40: calc(40px / var(--scale));
+    --img-w: calc(28px / var(--scale));
+    --img-h: calc(24px / var(--scale));
+    --animated-search-width: calc(507px / var(--scale));
+  }
+}
+
+@include width-range($xxlargeDesktop, $ultraWideDesktop) {
+  :root {
+    --scale: 1.25;
+    --fs-6: calc(6px / var(--scale));
+    --fs-9: calc(9px / var(--scale));
+    --fs-12: calc(12px / var(--scale));
+    --fs-14: calc(14px / var(--scale));
+    --fs-16: calc(16px / var(--scale));
+    --fs-18: calc(18px / var(--scale));
+    --fs-20: calc(20px / var(--scale));
+    --fs-22: calc(22px / var(--scale));
+    --fs-24: calc(24px / var(--scale));
+    --fs-28: calc(28px / var(--scale));
+    --fs-32: calc(32px / var(--scale));
+    --fs-40: calc(40px / var(--scale));
+    --img-w: calc(28px / var(--scale));
+    --img-h: calc(24px / var(--scale));
+    --animated-search-width: calc(507px / var(--scale));
+  }
+}

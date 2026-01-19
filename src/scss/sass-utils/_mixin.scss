@@ -1,0 +1,78 @@
+// $mobile: 360px;
+// $tablet: 768px;
+// $large: 1024px;
+// $desktop: 1280px;
+// $xlarge: 1366px;
+// $largeDesktop: 1920px;
+$tablet: 1024px;
+$mediumDesktop: 1280px;
+$largeDesktop: 1366px;
+$extraLargeDesktop: 1440px;
+$xxlargeDesktop: 1536px;
+$ultraWideDesktop: 1919px;
+
+// --------------- MEDIA QUERY ------------------------
+@mixin width-range($min, $max) {
+  @media only screen and (min-width: $min) and (max-width: $max) {
+    @content;
+  }
+}
+// Example: how to use this mixin
+// You can use any range
+// @include width-range($mobile, $tablet - 1px) {
+//   // Styles for screens between mobile and tablet width
+// }
+
+// -------------- BOX HEIGHT AND WIDTH -------
+@mixin box($width, $height: 100%) {
+  width: $width;
+  height: $height;
+}
+
+// ------------- FONT STYLE
+@mixin fontStyle($fontSize, $lineHeight, $fontWeight: 400) {
+  font-size: $fontSize;
+  line-height: $lineHeight;
+  font-weight: $fontWeight;
+}
+
+// -------------  FLEX PROPERTY ------------------------
+@mixin flex(
+  $justify: flex-start,
+  $align: stretch,
+  $gap: 0,
+  $direction: row,
+  $wrap: nowrap
+) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+  flex-wrap: $wrap;
+  gap: $gap;
+}
+
+// USE CASE: IF YOU WANT ONLY 2 PROP. THEN OTHER PROP WILL APPLY AS DEFAULT PROP.
+// @include flex(center, stretch,row, wrap, 10px);
+
+// Positioning element
+@mixin positioning($top, $left) {
+  top: $top;
+  left: $left;
+}
+
+@mixin hoverSwap($base, $hover) {
+  #{$hover} {
+    display: none;
+  }
+
+  &:hover {
+    #{$base} {
+      display: none;
+    }
+
+    #{$hover} {
+      display: flex;
+    }
+  }
+}

@@ -1,0 +1,80 @@
+<div class="custom_model_body modal_scrl">
+  @if (showCross) {
+
+  <!-- <div class="custom_model_header">
+    <div class="header_content">
+      <div></div>
+      <i-feather name="x" (click)="closeModal()"></i-feather>
+    </div>
+  </div> -->
+  }
+  <div class="custom_model_body">
+    <div class="myForm">
+      @if(showHeader){
+      <div class="heading">
+        <div class="heading">Pick a Location</div>
+
+        <div class="desc">
+          Pin the exact location on the map to capture latitude and longitude automatically.
+        </div>
+      </div>
+      }
+
+      <div class="map_container">
+        <div [id]="mapId" class="map-box"></div>
+        <div class="d-flex-flex-column-justify-content-between">
+          @if (showSearch) {
+          <div class="custom_field active">
+            <div class="d-flex gap-3 align-items-center justify-content-between">
+              <div class="d-flex align-items-center gap-3">
+                @if (isSearchLocationRequired) {
+                <div class="search_location_filed">
+                  <input
+                    class="search_filed"
+                    type="text"
+                    placeholder="Select address or place"
+                    [ngModel]="searchText()"
+                    (ngModelChange)="searchText.set($event)"
+                    (input)="searchLocation()"
+                  />
+
+                  <i-feather class="search_icon" name="search"></i-feather>
+                </div>
+                }
+
+                <div class="delete_location" (click)="resetMap()">
+                  <i-feather name="trash"></i-feather>
+                  <span class="head">Reset Map</span>
+                </div>
+              </div>
+
+              <img
+                (click)="emitExpandData()"
+                class="expand_icon"
+                src="/assets/common/expand-icon.svg"
+                alt="expand-icon"
+              />
+            </div>
+
+            @if (suggestions().length > 0) {
+            <ul class="suggestions-list">
+              @for (suggestion of suggestions(); track suggestion.id) {
+              <li (click)="selectSuggestion(suggestion)">
+                {{ suggestion.place_name }}
+              </li>
+              }
+            </ul>
+            }
+          </div>
+          }
+
+          <div class="zoom_in_out_section d-none">
+            <i-feather class="zoom" name="plus"></i-feather>
+            <div class="underline"></div>
+            <i-feather class="zoom" name="minus"></i-feather>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

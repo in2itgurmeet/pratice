@@ -1,0 +1,63 @@
+// Box Sizing
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  // margin: 0;
+  // padding: 0;
+  font-family: 'Open Sans', sans-serif;
+}
+
+body {
+  font-size: 100%;
+}
+
+// Font-inflation
+html {
+  -moz-text-size-adjust: none;
+  -webkit-text-size-adjust: none;
+  -ms-text-size-adjust: none;
+  text-size-adjust: none;
+}
+
+// Remove default margin and padding
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+ul,
+ol p {
+  margin: 0;
+  padding: 0;
+  text-wrap: pretty;
+}
+
+// Remove list styles on ul, ol elements
+ul[role='list'],
+ol[role='list'] {
+  list-style: none;
+}
+
+ul {
+  list-style: none;
+}
+
+// images
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+input,
+select,
+textarea {
+  outline: none;
+  box-shadow: none;
+}
+
+.card {
+  z-index: 0 !important;
+}

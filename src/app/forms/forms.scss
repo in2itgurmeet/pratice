@@ -1,0 +1,17 @@
+.row {
+  width: calc(100%);
+  max-width: calc(100%);
+  display: flex;
+  justify-content: center;
+  .col-4 {
+    width: 500px;
+    margin: 0 auto;
+    height: 500px;
+    overflow-x: scroll;
+    border: 1px solid black;
+    padding: 10px;
+    input {
+      margin: 10px;
+    }
+  }
+}

@@ -27,10 +27,20 @@
               {
                 "glob": "**/*",
                 "input": "public"
+              },
+              {
+                "glob": "**/*",
+                "input": "node_modules/cats-ui-lib/assets"
+              },
+              {
+                "glob": "**/*",
+                "input": "node_modules/cats-data-grid/assets"
               }
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss",
+              "node_modules/cats-ui-lib/styles/_index.scss",
+              "node_modules/cats-data-grid/styles/_index.scss"
             ]
           },
           "configurations": {
@@ -94,5 +104,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": false
   }
 }

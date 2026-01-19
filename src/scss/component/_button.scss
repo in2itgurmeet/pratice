@@ -1,0 +1,85 @@
+@use '../sass-utils/function' as f;
+@use '../sass-utils/mixin' as m;
+
+button {
+  border: f.rem(1px) solid transparent;
+  padding: 0 f.rem(28px);
+  height: f.rem(56px);
+  min-width: f.rem(142px);
+  @include m.flex(center, center, f.rem(12px));
+  border-radius: f.rem(8px);
+  @include m.fontStyle(var(--fs-18), '', 600);
+
+  &:focus-visible {
+    outline: none;
+    border: 0;
+  }
+
+  i-feather.icon {
+    display: flex;
+  }
+
+  &.fill_btn {
+    background-color: var(--blue-600);
+    color: var(--white);
+  }
+
+  &.fill_lightBlue_btn {
+    background-color: var(--blue-50);
+    color: var(--blue-600);
+  }
+
+  &.disable_fill_lightBlue_btn {
+    background-color: var(--blue-50);
+    color: var(--blue-300);
+    pointer-events: none;
+  }
+
+  &.gray_fill_btn {
+    background-color: var(--neutral-100);
+    color: var(--neutral-400);
+    // pointer-events: none;
+  }
+
+  &.outline_disable_btn {
+    pointer-events: none;
+    background-color: var(--white);
+    color: var(--neutral-300);
+    border: f.rem(1px) solid var(--neutral-200);
+  }
+
+  &.bg_logic_btn {
+    background-color: var(--white);
+    color: var(--neutral-500);
+    border: f.rem(1px) solid var(--neutral-200);
+  }
+
+  &.outline_btn {
+    background-color: var(--white);
+    color: var(--neutral-500);
+    border: f.rem(1px) solid var(--neutral-300);
+  }
+
+  &.fill_disable_btn {
+    pointer-events: none;
+    background-color: var(--neutral-100);
+    color: var(--neutral-400);
+  }
+
+  &.no_outline_btn {
+    background-color: var(--blue-50);
+    color: var(--blue-600);
+    outline: none;
+  }
+
+  .close_outline_btn {
+    background-color: var(--blue-50);
+    border: f.rem(1px) solid var(--blue-50);
+    color: var(--blue-600);
+  }
+
+  &.btn_red {
+    background-color: var(--red);
+    color: var(--white);
+  }
+}
