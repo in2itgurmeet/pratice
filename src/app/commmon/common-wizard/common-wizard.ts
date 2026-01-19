@@ -62,7 +62,6 @@ export class CommonWizard {
     const step = this.activeStepNumber;
     return this.dynamicSteps[step - 1];
   }
-
   closeWizard(from: string = '') {
     this.closeWizardEmitter.emit(from);
   }

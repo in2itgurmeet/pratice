@@ -4,7 +4,7 @@ import { Common } from '../../commmon/common';
 import { CommonModule } from '@angular/common';
 import { FeatherModule } from 'angular-feather';
 import { allIcons } from 'angular-feather/icons';
-import { CommonService } from '../../service/common-service';
+import { WizardService } from './wizard-service';
 
 @Component({
   selector: 'app-aducationdetails',
@@ -20,13 +20,13 @@ export class Educationdetails {
     textField: 'name',
   };
 
-  constructor(private common: Common, private commonService: CommonService) { }
+  constructor(private common: Common, private wizardService: WizardService) { }
 
   previous() {
     this.common.previousStep(this.wizardId);
   }
   next() {
-    this.commonService.setCurrentWizardData({
+    this.wizardService.setCurrentWizardData({
       stepKey: 'aducationdetails',
       data: this.userForm.value,
     })
@@ -56,7 +56,7 @@ export class Educationdetails {
     this.next();
     this.userForm.reset();
     this.subject.clear();
-    this.commonService.closeConnectionWizard();
+    this.wizardService.closeConnectionWizard();
   }
 }
 

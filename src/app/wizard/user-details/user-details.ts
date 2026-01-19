@@ -1,8 +1,8 @@
+import { WizardService } from './../aducationdetails/wizard-service';
 import { Common } from './../../commmon/common';
 import { CommonModule } from '@angular/common';
 import { Component, OnInit, signal } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { CommonService } from '../../service/common-service';
 
 @Component({
   selector: 'app-user-details',
@@ -14,13 +14,13 @@ export class UserDetails implements OnInit {
   wizardId = 'user-details';
   userForm!: FormGroup;
   wizardData = signal({});
-  constructor(private common: Common, private commonService: CommonService) { }
+  constructor(private common: Common, private WizardService: WizardService) { }
 
   previous() {
     this.common.previousStep(this.wizardId);
   }
   next() {
-    this.commonService.setCurrentWizardData({
+    this.WizardService.setCurrentWizardData({
       stepKey: 'userDetails',
       data: this.userForm.value,
     });
@@ -35,21 +35,14 @@ export class UserDetails implements OnInit {
       fatherName: new FormControl('', Validators.required),
       motherName: new FormControl('', Validators.required),
     });
-    let selectedData = this.commonService.stepData()?.['userDetails'];
-    console.log(selectedData);
+    let selectedData = this.WizardService.stepData()?.['userDetails'];
     if (selectedData) {
       this.userForm.patchValue(selectedData);
     }
   }
-
   onSubmit() {
     this.next();
     this.userForm.reset();
   }
-  getPreviousdata() {
-    let selectedData = this.commonService.stepData()?.['userDetails'];
-  }
-
 
 }
-

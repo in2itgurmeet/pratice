@@ -4,7 +4,6 @@ import { Common } from '../../commmon/common';
 import { CommonModule } from '@angular/common';
 import { WizardService } from '../aducationdetails/wizard-service';
 import { SingleSelectComponent } from "cats-ui-lib";
-import { CommonService } from '../../service/common-service';
 
 @Component({
   selector: 'app-addresss',
@@ -27,7 +26,7 @@ export class Addresss {
     placeholder: 'Select Options',
   };
 
-  constructor(private common: Common, private service: WizardService, private commonService: CommonService) {
+  constructor(private common: Common, private service: WizardService, private wizardService: WizardService) {
     this.adrressForm = new FormGroup({
       country: new FormControl(''),
       state: new FormControl(''),
@@ -39,7 +38,7 @@ export class Addresss {
     this.common.previousStep(this.wizardId);
   }
   next() {
-    this.commonService.setCurrentWizardData({
+    this.wizardService.setCurrentWizardData({
       stepKey: 'addresss',
       data: this.adrressForm.value,
     })
