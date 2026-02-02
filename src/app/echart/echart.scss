@@ -1,0 +1,67 @@
+.chart-container {
+  width: 100%;
+  height: 400px;
+}
+.card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 12px;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.time-chart {
+  width: 1000px;
+  height: 460px;
+}
+.chart-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.chart {
+  width: 420px;
+  height: 260px;
+}
+
+.custom-legend {
+  display: flex;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 13px;
+  user-select: none;
+}
+
+.legend-item:hover {
+  opacity: 0.85;
+}
+
+.legend-item .value {
+  font-weight: bold;
+}
+
+/* Colors */
+.windows {
+  background: #fff4cc;
+}
+.mac {
+  background: #e8f0ff;
+}
+.linux {
+  background: #ffe6cc;
+}

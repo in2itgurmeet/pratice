@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CommonWizard } from './common-wizard';
+import { Echart } from './echart';
 
-describe('CommonWizard', () => {
-  let component: CommonWizard;
-  let fixture: ComponentFixture<CommonWizard>;
+describe('Echart', () => {
+  let component: Echart;
+  let fixture: ComponentFixture<Echart>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [CommonWizard]
+      imports: [Echart]
     })
-      .compileComponents();
+    .compileComponents();
 
-    fixture = TestBed.createComponent(CommonWizard);
+    fixture = TestBed.createComponent(Echart);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

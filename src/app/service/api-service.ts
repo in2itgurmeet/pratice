@@ -7,6 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class ApiService {
   apiurl = 'http://localhost:3000/users';
+  private urlChartdata = 'http://localhost:3000/chartData';
   userData: any[] = [];
   private url = 'https://top100movies-5f84e.web.app/city/allcountries';
 
@@ -39,5 +40,10 @@ export class ApiService {
 
   deleteUser(id: any) {
     return this.http.delete(`${this.apiurl}/${id}`);
+  }
+
+
+  getUserChartdata() {
+    return this.http.get(`${this.urlChartdata}`);
   }
 }

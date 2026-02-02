@@ -9,10 +9,10 @@ export class TruncatePipe implements PipeTransform {
       return '';
     }
     const stringValue = String(value);
-
     if (stringValue.length > limit) {
       return stringValue.substring(0, limit) + trail;
     }
     return stringValue;
   }
+
 }

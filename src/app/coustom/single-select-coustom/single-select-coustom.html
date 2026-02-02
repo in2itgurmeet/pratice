@@ -1,0 +1,27 @@
+<div class="custom-select">
+    <div class="selected" (click)="toggleSingleSelect()">
+        {{ selectedValue ? display(selectedValue) : placeholder }}
+        <span class="feather_icon">
+            <i-feather [name]="showOptionList() ? 'chevron-up' : 'chevron-down'">
+            </i-feather>
+        </span>
+    </div>
+
+    @if (showOptionList()) {
+    <div class="options">
+        @if (searchRequired) {
+        <div class="option">
+            <input type="search" placeholder="Search" [(ngModel)]="searchText">
+        </div>
+        }
+        @for (item of optionList; track $index) {
+        <div class="option" [class.active]="isSelected(item)" [class.disabled]="item?.[config.disabledField]"
+            (click)="!item?.[config.disabledField] && selectOption(item)">
+            {{ display(item) }}
+        </div>
+        } @empty {
+        <span class="no-data">No Data</span>
+        }
+    </div>
+    }
+</div>

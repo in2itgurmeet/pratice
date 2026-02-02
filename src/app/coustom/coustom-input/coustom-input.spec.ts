@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CommonWizard } from './common-wizard';
+import { CoustomInput } from './coustom-input';
 
-describe('CommonWizard', () => {
-  let component: CommonWizard;
-  let fixture: ComponentFixture<CommonWizard>;
+describe('CoustomInput', () => {
+  let component: CoustomInput;
+  let fixture: ComponentFixture<CoustomInput>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [CommonWizard]
+      imports: [CoustomInput]
     })
-      .compileComponents();
+    .compileComponents();
 
-    fixture = TestBed.createComponent(CommonWizard);
+    fixture = TestBed.createComponent(CoustomInput);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

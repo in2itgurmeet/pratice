@@ -16,7 +16,6 @@
         <i-feather name="x" class="pointer" (click)="closeWizard('closeModal')"></i-feather>
       </div>
     </div>
-
     <div class="custom_model_body h-100">
       @if (currentStepComponent) {
       <ng-container *ngComponentOutlet="currentStepComponent; inputs: getComponentInputs()"></ng-container>

@@ -285,7 +285,7 @@
       },
       "status": "Active",
       "isInEdit": false,
-      "rowId": "1768394304173_1"
+      "rowId": "1768823574820_10"
     },
     {
       "id": "12",
@@ -364,6 +364,128 @@
       "user": "Gurmeet",
       "text": "sdfsdf",
       "time": "12:55:44"
+    }
+  ],
+  "chartData": [
+    {
+      "id": 1,
+      "name": "John Smith",
+      "email": "john@acme.com",
+      "designation": "Senior Product Manager",
+      "source": "Local",
+      "userRole": "Manager",
+      "device": "Dell Inspiron 460E",
+      "os": "Windows"
+    },
+    {
+      "id": 2,
+      "name": "Maria Siphon",
+      "email": "maria@acme.com",
+      "designation": "Product Manager",
+      "source": "LDAP",
+      "userRole": "Manager",
+      "device": "Dell Inspiron 460E",
+      "os": "Windows"
+    },
+    {
+      "id": 3,
+      "name": "Zain Faraci",
+      "email": "zain@acme.com",
+      "designation": "Product Manager",
+      "source": "LDAP",
+      "userRole": "Manager",
+      "device": "Mac M3",
+      "os": "Mac"
+    },
+    {
+      "id": 4,
+      "name": "Rahul Verma",
+      "email": "rahul@acme.com",
+      "designation": "Software Engineer",
+      "source": "Local",
+      "userRole": "Employee",
+      "device": "HP EliteBook",
+      "os": "Linux"
+    },
+    {
+      "id": 5,
+      "name": "Anita Sharma",
+      "email": "anita@acme.com",
+      "designation": "QA Engineer",
+      "source": "LDAP",
+      "userRole": "Employee",
+      "device": "MacBook Pro",
+      "os": "Mac"
+    },
+    {
+      "id": 6,
+      "name": "Ravi Kumar",
+      "email": "ravi@acme.com",
+      "designation": "Software Engineer",
+      "source": "Local",
+      "userRole": "Employee",
+      "device": "HP EliteBook",
+      "os": "Linux"
+    },
+    {
+      "id": 7,
+      "name": "Monu Kumar",
+      "email": "monu@acme.com",
+      "designation": "Software Engineer",
+      "source": "Local",
+      "userRole": "Employee",
+      "device": "HP EliteBook",
+      "os": "Linux"
+    },
+    {
+      "id": 8,
+      "name": "Amit Gupta",
+      "email": "amit@acme.com",
+      "designation": "Software Engineer",
+      "source": "Local",
+      "userRole": "Employee",
+      "device": "Dell Latitude",
+      "os": "Windows"
+    },
+    {
+      "id": 9,
+      "name": "Neha Jain",
+      "email": "neha@acme.com",
+      "designation": "HR Executive",
+      "source": "Local",
+      "userRole": "HR",
+      "device": "HP EliteBook",
+      "os": "Windows"
+    },
+    {
+      "id": 10,
+      "name": "Karan Malhotra",
+      "email": "karan@acme.com",
+      "designation": "DevOps Engineer",
+      "source": "Local",
+      "userRole": "DevOps",
+      "device": "Ubuntu Desktop",
+      "os": "Linux"
+    },
+    {
+      "id": 11,
+      "name": "Pooja Mehta",
+      "email": "pooja@acme.com",
+      "designation": "Support Engineer",
+      "source": "Local",
+      "userRole": "Support",
+      "device": "Acer Aspire",
+      "os": "Windows"
+    },
+    {
+      "id": 12,
+      "name": "Rohit Singh",
+      "email": "rohit@acme.com",
+      "designation": "UI/UX Designer",
+      "source": "Local",
+      "userRole": "Designer",
+      "device": "MacBook Air M2",
+      "os": "Mac"
     }
   ]
 }

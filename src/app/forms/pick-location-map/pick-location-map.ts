@@ -47,7 +47,7 @@ export class PickLocationMap implements AfterViewInit, OnChanges {
   private markers: any[] = [];
   private zoomThreshold = 12;
   private markersVisible = true;
-  private mapLoaded = false;
+  public mapLoaded = false;
   private polygonLayerIds: string[] = [];
   private polygonMarkers: any[] = [];
   private regionMarkers: any[] = [];
@@ -81,30 +81,24 @@ export class PickLocationMap implements AfterViewInit, OnChanges {
 
       this.map.on('load', () => {
         this.mapLoaded = true;
-
         this.initClusters();
-
         this.addMarkersFromLocations(this.locations);
         this.handleZoomChange();
-
         if (this.initialLat && this.initialLng) {
           this.setMarker(this.initialLat, this.initialLng, this.initialAddress, true);
           this.map.setCenter([this.initialLng, this.initialLat]);
         }
-
         this.map.resize();
         this.map.on('zoom', () => this.handleZoomChange());
         const pointData = this.buildPointGeoJSON(this.locations);
       });
     }, 100);
   }
-
   addMarkersFromLocations(locations: any[]) {
     this.markers = [];
     this.radialMarkers = [];
     this.polygonMarkers = [];
     this.regionMarkers = [];
-
     if ((!locations || locations.length === 0) && !this.isEditMode) {
       if (this.showDefaultMarker) {
         const defaultLat = 27.5;
@@ -114,9 +108,7 @@ export class PickLocationMap implements AfterViewInit, OnChanges {
       }
       return;
     }
-
     if (!this.map) return;
-
     // Remove old markers
     this.markers.forEach((m) => m.remove());
     this.radialMarkers.forEach((m) => m.remove());
@@ -199,7 +191,7 @@ export class PickLocationMap implements AfterViewInit, OnChanges {
           .setLngLat([lng, lat])
           .setPopup(new mapboxgl.Popup({ offset: 25 }).setText(loc.geofenceName));
 
-        this.regionMarkers.push(marker); // map pe add zoom-in ke baad
+        this.regionMarkers.push(marker);
       }
       // 🔹 Region Based coloured
       // if (loc.type === 'Region Based') {
@@ -734,4 +726,5 @@ export class PickLocationMap implements AfterViewInit, OnChanges {
 
     return null;
   }
+
 }

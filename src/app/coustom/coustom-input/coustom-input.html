@@ -1,0 +1,63 @@
+<div class="main_container" catsOutsideClick (clickOutSide)="outsideClicked()">
+    <div class="input_container">
+        <div class="input_box">
+            <input class="textTruncate" type="text" [(ngModel)]="inputValue" [ngModelOptions]="{ standalone: true }"
+                (input)="onInputChange()" (keyup.enter)="onClickEnter(inputValue)" (keyup)="updateDropdownStatus()"
+                [placeholder]="autoSingleSelectConfig.placeholder" />
+        </div>
+        <div class="arrow_icon" (click)="toggleDropdown()">
+            <img src="images/chevron-up.svg" alt="up-arrow" [ngClass]="{ 'd-none': !showDropdown }" />
+            <img src="images/chevron-down.svg" alt="down-arrow" [ngClass]="{ 'd-none': showDropdown }" />
+        </div>
+    </div>
+
+    @if (showDropdown) {
+    <div class="dropdown_list_single_auto_select">
+        @if (isObject(optionsList[0])) {
+        <ng-container>
+            <ul>
+                @for (item of optionsList; track $index) {
+                <ng-container>
+                    @if
+                    (item[autoSingleSelectConfig.textField].toLowerCase().includes(inputValue.toLowerCase())
+                    || inputValue == '') {
+                    <li (click)="updateSelectedItem(item, 'object')" [ngClass]="
+              autoSingleSelectConfig.disabledField &&
+              item[autoSingleSelectConfig.disabledField]
+                ? 'disabled_option'
+                : ''
+            ">
+                        <span class="textTruncate">
+                            {{ item[autoSingleSelectConfig.textField] }}
+                        </span>
+                    </li>
+                    }
+                </ng-container>
+                }
+            </ul>
+        </ng-container>
+        }
+
+        <!-- if optionList is an array of string-->
+        @if (!isObject(optionsList[0])) {
+        <ng-container>
+            <ul>
+                @for (item of optionsList; track $index) {
+                <ng-container>
+                    @if (item.includes(inputValue) || inputValue == '') {
+                    <li [ngClass]="
+              autoSingleSelectConfig.disabledField &&
+              item[autoSingleSelectConfig.disabledField]
+                ? 'disabled_option'
+                : ''
+            " (click)="updateSelectedItem(item, 'string')">
+                        {{ item }}
+                    </li>
+
+                    }
+                </ng-container>}
+            </ul>
+        </ng-container>}
+    </div>
+    }
+</div>

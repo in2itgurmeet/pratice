@@ -30,12 +30,20 @@
 </div>
 
 <ng-template #location>
-  <app-pick-location-map (locationSaved)="patchLocation($event)" (closed)="closeMapModal()"></app-pick-location-map>
+  <app-pick-location-map (locationSaved)="patchLocation($event)" (closed)="closeMapModal()"
+    [showFullUI]="true"></app-pick-location-map>
 </ng-template>
 
 <form [formGroup]="form" style="width: 400px">
-  <input type="text" formControlName="name" placeholder="type here Name" />
-  <input type="email" formControlName="email" placeholder="type here Email" />
+  <app-coustom-input [autoSingleSelectConfig]="autoSingleSelectConfig" [optionsList]="optionList"
+    formControlName="name"></app-coustom-input>
+  <!-- <input type="text" formControlName="name" placeholder="type here Name" /> -->
+  <br><br>
+  <!-- <input type="email" placeholder="type here Email" /> -->
+  <app-single-select-custom [optionList]="optionList" formControlName="email" (selectedValueChange)="getVlaue($event)"
+    [searchRequired]="true">
+  </app-single-select-custom>
+  <br>
   <div formArrayName="skill">
     @for (item of skill.controls; track $index) {
     <input [formControlName]="$index" placeholder="Skill" />
@@ -43,5 +51,5 @@
     }
   </div>
   <button type="button" (click)="addSkill()">Add Skill</button>
-  <button type="submit" [disabled]="form.invalid" (click)="onSubmitForm()">Submit</button>
+  <input type="submit" [disabled]="form.invalid" (keyup)="getEvents($event)" (click)="onSubmitForm()" />
 </form>

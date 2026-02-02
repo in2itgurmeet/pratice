@@ -11,24 +11,42 @@ import { BsModalService } from 'ngx-bootstrap/modal';
 
 import { ApiService } from '../service/api-service';
 import { PickLocationMap } from './pick-location-map/pick-location-map';
+import { SingleSelectCustomComponent } from '../coustom/single-select-coustom/single-select-coustom';
+import { CoustomInput } from "../coustom/coustom-input/coustom-input";
 
 
 @Component({
   selector: 'app-forms',
   standalone: true,
-  imports: [FormsModule, PickLocationMap, ReactiveFormsModule,],
+  imports: [FormsModule, PickLocationMap, ReactiveFormsModule, SingleSelectCustomComponent, CoustomInput],
   templateUrl: './forms.html',
   styleUrls: ['./forms.scss'],
 })
 export class Forms implements OnInit {
 
-
+  optionList: any[] = [
+    { id: 1, name: 'Get' },
+    { id: 2, name: 'Set' },
+    { id: 3, name: 'Post' },
+    { id: 4, name: 'Put' },
+    { id: 5, name: 'Patch' },
+    { id: 6, name: 'Delete' },
+    { id: 7, name: 'Options' },
+  ];
   form: FormGroup = new FormGroup({
-    name: new FormControl('', Validators.required),
-    email: new FormControl({ value: '', disabled: true }),
+    name: new FormControl(''),
+    email: new FormControl(),
     skill: new FormArray([new FormControl('')]),
   });
   allData: any[] = [];
+  autoSingleSelectConfig = {
+    idField: 'id',
+    textField: 'name',
+    disabledField: '',
+    placeholder: 'Enter name',
+    required: false,
+    customInput: true
+  };
 
   @ViewChild('location', { static: true })
   location!: TemplateRef<any>;
@@ -50,7 +68,7 @@ export class Forms implements OnInit {
   }
 
   ngOnInit() {
-    this.getdata();
+    // this.getdata();
   }
 
   user = {
@@ -83,10 +101,12 @@ export class Forms implements OnInit {
   }
 
   getdata() {
-    this.service.getUserdata().subscribe((res: any) => {
-      if (res) {
+    this.service.getUserdata().subscribe({
+      next: (res) => {
+        if (!res) return
         this.allData = res;
-        this.service.userData = this.allData;
+      }, error: (err) => {
+        console.log(err);
       }
     });
   }
@@ -117,14 +137,17 @@ export class Forms implements OnInit {
       ignoreBackdropClick: true,
     });
   }
-
   onSubmitForm() {
     console.log(this.form.getRawValue());
   }
-
   closeConnectionWizard(e: any) {
     this.modalService.hide();
   }
+  getVlaue(event: any) {
+    console.log(event);
 
-
+  }
+  getEvents(events: any) {
+    console.log(events);
+  }
 }

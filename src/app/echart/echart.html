@@ -1,0 +1,59 @@
+<div class="chart-wrapper">
+    <div id="deviceChart" class="chart"></div>
+
+    <div class="custom-legend">
+        <div class="legend-item windows" (click)="onLegendClick('Windows')">
+            <span class="label">Windows</span>
+            <span class="value">{{ counts.Windows }}</span>
+        </div>
+
+        <div class="legend-item mac" (click)="onLegendClick('Mac')">
+            <span class="label">Mac</span>
+            <span class="value">{{ counts.Mac }}</span>
+        </div>
+
+        <div class="legend-item linux" (click)="onLegendClick('Linux')">
+            <span class="label">Linux</span>
+            <span class="value">{{ counts.Linux }}</span>
+        </div>
+    </div>
+</div>
+
+<ng-template #modalUserTable>
+    <cats-data-grid #showData [rowData]="rowData" [colDefs]="colDefs" [height]="800" [sortingRequired]="true"
+        [pageSizeList]="[5, 10, 15, 30]" [filterRequired]="true" [checkBoxSelection]="true" [filterRequired]="true">
+    </cats-data-grid>
+</ng-template>
+<ng-template #noData>
+    <div class="col-12">
+        <div class="main_container">
+            <img src="https://img.freepik.com/premium-vector/no-data-found-empty-file-folder-concept-design-vector-illustration_620585-1698.jpg?semt=ais_hybrid&w=740&q=80"
+                alt="" srcset="" />
+            no data found
+        </div>
+    </div>
+</ng-template>
+
+<button (click)="downloadChart()">Download Screenshot</button>
+<div #chart class="chart-container" style="width: 400px; height: 400px;" (chartInit)="onChartInit($event)"></div>
+<div class="card">
+    <div class="card-header">
+        <span>User Time Split</span>
+        <!-- <span class="more">⋮</span> -->
+        <ul id="chartMenu"
+            style="display:none; position:absolute; background:#fff; border:1px solid #ccc; box-shadow:0 2px 5px rgba(0,0,0,0.2); padding:4px 0; margin:0; list-style:none; font-size:13px; z-index:1000;">
+            <li data-mode="system" style="padding:4px 20px; cursor:pointer;">View by System Time</li>
+            <li data-mode="productivity" style="padding:4px 20px; cursor:pointer;">View by Productivity</li>
+            <li data-mode="workmodes" style="padding:4px 20px; cursor:pointer;">View by Work Modes</li>
+        </ul>
+    </div>
+    <!-- Hidden menu in HTML -->
+
+    <div #timeChart style="width:600px;height:400px;"></div>
+
+    <div class="card-body">
+        <div #timeChart class="time-chart"></div>
+    </div>
+</div>
+
+<div #barChart class="bar-chart" style="width: 700px; height: 460px;"></div>
