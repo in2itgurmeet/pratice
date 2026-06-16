@@ -1,0 +1,138 @@
+.config-diff-wrapper {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border: 1px solid #dcdcdc;
+}
+
+.diff-header {
+  height: 48px;
+  border-bottom: 1px solid #e5e5e5;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 0 12px;
+}
+
+.legend-section {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+
+  font-size: 12px;
+  color: #444;
+}
+
+.legend-box {
+  width: 12px;
+  height: 12px;
+  border-radius: 2px;
+
+  &.modified {
+    background: #6ea8fe;
+  }
+
+  &.added {
+    background: #8bc34a;
+  }
+
+  &.removed {
+    background: #ef5350;
+  }
+
+  &.unchanged {
+    background: #bdbdbd;
+  }
+}
+
+.count {
+  background: #f3f3f3;
+  padding: 1px 6px;
+  border-radius: 4px;
+  font-size: 11px;
+}
+
+.action-icons {
+  display: flex;
+  gap: 8px;
+
+  button {
+    min-width: fit-content !important;
+    height: auto;
+    border: 1px solid #ddd;
+    background: #fff;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+}
+
+.editor-layout {
+  flex: 1;
+  display: flex;
+  overflow: hidden;
+}
+
+.editor-column {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+
+  border-right: 1px solid #e5e5e5;
+
+  &:last-child {
+    border-right: none;
+  }
+}
+
+.column-header {
+  height: 42px;
+  border-bottom: 1px solid #ececec;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 0 12px;
+
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.header-actions {
+  display: flex;
+  gap: 4px;
+
+  button {
+    width: auto;
+    height: auto;
+    border: 1px solid #ddd;
+    background: white;
+    cursor: pointer;
+
+    border-radius: 3px;
+    font-size: 11px;
+  }
+}
+
+.editor-content {
+  flex: 1;
+  overflow: auto;
+  background: #fafafa;
+  font-family: Consolas, monospace;
+  font-size: 12px;
+}
+.section{
+  display: flex;
+  gap: 8px;
+  padding: 8px 12px;
+  border-bottom: 1px solid #e5e5e5;
+}

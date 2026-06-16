@@ -1,0 +1,24 @@
+<div class="filter-container">
+  <input type="date" #startDate />
+
+  <input type="date" #endDate />
+
+  <button (click)="filterChartData(startDate.value, endDate.value)">Apply Filter</button>
+</div>
+
+<lib-line-chart [config]="lineChartConfig" [events]="['click']" (chartEvent)="onChartEvent($event)">
+</lib-line-chart>
+
+<div class="popup-backdrop" *ngIf="showPopup">
+  <div class="popup-card">
+    <div class="popup-header">
+      <h3>
+        {{ selectedDate }}
+      </h3>
+
+      <button (click)="closePopup()">X</button>
+    </div>
+
+    <cats-data-grid [rowData]="tableData" [colDefs]="colDefs" > </cats-data-grid>
+  </div>
+</div>

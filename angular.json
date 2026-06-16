@@ -35,6 +35,10 @@
               {
                 "glob": "**/*",
                 "input": "node_modules/cats-data-grid/assets"
+              },
+              {
+                "glob": "**/*",
+                "input": "node_modules/cats-charts/assets"
               }
             ],
             "styles": [
