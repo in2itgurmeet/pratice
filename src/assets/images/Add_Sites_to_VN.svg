@@ -1,0 +1,10 @@
+<svg id="Add_Sites_to_VN" data-name="Add Sites to VN" xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36">
+  <rect id="Rectangle_3954" data-name="Rectangle 3954" width="36" height="36" rx="4" fill="#fa6580"/>
+  <g id="site-map" transform="translate(7.8 7.8)">
+    <path id="Path_10610" data-name="Path 10610" d="M5.419,361H.6a.6.6,0,0,0-.6.6v4.821a.6.6,0,0,0,.6.6H5.419a.6.6,0,0,0,.6-.6V361.6A.6.6,0,0,0,5.419,361Z" transform="translate(0 -346.616)" fill="#fff"/>
+    <path id="Path_10611" data-name="Path 10611" d="M186.379,361H181.6a.6.6,0,0,0-.6.6v4.821a.6.6,0,0,0,.6.6h4.781a.6.6,0,0,0,.6-.6V361.6A.6.6,0,0,0,186.379,361Z" transform="translate(-173.788 -346.616)" fill="#fff"/>
+    <path id="Path_10612" data-name="Path 10612" d="M366.419,361H361.6a.6.6,0,0,0-.6.6v4.821a.6.6,0,0,0,.6.6h4.821a.6.6,0,0,0,.6-.6V361.6A.6.6,0,0,0,366.419,361Z" transform="translate(-346.616 -346.616)" fill="#fff"/>
+    <path id="Path_10613" data-name="Path 10613" d="M62.2,243.391h5.977v1.2h1.2v-1.2h5.977v1.2h1.2v-1.793a.6.6,0,0,0-.6-.6H69.367V241h-1.2v1.2H61.6a.6.6,0,0,0-.6.6v1.793h1.2Z" transform="translate(-58.57 -231.398)" fill="#fff"/>
+    <path id="Path_10614" data-name="Path 10614" d="M121.6,8.407h9.563a.6.6,0,0,0,.6-.6V.6a.6.6,0,0,0-.6-.6H121.6a.6.6,0,0,0-.6.6V7.809A.6.6,0,0,0,121.6,8.407Zm2.391-5.977h3.586a.6.6,0,0,1,0,1.2h-3.586a.6.6,0,0,1,0-1.2Zm0,2.391h4.781a.6.6,0,0,1,0,1.2h-4.781a.6.6,0,0,1,0-1.2Z" transform="translate(-116.179)" fill="#fff"/>
+  </g>
+</svg>

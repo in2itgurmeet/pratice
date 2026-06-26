@@ -1,0 +1,16 @@
+<svg id="Create_Overlay_Topoligy" data-name="Create Overlay Topoligy" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="36" height="36" viewBox="0 0 36 36">
+  <defs>
+    <clipPath id="clip-path">
+      <path id="Path_10600" data-name="Path 10600" d="M0,0H22V22H0Z" fill="none"/>
+    </clipPath>
+  </defs>
+  <rect id="Rectangle_3954" data-name="Rectangle 3954" width="36" height="36" rx="4" fill="#9b60c6"/>
+  <g id="path" transform="translate(7 7)" clip-path="url(#clip-path)">
+    <path id="Path_10594" data-name="Path 10594" d="M38.383,16.1l1.025,1.025,3.382-3.382H40.74Z" transform="translate(-20.791 -7.444)" fill="#fff"/>
+    <path id="Path_10595" data-name="Path 10595" d="M15.168,27.074l-1.332-1.332H2.357L0,28.1H14.143Z" transform="translate(0 -13.944)" fill="#fff"/>
+    <path id="Path_10596" data-name="Path 10596" d="M34.957,10.811l1.025,1.025,4.954-4.954h-2.05Z" transform="translate(-18.935 -3.728)" fill="#fff"/>
+    <path id="Path_10597" data-name="Path 10597" d="M10.693,18.883H2.357L0,21.24H13.05Z" transform="translate(0 -10.228)" fill="#fff"/>
+    <path id="Path_10598" data-name="Path 10598" d="M8.643,6.62V5.527H14.45l1.025,1.025L22,.027H7.857L0,7.884H9.907Z" transform="translate(0 -0.015)" fill="#fff"/>
+    <path id="Path_10599" data-name="Path 10599" d="M20.57,13.742,28.427,21.6l-7.833,7.833h4.714L33.142,21.6l-7.857-7.857Z" transform="translate(-11.142 -7.444)" fill="#fff"/>
+  </g>
+</svg>

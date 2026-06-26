@@ -1,0 +1,17 @@
+<svg id="Group_16453" data-name="Group 16453" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+  <g id="Group_16450" data-name="Group 16450">
+    <rect id="Rectangle_5721" data-name="Rectangle 5721" width="16" height="16" rx="2" fill="#fff"/>
+  </g>
+  <g id="图层_x0020_1" transform="translate(2 2)">
+    <g id="_220336848" transform="translate(0 0)">
+      <circle id="_220337520" cx="6" cy="6" r="6" transform="translate(12 0) rotate(90)" fill="#2680eb"/>
+      <g id="Group_16449" data-name="Group 16449" transform="translate(1.883 1.277)">
+        <g id="Group_16448" data-name="Group 16448">
+          <path id="_220336944" d="M4.657.3.7,4.254a.85.85,0,1,0,1.2,1.2L5.859,1.5Z" transform="translate(-0.451 -0.297)" fill="#fff" fill-rule="evenodd"/>
+          <path id="_220337160" d="M2.252.3,6.209,4.254a.85.85,0,0,1-1.2,1.2L1.05,1.5Z" transform="translate(1.953 -0.297)" fill="#fff" fill-rule="evenodd"/>
+        </g>
+        <path id="_220337568" d="M1.12.637V7.875a.85.85,0,1,0,1.7,0V.637Z" transform="translate(2.235 0.744)" fill="#fff" fill-rule="evenodd"/>
+      </g>
+    </g>
+  </g>
+</svg>

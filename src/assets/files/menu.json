@@ -1,0 +1,133 @@
+{
+  "menu": [
+    {
+      "category": "Connectivity",
+      "product": [
+        {
+          "id": "SD 1",
+          "name": "Managed Internet",
+          "variant": [
+            {
+              "id": "1",
+              "name": "variant 2",
+              "price": "$1000",
+              "feature": ["security enabled", "internet", "bandwidth upto 100"]
+            },
+            {
+              "id": "v2",
+              "name": "variant 2",
+              "price": "$1000",
+              "feature": ["security enabled", "internet", "bandwidth upto 100"]
+            }
+          ]
+        },
+        {
+            "id": "SD 2",
+            "name": "Managed SD WAN",
+            "variant": [
+              {
+                "id": "1",
+                "name": "variant 2",
+                "price": "$1000",
+                "feature": ["security enabled", "internet", "bandwidth upto 100"]
+              },
+              {
+                "id": "v2",
+                "name": "variant 2",
+                "price": "$1000",
+                "feature": ["security enabled", "internet", "bandwidth upto 100"]
+              }
+           
+            ]
+          },
+          {
+            "id": "SD 3",
+            "name": "Managed Security",
+            "variant": [
+              {
+                "id": "1",
+                "name": "variant 2",
+                "price": "$1000",
+                "feature": ["security enabled", "internet", "bandwidth upto 100"]
+              },
+              {
+                "id": "v2",
+                "name": "variant 2",
+                "price": "$1000",
+                "feature": ["security enabled", "internet", "bandwidth upto 100"]
+              }
+            ]
+          },
+          {
+            "id": "SD 4",
+            "name": "Managed Wifi",
+            "variant": [
+              {
+                "id": "1",
+                "name": "variant 2",
+                "price": "$1000",
+                "feature": ["security enabled", "internet", "bandwidth upto 100"]
+              },
+              {
+                "id": "v2",
+                "name": "variant 2",
+                "price": "$1000",
+                "feature": ["security enabled", "internet", "bandwidth upto 100"]
+              }
+            ]
+          }
+      ]
+    },
+    {
+      "category": "Broadband & Internet",
+      "product": [
+        {
+          "id": "BRD 1",
+          "name": "Broadband Products",
+          "variant": [
+            {
+              "id": "1",
+              "name": "variant 2",
+              "price": "$1000",
+              "feature": ["security enabled", "internet", "bandwidth upto 100"]
+            }
+          ]
+        },
+        {
+          "id": "BRD 2",
+          "name": "Broadband Services",
+          "variant": [
+            {
+              "id": "v2",
+              "name": "variant 2",
+              "price": "$1000",
+              "feature": ["security enabled", "internet", "bandwidth upto 100"]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "category": "Voice",
+      "product": [
+        {
+          "id": "V1",
+          "name": "Enterprise VOIP - International Calling",
+          "variant": []
+        },
+        {
+          "id": "V2",
+          "name": "Enterprise SIP - Domestic Calling",
+          "variant": [
+            {
+              "id": "var2",
+              "name": "variant 2",
+              "price": "$1000",
+              "feature": []
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

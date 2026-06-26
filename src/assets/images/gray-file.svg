@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="12" height="13" viewBox="0 0 12 13">
+  <g id="Group_11218" data-name="Group 11218" transform="translate(-162.734 -384.829)">
+    <g id="Group_11169" data-name="Group 11169">
+      <g id="Icon_feather-file" data-name="Icon feather-file" transform="translate(162.734 384.829)">
+        <g id="Path_7714" data-name="Path 7714" transform="translate(-2 -1)" fill="#e7e0f8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M 12.5 13.5 L 3.5 13.5 C 2.948600053787231 13.5 2.5 13.14111995697021 2.5 12.69999980926514 L 2.5 2.299999475479126 C 2.5 1.858879566192627 2.948600053787231 1.499999523162842 3.5 1.499999523162842 L 9.26671314239502 1.499999523162842 L 13.5 5.756308555603027 L 13.5 12.69999980926514 C 13.5 13.14111995697021 13.05140018463135 13.5 12.5 13.5 Z" stroke="none"/>
+          <path d="M 3.5 1.999999046325684 C 3.194780349731445 1.999999046325684 3 2.177679061889648 3 2.299999237060547 L 3 12.69999980926514 C 3 12.82231903076172 3.194780349731445 13 3.5 13 L 12.5 13 C 12.80522060394287 13 13 12.82231903076172 13 12.69999980926514 L 13 5.962627410888672 L 9.058805465698242 1.999999046325684 L 3.5 1.999999046325684 M 3.5 0.9999990463256836 L 9.474610328674316 0.9999990463256836 L 14 5.549999237060547 L 14 12.69999980926514 C 14 13.41796970367432 13.32843017578125 14 12.5 14 L 3.5 14 C 2.671570777893066 14 2 13.41796970367432 2 12.69999980926514 L 2 2.299999237060547 C 2 1.582029342651367 2.671570777893066 0.9999990463256836 3.5 0.9999990463256836 Z" stroke="none" fill="#9b60c6"/>
+        </g>
+        <path id="Path_7715" data-name="Path 7715" d="M10.206,4.925H6.5V1Z" transform="translate(0.95 -0.375)" fill="#e7e0f8" stroke="#9b60c6" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <path id="Path_7716" data-name="Path 7716" d="M8.992,6.5H4" transform="translate(162.134 385.329)" fill="none" stroke="#9b60c6" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      <path id="Path_7717" data-name="Path 7717" d="M8.992,8.5H4" transform="translate(162.134 385.329)" fill="none" stroke="#9b60c6" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      <path id="Path_7718" data-name="Path 7718" d="M5.782,4.5H4" transform="translate(162.134 385.329)" fill="none" stroke="#9b60c6" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+    </g>
+  </g>
+</svg>

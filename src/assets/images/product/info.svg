@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12">
+  <g id="Group_2862" data-name="Group 2862" transform="translate(-291 -222)">
+    <g id="Rectangle_2262" data-name="Rectangle 2262" transform="translate(291 222)" fill="#c3f9ee" stroke="#25b89d" stroke-width="0.5">
+      <rect width="12" height="12" rx="2" stroke="none"/>
+      <rect x="0.25" y="0.25" width="11.5" height="11.5" rx="1.75" fill="none"/>
+    </g>
+    <path id="Icon_awesome-exclamation" data-name="Icon awesome-exclamation" d="M2.769,4.6a.839.839,0,0,1-.822.852.853.853,0,0,1,0-1.7A.839.839,0,0,1,2.769,4.6ZM1.22.269l.14,2.9a.251.251,0,0,0,.246.243h.682a.251.251,0,0,0,.246-.243l.14-2.9A.252.252,0,0,0,2.428,0H1.466A.252.252,0,0,0,1.22.269Z" transform="translate(295.053 225.272)" fill="#25b89d"/>
+  </g>
+</svg>

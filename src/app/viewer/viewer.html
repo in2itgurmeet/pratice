@@ -1,0 +1,51 @@
+<div id="diff-pdf-container" class="pdf-global-wrapper">
+  <!-- Brand Header Segment -->
+  <div class="pdf-brand-header">
+    <div class="logo-box">
+      <img src="assets/svg-icon/cats4u.svg" alt="Company Logo" />
+    </div>
+    <div class="report-meta">
+      <h2 class="report-title">{{ docTitle }}</h2>
+      <p class="report-timestamp">Generated on: {{ currentTimestamp }}</p>
+    </div>
+  </div>
+
+  <!-- Dynamic Property Metadata Block -->
+  <div class="metadata-grid" *ngIf="deviceProperties && deviceProperties.length > 0">
+    <div class="metadata-column" *ngFor="let propGroup of deviceProperties">
+      <div class="meta-item" *ngFor="let item of propGroup">
+        <span class="meta-label">{{ item.label }}:</span>
+        <span class="meta-value">{{ item.value }}</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Multi-Column Generic Diff Table -->
+  <div class="table-responsive-wrapper">
+    <table class="diff-matrix-table">
+      <thead>
+        <tr>
+          <th class="col-sr-no">No</th>
+          <th *ngFor="let header of columnHeaders">{{ header }}</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let row of diffRows; let idx = index; trackBy: trackByFn">
+          <!-- Line Index Counter -->
+          <td class="cell-center text-muted">{{ idx + 1 }}</td>
+          
+          <!-- Dynamic Content Cells Rendering -->
+          <td *ngFor="let col of row.columnsData" 
+              class="code-stream-cell" 
+              [ngClass]="{
+                'status-added': col.type === 'added', 
+                'status-removed': col.type === 'removed',
+                'status-modified': col.type === 'modified'
+              }">
+            {{ col.text || ' ' }}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12">
+  <g id="Group_2863" data-name="Group 2863" transform="translate(-243 -247)">
+    <g id="Rectangle_2262" data-name="Rectangle 2262" transform="translate(243 247)" fill="#dfe0e0" stroke="#8d8d8e" stroke-width="0.5">
+      <rect width="12" height="12" rx="2" stroke="none"/>
+      <rect x="0.25" y="0.25" width="11.5" height="11.5" rx="1.75" fill="none"/>
+    </g>
+    <path id="Icon_awesome-long-arrow-alt-up" data-name="Icon awesome-long-arrow-alt-up" d="M1.3,2.362V7.681a.218.218,0,0,0,.223.211H2.57a.218.218,0,0,0,.223-.211V2.362h.857a.42.42,0,0,0,.316-.722L2.365.124a.465.465,0,0,0-.632,0L.132,1.64a.42.42,0,0,0,.316.722Z" transform="translate(250.109 248.992) rotate(45)" fill="#8d8d8e"/>
+  </g>
+</svg>

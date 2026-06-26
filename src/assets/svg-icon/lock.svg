@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="10" height="11" viewBox="0 0 10 11">
+  <g id="Icon_feather-lock" data-name="Icon feather-lock" transform="translate(-1 -0.5)">
+    <path id="Path_8532" data-name="Path 8532" d="M2.5,5.5h7a1,1,0,0,1,1,1V10a1,1,0,0,1-1,1h-7a1,1,0,0,1-1-1V6.5a1,1,0,0,1,1-1Z" fill="#929292" stroke="#262626" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+    <path id="Path_8533" data-name="Path 8533" d="M3.5,5.5v-2a2.5,2.5,0,0,1,5,0v2" fill="none" stroke="#262626" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+    <path id="Path_8535" data-name="Path 8535" d="M6,9H6" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+  </g>
+</svg>

@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="16.9" height="14.1" viewBox="0 0 16.9 14.1">
+  <g id="Group_16453" data-name="Group 16453" transform="translate(-3115.55 -794.95)">
+    <g id="alert-triangle" transform="translate(3115.55 794.95)">
+      <path id="Path_13284" data-name="Path 13284" d="M8.619,3.647,1.769,14.661a1.508,1.508,0,0,0,0,1.55A1.629,1.629,0,0,0,3.152,17h13.7a1.629,1.629,0,0,0,1.387-.786,1.508,1.508,0,0,0,0-1.55L11.385,3.647a1.65,1.65,0,0,0-2.766,0Z" transform="translate(-1.552 -2.897)" fill="red"/>
+      <line id="Line_398" data-name="Line 398" y2="4" transform="translate(8.45 4.371)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2"/>
+      <line id="Line_399" data-name="Line 399" x2="0.01" transform="translate(8.449 10.984)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2"/>
+    </g>
+  </g>
+</svg>

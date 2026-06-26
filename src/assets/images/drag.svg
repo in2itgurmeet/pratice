@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1366" height="22" viewBox="0 0 1366 22">
+  <g id="Group_16786" data-name="Group 16786" transform="translate(0 -420)">
+    <rect id="Rectangle_5839" data-name="Rectangle 5839" width="1366" height="4" transform="translate(0 429)" fill="#e4e4e4"/>
+    <g id="Group_16781" data-name="Group 16781" transform="translate(5)">
+      <g id="Group_16779" data-name="Group 16779" transform="translate(10 1)">
+        <circle id="Ellipse_9372" data-name="Ellipse 9372" cx="10" cy="10" r="10" transform="translate(658 420)" fill="#e4e4e4" stroke="#fff" stroke-linejoin="round" stroke-width="2"/>
+      </g>
+      <g id="Group_16780" data-name="Group 16780" transform="translate(-0.141 -0.968)">
+        <path id="Path_13255" data-name="Path 13255" d="M8.765,8.67,5.8,12.137a.485.485,0,0,1-.752,0L2.084,8.67a.414.414,0,0,1,.27-.688H8.5A.414.414,0,0,1,8.765,8.67Z" transform="translate(672.716 425.389)" fill="#929292"/>
+        <g id="Layer_1" transform="translate(674.699 426.231)">
+          <path id="Path_13255-2" data-name="Path 13255" d="M8.765,11.628,5.8,8.161a.485.485,0,0,0-.752,0L2.084,11.628a.414.414,0,0,0,.27.688H8.495A.414.414,0,0,0,8.765,11.628Z" transform="translate(-1.982 -7.983)" fill="#929292"/>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

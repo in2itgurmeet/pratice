@@ -1,0 +1,33 @@
+<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_813_24081)">
+<mask id="path-1-inside-1_813_24081" fill="white">
+<path d="M0 0H32V32H0V0Z"/>
+</mask>
+<g filter="url(#filter0_d_813_24081)">
+<mask id="path-3-inside-2_813_24081" fill="white">
+<path d="M0 0H32V32H0V0Z"/>
+</mask>
+<path d="M0 0H32V32H0V0Z" fill="white"/>
+<path d="M0 0V1H32V0V-1H0V0ZM32 32V31H0V32V33H32V32Z" fill="#DADBDC" mask="url(#path-3-inside-2_813_24081)"/>
+<path d="M10.6665 17.3333H14.6665V21.3333" stroke="#434A51" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M21.3335 14.6667H17.3335V10.6667" stroke="#434A51" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M17.3335 14.6667L22.0002 10" stroke="#434A51" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M10 21.9999L14.6667 17.3333" stroke="#434A51" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+</g>
+<path d="M0 32H1V0H0H-1V32H0Z" fill="#DADBDC" mask="url(#path-1-inside-1_813_24081)"/>
+<defs>
+<filter id="filter0_d_813_24081" x="-2" y="-1" width="36" height="36" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feOffset dy="1"/>
+<feGaussianBlur stdDeviation="1"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0.0392157 0 0 0 0 0.0496732 0 0 0 0 0.0705882 0 0 0 0.05 0"/>
+<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_813_24081"/>
+<feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_813_24081" result="shape"/>
+</filter>
+<clipPath id="clip0_813_24081">
+<path d="M0 0H32V32H0V0Z" fill="white"/>
+</clipPath>
+</defs>
+</svg>

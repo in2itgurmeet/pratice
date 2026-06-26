@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="10" height="12.2" viewBox="0 0 10 12.2">
+  <g id="Group_2048" data-name="Group 2048" transform="translate(-15.952 -2.016)">
+    <g id="Icon_feather-clipboard" data-name="Icon feather-clipboard" transform="translate(16.552 2.616)">
+      <path id="Path_1920" data-name="Path 1920" d="M12.6,6h1.1a1.1,1.1,0,0,1,1.1,1.1v7.7a1.1,1.1,0,0,1-1.1,1.1H7.1A1.1,1.1,0,0,1,6,14.8V7.1A1.1,1.1,0,0,1,7.1,6H8.2" transform="translate(-6 -4.9)" fill="none" stroke="#a5a5a9" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2"/>
+      <path id="Path_1921" data-name="Path 1921" d="M12.55,3h3.3a.55.55,0,0,1,.55.55v1.1a.55.55,0,0,1-.55.55h-3.3A.55.55,0,0,1,12,4.65V3.55A.55.55,0,0,1,12.55,3Z" transform="translate(-9.8 -3)" fill="none" stroke="#a5a5a9" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2"/>
+    </g>
+    <path id="Icon_feather-check" data-name="Icon feather-check" d="M10.406,9,7.377,12.029,6,10.652" transform="translate(12.75 -1.412)" fill="none" stroke="#a5a5a9" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2"/>
+  </g>
+</svg>

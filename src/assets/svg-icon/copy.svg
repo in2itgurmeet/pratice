@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+  <g id="Group_18390" data-name="Group 18390" transform="translate(-24 -230)">
+    <g id="Group_18388" data-name="Group 18388" transform="translate(-1)">
+      <g id="Group_18382" data-name="Group 18382" transform="translate(4 -26)">
+        <path id="Path_13258" data-name="Path 13258" d="M0,0H20V20H0Z" transform="translate(21 256)" fill="#fff"/>
+      </g>
+    </g>
+    <g id="Group_18389" data-name="Group 18389" transform="translate(-7196 -57)">
+      <g id="copy" transform="translate(7215 313) rotate(-90)">
+        <rect id="Rectangle_6145" data-name="Rectangle 6145" width="10" height="10" rx="2" transform="translate(8 8)" fill="none" stroke="#2680eb" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <rect id="Rectangle_6146" data-name="Rectangle 6146" width="7" height="7" rx="2" transform="translate(7228 293)" fill="#fff"/>
+      <g id="copy-2" data-name="copy" transform="translate(7220 308) rotate(-90)">
+        <rect id="Rectangle_6145-2" data-name="Rectangle 6145" width="10" height="10" rx="2" transform="translate(8 8)" fill="none" stroke="#2680eb" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="arrow-up-right" transform="translate(7226.173 285)">
+        <path id="Path_13263" data-name="Path 13263" d="M7,7H9.827V9.827" fill="none" stroke="#2680eb" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+    </g>
+  </g>
+</svg>

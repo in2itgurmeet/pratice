@@ -1,0 +1,16 @@
+.app-without-sidebar {
+	& .app-content {
+		// margin: 20px;
+		// background: #f5f6f7;
+   		// border-radius: 6px;
+		// height: calc(100vh - 110px);
+
+	}
+	&:not(.app-with-top-menu) .app-header {
+		& .navbar-brand {
+			@include media-breakpoint-down(sm) {
+				justify-content: center;
+			}
+		}
+	}
+}

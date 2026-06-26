@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12">
+  <g id="Group_2861" data-name="Group 2861" transform="translate(-275 -222)">
+    <g id="Rectangle_2262" data-name="Rectangle 2262" transform="translate(275 222)" fill="#d1e7ff" stroke="#168eea" stroke-width="0.5">
+      <rect width="12" height="12" rx="2" stroke="none"/>
+      <rect x="0.25" y="0.25" width="11.5" height="11.5" rx="1.75" fill="none"/>
+    </g>
+    <path id="Icon_awesome-search" data-name="Icon awesome-search" d="M5.379,4.716,4.317,3.654a.255.255,0,0,0-.181-.075H3.963a2.215,2.215,0,1,0-.383.384v.174a.256.256,0,0,0,.075.181L4.716,5.38a.255.255,0,0,0,.361,0l.3-.3A.257.257,0,0,0,5.379,4.716ZM2.216,3.579A1.364,1.364,0,1,1,3.579,2.216,1.363,1.363,0,0,1,2.216,3.579Z" transform="translate(278.273 225.272)" fill="#168eea"/>
+  </g>
+</svg>

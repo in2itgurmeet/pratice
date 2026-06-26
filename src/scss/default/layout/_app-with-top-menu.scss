@@ -1,0 +1,18 @@
+.app-with-top-menu {
+	@include media-breakpoint-up(md) {
+		padding-top: $app-header-height + $app-top-menu-height;
+		
+	}
+	
+	& .app-sidebar {
+		@include media-breakpoint-up(md) {
+			// padding-top: $app-header-height + $app-top-menu-height;
+			padding-top:40px;
+		}
+	}
+	&.app-header-fixed {
+		@include media-breakpoint-up(md) {
+			padding-top: $app-header-height + $app-top-menu-height;
+		}
+	}
+}

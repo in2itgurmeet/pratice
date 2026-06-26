@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="14.852" height="12.69" viewBox="0 0 14.852 12.69">
+  <g id="Icon_feather-archive" data-name="Icon feather-archive" transform="translate(0.5 0.5)">
+    <path id="Path_2305" data-name="Path 2305" d="M11.148,12v9.843H4.5V12" transform="translate(-3.392 -10.153)" fill="none" stroke="#a8a8a8" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+    <path id="Path_2309" data-name="Path 2309" d="M4.5,12v7.7h6.1V12Z" transform="translate(3.256 -8.01)" fill="none" stroke="#a8a8a8" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+    <path id="Path_2306" data-name="Path 2306" d="M1.5,4.5h8.865V6.347H1.5Z" transform="translate(-1.5 -4.5)" fill="none" stroke="#a8a8a8" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+    <path id="Path_2308" data-name="Path 2308" d="M16.927,18H15v4.512h1.927Z" transform="translate(-11.531 -10.822)" fill="none" stroke="#a8a8a8" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+    <g id="Icon_feather-list" data-name="Icon feather-list" transform="translate(10.162 6.315)">
+      <g id="Group_3335" data-name="Group 3335">
+        <path id="Path_2310" data-name="Path 2310" d="M12,9h1.545" transform="translate(-12 -9)" fill="none" stroke="#a8a8a8" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+        <path id="Path_2311" data-name="Path 2311" d="M12,18h1.545" transform="translate(-12 -16.418)" fill="none" stroke="#a8a8a8" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+        <path id="Path_2312" data-name="Path 2312" d="M12,27h1.545" transform="translate(-12 -23.836)" fill="none" stroke="#a8a8a8" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+    </g>
+  </g>
+</svg>

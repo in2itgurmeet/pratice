@@ -1,100 +1,155 @@
- <div class="config-diff-wrapper">
-  <div class="diff-header">
-    <div class="section d-flex">
-        
-        <span>Intended / Saved / Pre-Push Config</span>
-        <div class="legend-section">
-          <span class="legend-item">
-            <span class="legend-box modified"></span>
-            Modified
-            <span class="count">1</span>
-          </span>
-    
-          <span class="legend-item">
-            <span class="legend-box added"></span>
-            Added
-            <span class="count">1</span>
-          </span>
-    
-          <span class="legend-item">
-            <span class="legend-box removed"></span>
-            Removed
-            <span class="count">1</span>
-          </span>
-    
-          <span class="legend-item">
-            <span class="legend-box unchanged"></span>
-            Unchanged
-            <span class="count">1</span>
-          </span>
-        </div>
-    </div>
+<button class="btn btn-primary modal-open-button" type="button" (click)="openModal()">Open Config Modal</button>
+<button (click)="diffViewer.exportToPdf('Switch_Audit_Log')">Export To PDF</button>
 
-    <div class="action-icons">
-      <button>w</button>
-      <button>f</button>
-      <button>t</button>
-      <button>3</button>
-      <button>f</button>
-    </div>
-  </div>
 
-  <!-- Body -->
-  <div class="editor-layout">
-
-    <!-- Intended -->
-    <div class="editor-column">
-      <div class="column-header">
-        <span>Intended Configuration</span>
-
-        <div class="header-actions">
-          <button>⌃</button>
-          <button>⌄</button>
-          <button>⤓</button>
-          <button>⧉</button>
-        </div>
-      </div>
-
-      <div class="editor-content">
-        <!-- Monaco Editor Here -->
-      </div>
-    </div>
-
-    <!-- Saved -->
-    <div class="editor-column">
-      <div class="column-header">
-        <span>Saved Configuration</span>
-
-        <div class="header-actions">
-          <button>⌃</button>
-          <button>⌄</button>
-          <button>⤓</button>
-          <button>⧉</button>
-        </div>
-      </div>
-
-      <div class="editor-content">
-        <!-- Monaco Editor Here -->
-      </div>
-    </div>
-
-    <!-- Pre Push -->
-    <div class="editor-column">
-      <div class="column-header">
-        <span>Pre-push Configuration</span>
-
-        <div class="header-actions">
-          <button>⌃</button>
-          <button>⌄</button>
-          <button>⤓</button>
-          <button>⧉</button>
-        </div>
-      </div>
-
-      <div class="editor-content">
-        <!-- Monaco Editor Here -->
-      </div>
-    </div>
-
-  </div>
+<!-- Main Generic Structural Core (Ise page par kahin bhi safe space par rakhein, PDF extraction target yahi hai) -->
+<div style="display: none;">
+  <app-viewer #diffViewer
+    [docTitle]="'Network Switches Delta Mapping Analysis'"
+    [columnHeaders]="['intended-config (1).txt', 'previous-config.txt', 'saved-config.txt']"
+    [rawConfigs]="[intendedConfig, prePushConfig, savedConfig]"
+    [deviceProperties]="myMetadataSetup">
+  </app-viewer>
 </div>
+<ng-template #viewConfig let-modal>
+  <div class="wrapper_modal">
+    <div class="upper_section">
+      <div class="model_header">
+        <div class="modal_title">
+          <!-- <span class="title_text">Run log — {{modal_data?.device_name}} </span> -->
+          <!-- <span class="badge green">{{modal_data?.status}}</span> -->
+        </div>
+        <div class="d-flex">
+          <div class="tabs d-flex align-items-center">
+            <div class="g active">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                data-lucide="file-diff" style="width:16px;height:16px" class="lucide lucide-file-diff">
+                <path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"></path>
+                <path d="M9 10h6"></path>
+                <path d="M12 13V7"></path>
+                <path d="M9 17h6"></path>
+              </svg>
+              Config Diff
+            </div>
+            <div class="g"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                data-lucide="square-terminal" style="width:16px;height:16px" class="lucide lucide-square-terminal">
+                <path d="m7 11 2-2-2-2"></path>
+                <path d="M11 13h4"></path>
+                <rect width="18" height="18" x="3" y="3" rx="2" ry="2"></rect>
+              </svg>Execution Console</div>
+
+          </div>
+          <div class="icons_details">
+            <span>
+              <i-feather name="download"></i-feather>
+            </span>
+            <span>
+              <i-feather name="moon" (click)="toggleTheme()"></i-feather>
+            </span>
+            <span>
+              <i-feather name="maximize-2"></i-feather>
+            </span>
+
+            <span>
+              <i-feather name="x" (click)="modal.dismiss()"></i-feather>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="middle_section">
+      <div class="prev_section">
+        <div class="show_comp_sec">
+          <div class="left_drop">
+            <div class="title">Show Comparison:</div>
+            <div class="dropdown">
+              <cats-ui-multi-select [optionList]="options" [multiSelectConfig]="multiSelectConfig"
+                [(ngModel)]="selectedOptions" (onSelection)="onSelect($event)">
+              </cats-ui-multi-select>
+            </div>
+          </div>
+          <div class="right_sec">
+            <div class="status_card_section">
+              <div class="status-card bg-blue">
+                <div class="left-section">
+                  <span class="color-box">
+                    <input type="checkbox" class="custom-checkbox bg-blue" />
+                  </span>
+                  <span class="title"> Modified</span>
+                  <span class="count">{{ diffStats.modified }} </span>
+                </div>
+              </div>
+              <div class="status-card bg-green">
+                <div class="left-section">
+                  <span class="color-box">
+                    <input type="checkbox" class="custom-checkbox bg-green" />
+                  </span>
+                  <span class="title"> Added</span>
+                  <span class="count">{{ diffStats.added }} </span>
+                </div>
+              </div>
+              <div class="status-card bg-red">
+                <div class="left-section">
+                  <span class="color-box">
+                    <input type="checkbox" class="custom-checkbox bg-red" />
+                  </span>
+                  <span class="title"> Removed</span>
+                  <span class="count">{{ diffStats.removed }} </span>
+                </div>
+              </div>
+              <div class="status-card bg-gray">
+                <div class="left-section">
+                  <span class="color-box">
+                    <input type="checkbox" class="custom-checkbox bg-gray" />
+                  </span>
+                  <span class="title"> Unchanged</span>
+                  <span class="count">{{ diffStats.unchanged }} </span>
+                </div>
+              </div>
+            </div>
+            <div class="d-flex gap-2 align-items-center">
+              <div class="d-flex gap-1"><span>2</span>/<span>7</span></div>
+              <span class="icon-search">
+                <i-feather name="chevron-up"></i-feather>
+              </span>
+              <span class="icon-search">
+                <i-feather name="chevron-down"></i-feather>
+              </span>
+            </div>
+          </div>
+        </div>
+          <div class="config_section">
+          <div class="compare_section" *ngFor="let config of visibleConfigs" >
+            <div class="Device_heading">
+              <div class="title_sec">
+                <div class="first_drop">
+                  {{ config.name }}
+                </div>
+              </div>
+              <div class="icon_section">
+                <span>
+                  <i-feather name="alert-circle"></i-feather>
+                </span>
+                <span>
+                  <i-feather name="copy" (click)="copyContent(config.name)">
+                  </i-feather>
+                </span>
+                <span>
+                  <i-feather name="download" (click)="downloadFile(config.name)">
+                  </i-feather>
+                </span>
+              </div>
+            </div>
+            <div class="editor_here">
+              <ngx-monaco-editor [options]="editorOptionsNewOption" [ngModel]="getConfigValue(config.name)"
+                [ngModelOptions]="{ standalone: true }" (onInit)="onEditorInit($event, config.name)">
+              </ngx-monaco-editor>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-template>

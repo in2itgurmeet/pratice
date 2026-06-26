@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15">
+  <g id="Group_10308" data-name="Group 10308" transform="translate(-1087 -147)">
+    <rect id="Rectangle_3915" data-name="Rectangle 3915" width="15" height="15" transform="translate(1087 147)" fill="none"/>
+    <path id="Icon_awesome-fan" data-name="Icon awesome-fan" d="M8.263,3a5.291,5.291,0,0,0-1.806.3L6.748.416A.383.383,0,0,0,6.312,0,3.774,3.774,0,0,0,3,3.737a5.291,5.291,0,0,0,.3,1.806L.416,5.252A.383.383,0,0,0,0,5.688,3.774,3.774,0,0,0,3.737,9a5.291,5.291,0,0,0,1.806-.3l-.291,2.885A.384.384,0,0,0,5.688,12,3.774,3.774,0,0,0,9,8.263a5.291,5.291,0,0,0-.3-1.806l2.885.291A.384.384,0,0,0,12,6.312,3.774,3.774,0,0,0,8.263,3ZM6,6.75A.75.75,0,1,1,6.75,6,.75.75,0,0,1,6,6.75Z" transform="translate(1088.5 148.5)" fill="#d0d0d0" stroke="#7f7f7f" stroke-width="1"/>
+  </g>
+</svg>

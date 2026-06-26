@@ -1,0 +1,12 @@
+<svg id="Another_loopbac" data-name="Another loopbac" xmlns="http://www.w3.org/2000/svg" width="66.325" height="66.294" viewBox="0 0 66.325 66.294">
+  <g id="Pack_1" data-name="Pack 1" transform="translate(0 0)">
+    <g id="replay_arrows_left_right" data-name="replay arrows left right">
+      <path id="Path_9326" data-name="Path 9326" d="M42.423,3H5.142a4.142,4.142,0,0,0,0,8.285H42.423a8.285,8.285,0,0,1,8.285,8.285,4.142,4.142,0,0,0,8.285,0A16.569,16.569,0,0,0,42.423,3Z" transform="translate(3.166 9.427)" fill="#bed9fd"/>
+      <path id="Path_9327" data-name="Path 9327" d="M5.142,8A4.142,4.142,0,0,0,1,12.142,16.569,16.569,0,0,0,17.569,28.712H54.85a4.142,4.142,0,0,0,0-8.285H17.569a8.285,8.285,0,0,1-8.285-8.285A4.142,4.142,0,0,0,5.142,8Z" transform="translate(3.166 25.139)" fill="#bed9fd"/>
+      <g id="Group_12028" data-name="Group 12028">
+        <path id="Path_9328" data-name="Path 9328" d="M15.161,8a4.142,4.142,0,0,0-2.941,7.083l9.527,9.486-9.527,9.486A4.159,4.159,0,0,0,18.1,39.937L30.529,27.51a4.142,4.142,0,0,0,0-5.882L18.1,9.2A4.142,4.142,0,0,0,15.161,8Z" transform="translate(34.571 25.139)" fill="#89bafd"/>
+        <path id="Path_9329" data-name="Path 9329" d="M16.588,0a4.142,4.142,0,0,0-2.941,1.2L1.219,13.628a4.142,4.142,0,0,0,0,5.882L13.646,31.937a4.159,4.159,0,1,0,5.882-5.882L10,16.569l9.527-9.486A4.142,4.142,0,0,0,16.588,0Z" transform="translate(0.006 0)" fill="#89bafd"/>
+      </g>
+    </g>
+  </g>
+</svg>
