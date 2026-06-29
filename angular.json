@@ -28,11 +28,11 @@
               },
               {
                 "glob": "**/*",
-                "input": "node_modules/cats-ui-lib/assets"
+                "input": "node_modules/cats-data-grid/assets"
               },
               {
                 "glob": "**/*",
-                "input": "node_modules/cats-data-grid/assets"
+                "input": "node_modules/cats-ui-lib/assets"
               },
               {
                 "glob": "**/*",
@@ -42,12 +42,15 @@
                 "glob": "**/*",
                 "input": "node_modules/monaco-editor/min/vs",
                 "output": "assets/monaco/vs"
-              }
+              },
+              "src/assets",
+              "src/favicon.ico"
             ],
             "styles": [
               "src/styles.scss",
               "node_modules/cats-ui-lib/styles/_index.scss",
               "node_modules/cats-data-grid/styles/_index.scss",
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "node_modules/bootstrap/dist/css/bootstrap.min.css"
             ],
             "scripts": ["node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"]

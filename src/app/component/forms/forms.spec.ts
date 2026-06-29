@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MultilineChart } from './multiline-chart';
+import { Forms } from './forms';
 
-describe('MultilineChart', () => {
-  let component: MultilineChart;
-  let fixture: ComponentFixture<MultilineChart>;
+describe('Forms', () => {
+  let component: Forms;
+  let fixture: ComponentFixture<Forms>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [MultilineChart]
+      imports: [Forms]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(MultilineChart);
+    fixture = TestBed.createComponent(Forms);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

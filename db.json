@@ -1,491 +1,404 @@
 {
-  "users": [
-    {
-      "id": "1",
-      "name": "Name",
-      "username": "Bret",
-      "email": "Sincere@april.bix",
-      "address": {
-        "street": "Kulas Light",
-        "suite": "Apt. 556",
-        "city": "Gwenborough",
-        "zipcode": "92998-3874",
-        "geo": {
-          "lat": "-37.3159",
-          "lng": "81.1496"
-        }
-      },
-      "phone": "1-770-736-8031 x56442",
-      "website": "hildegard.org",
-      "company": {
-        "name": "Romaguera-Crona",
-        "catchPhrase": "Multi-layered client-server neural-net",
-        "bs": "harness real-time e-markets"
-      },
-      "status": "Active",
-      "isInEdit": false,
-      "rowId": "1768807776875_0",
-      "isSelected": true
-    },
-    {
-      "id": "2",
-      "name": "Ervin Howell",
-      "username": "Antonette",
-      "email": "Shanna@melissa.tv",
-      "address": {
-        "street": "Victor Plains",
-        "suite": "Suite 879",
-        "city": "Wisokyburgh",
-        "zipcode": "90566-7771",
-        "geo": {
-          "lat": "-43.9509",
-          "lng": "-34.4618"
-        }
-      },
-      "phone": "010-692-6593 x09125",
-      "website": "anastasia.netwe",
-      "company": {
-        "name": "Deckow-Crist",
-        "catchPhrase": "ProActive didactic contingency",
-        "bs": "synergize scalable supply-chains"
-      },
-      "status": "Active",
-      "isInEdit": false,
-      "rowId": "1768303843429_1"
-    },
-    {
-      "id": "3",
-      "name": "Gurmeet kumar ",
-      "username": "Samantha",
-      "email": "Nathan@yesenia.net",
-      "address": {
-        "street": "Douglas Extension",
-        "suite": "Suite 847",
-        "city": "McKenziehaven",
-        "zipcode": "59590-4157",
-        "geo": {
-          "lat": "-68.6102",
-          "lng": "-47.0653"
-        }
-      },
-      "phone": "1-463-123-4447",
-      "website": "ramiro.info",
-      "company": {
-        "name": "Romaguera-Jacobson",
-        "catchPhrase": "Face to face bifurcated interface",
-        "bs": "e-enable strategic applications"
-      },
-      "status": "InActive",
-      "isInEdit": false,
-      "rowId": "1768394905029_2"
-    },
-    {
-      "id": "4",
-      "name": "Patricia Lebsack",
-      "username": "Karianne",
-      "email": "Julianne.OConner@kory.org",
-      "address": {
-        "street": "Hoeger Mall",
-        "suite": "Apt. 692",
-        "city": "South Elvis",
-        "zipcode": "53919-4257",
-        "geo": {
-          "lat": "29.4572",
-          "lng": "-164.2990"
-        }
-      },
-      "phone": "493-170-9623 x156",
-      "website": "kale.biz",
-      "company": {
-        "name": "Robel-Corkery",
-        "catchPhrase": "Multi-tiered zero tolerance productivity",
-        "bs": "transition cutting-edge web services"
-      },
-      "status": "InActive",
-      "isInEdit": false,
-      "rowId": "1768550243444_3"
-    },
-    {
-      "id": "5",
-      "name": "Chelsey Martin Endresion",
-      "username": "Kamren",
-      "email": "Lucio_Hettinger@annie.ca",
-      "address": {
-        "street": "Skiles Walks",
-        "suite": "Suite 351",
-        "city": "Roscoeview",
-        "zipcode": "33263",
-        "geo": {
-          "lat": "-31.8129",
-          "lng": "62.5342"
-        }
-      },
-      "phone": "(254)954-1289",
-      "website": "demarco.info",
-      "company": {
-        "name": "Keebler LLC",
-        "catchPhrase": "User-centric fault-tolerant solution",
-        "bs": "revolutionize end-to-end systems"
-      },
-      "status": "InActive",
-      "isInEdit": false,
-      "rowId": "1768813383410_4"
-    },
-    {
-      "id": "6",
-      "name": "Mrs. Dennis Schulist",
-      "username": "Leopoldo_Corkery",
-      "email": "Karley_Dach@jasper.info",
-      "address": {
-        "street": "Norberto Crossing",
-        "suite": "Apt. 950",
-        "city": "South Christy",
-        "zipcode": "23505-1337",
-        "geo": {
-          "lat": "-71.4197",
-          "lng": "71.7478"
-        }
-      },
-      "phone": "1-477-935-8478 x6430",
-      "website": "ola.org",
-      "company": {
-        "name": "Considine-Lockman",
-        "catchPhrase": "Synchronised bottom-line interface",
-        "bs": "e-enable innovative applications"
-      },
-      "status": "Active",
-      "isInEdit": false,
-      "rowId": "1768394564642_5"
-    },
-    {
-      "id": "7",
-      "name": "Kurtis Weissnat",
-      "username": "Elwyn.Skiles",
-      "email": "Telly.Hoeger@billy.biz",
-      "address": {
-        "street": "Rex Trail",
-        "suite": "Suite 280",
-        "city": "Howemouth",
-        "zipcode": "58804-1099",
-        "geo": {
-          "lat": "24.8918",
-          "lng": "21.8984"
-        }
-      },
-      "phone": "210.067.6132",
-      "website": "elvis.io",
-      "company": {
-        "name": "Johns Group",
-        "catchPhrase": "Configurable multimedia task-force",
-        "bs": "generate enterprise e-tailers"
-      },
-      "status": "Active",
-      "isInEdit": false,
-      "rowId": "1766574920685_6"
-    },
-    {
-      "id": "8",
-      "name": "Nicholas Runolfsdottir V",
-      "username": "Maxime_Nienow",
-      "email": "Sherwood@rosamond.me",
-      "address": {
-        "street": "Ellsworth Summit",
-        "suite": "Suite 729",
-        "city": "Aliyaview",
-        "zipcode": "45169",
-        "geo": {
-          "lat": "-14.3990",
-          "lng": "-120.7677"
-        }
-      },
-      "phone": "586.493.6943 x140",
-      "website": "jacynthe.com",
-      "company": {
-        "name": "Abernathy Group",
-        "catchPhrase": "Implemented secondary concept",
-        "bs": "e-enable extensible e-tailers"
-      },
-      "status": "Active",
-      "isInEdit": false,
-      "rowId": "1766574920685_7"
-    },
-    {
-      "id": "9",
-      "name": "Glenna Reichert",
-      "username": "Delphine",
-      "email": "Chaim_McDermott@dana.io",
-      "address": {
-        "street": "Dayna Park",
-        "suite": "Suite 449",
-        "city": "Bartholomebury",
-        "zipcode": "76495-3109",
-        "geo": {
-          "lat": "24.6463",
-          "lng": "-168.8889"
-        }
-      },
-      "phone": "(775)976-6794 x41206",
-      "website": "conrad.com",
-      "company": {
-        "name": "Yost and Sons",
-        "catchPhrase": "Switchable contextually-based project",
-        "bs": "aggregate real-time technologies"
-      },
-      "status": "InActive",
-      "isInEdit": false,
-      "rowId": "1768394329046_8"
-    },
-    {
-      "id": "10",
-      "name": "Clementina DuBuque",
-      "username": "Moriah.Stanton",
-      "email": "Rey.Padberg@karina.biz",
-      "address": {
-        "street": "Kattie Turnpike",
-        "suite": "Suite 198",
-        "city": "Lebsackbury",
-        "zipcode": "31428-2261",
-        "geo": {
-          "lat": "-38.2386",
-          "lng": "57.2232"
-        }
-      },
-      "phone": "024-648-3804",
-      "website": "ambrose.net",
-      "company": {
-        "name": "Hoeger LLC",
-        "catchPhrase": "Centralized empowering task-force",
-        "bs": "target end-to-end models"
-      },
-      "status": "Active",
-      "isInEdit": false,
-      "rowId": "1768367462619_9"
-    },
-    {
-      "id": "11",
-      "name": "Ervin Howell",
-      "username": "Antonette",
-      "email": "Shanna@melissa.tv",
-      "address": {
-        "street": "Victor Plains",
-        "suite": "Suite 879",
-        "city": "Wisokyburgh",
-        "zipcode": "90566-7771",
-        "geo": {
-          "lat": "-43.9509",
-          "lng": "-34.4618"
-        }
-      },
-      "phone": "010-692-6593 x09125",
-      "website": "anastasia.netwe",
-      "company": {
-        "name": "Deckow-Crist",
-        "catchPhrase": "ProActive didactic contingency",
-        "bs": "synergize scalable supply-chains"
-      },
-      "status": "Active",
-      "isInEdit": false,
-      "rowId": "1768823574820_10"
-    },
-    {
-      "id": "12",
-      "name": "Nicholas Runolfsdottir V",
-      "username": "Maxime_Nienow",
-      "email": "Sherwood@rosamond.me",
-      "address": {
-        "street": "Ellsworth Summit",
-        "suite": "Suite 729",
-        "city": "Aliyaview",
-        "zipcode": "45169",
-        "geo": {
-          "lat": "-14.3990",
-          "lng": "-120.7677"
-        }
-      },
-      "phone": "586.493.6943 x140",
-      "website": "jacynthe.com",
-      "company": {
-        "name": "Abernathy Group",
-        "catchPhrase": "Implemented secondary concept",
-        "bs": "e-enable extensible e-tailers"
-      },
-      "status": "Active",
-      "isInEdit": false,
-      "rowId": "1768203466967_11"
-    },
-    {
-      "id": "13",
-      "name": "Nicholas Runolfsdottir V",
-      "username": "Maxime_Nienow",
-      "email": "Sherwood@rosamond.me",
-      "address": {
-        "street": "Ellsworth Summit",
-        "suite": "Suite 729",
-        "city": "Aliyaview",
-        "zipcode": "45169",
-        "geo": {
-          "lat": "-14.3990",
-          "lng": "-120.7677"
-        }
-      },
-      "phone": "586.493.6943 x140",
-      "website": "jacynthe.com",
-      "company": {
-        "name": "Abernathy Group",
-        "catchPhrase": "Implemented secondary concept",
-        "bs": "e-enable extensible e-tailers"
-      },
-      "status": "Active",
-      "isInEdit": false,
-      "rowId": "1768814031705_12"
-    }
-  ],
-  "messages": [
-    {
-      "id": "31aa",
-      "user": "Gurmeet",
-      "text": "gdfg",
-      "time": "12:11:55"
-    },
-    {
-      "id": "dd1d",
-      "user": "Gurmeet",
-      "text": "hello",
-      "time": "12:12:03"
-    },
-    {
-      "id": "15f9",
-      "user": "Gurmeet",
-      "text": "my nae is gurmeet ",
-      "time": "12:12:16"
-    },
-    {
-      "id": "3b34",
-      "user": "Gurmeet",
-      "text": "sdfsdf",
-      "time": "12:55:44"
-    }
-  ],
-  "chartData": [
-    {
-      "id": 1,
-      "name": "John Smith",
-      "email": "john@acme.com",
-      "designation": "Senior Product Manager",
-      "source": "Local",
-      "userRole": "Manager",
-      "device": "Dell Inspiron 460E",
-      "os": "Windows"
-    },
-    {
-      "id": 2,
-      "name": "Maria Siphon",
-      "email": "maria@acme.com",
-      "designation": "Product Manager",
-      "source": "LDAP",
-      "userRole": "Manager",
-      "device": "Dell Inspiron 460E",
-      "os": "Windows"
-    },
-    {
-      "id": 3,
-      "name": "Zain Faraci",
-      "email": "zain@acme.com",
-      "designation": "Product Manager",
-      "source": "LDAP",
-      "userRole": "Manager",
-      "device": "Mac M3",
-      "os": "Mac"
-    },
-    {
-      "id": 4,
-      "name": "Rahul Verma",
-      "email": "rahul@acme.com",
-      "designation": "Software Engineer",
-      "source": "Local",
-      "userRole": "Employee",
-      "device": "HP EliteBook",
-      "os": "Linux"
-    },
+  "device_group": [
     {
       "id": 5,
-      "name": "Anita Sharma",
-      "email": "anita@acme.com",
-      "designation": "QA Engineer",
-      "source": "LDAP",
-      "userRole": "Employee",
-      "device": "MacBook Pro",
-      "os": "Mac"
+      "name": "Group of Devices"
     },
     {
       "id": 6,
-      "name": "Ravi Kumar",
-      "email": "ravi@acme.com",
-      "designation": "Software Engineer",
-      "source": "Local",
-      "userRole": "Employee",
-      "device": "HP EliteBook",
-      "os": "Linux"
+      "name": "DeviceGroup5May"
     },
     {
       "id": 7,
-      "name": "Monu Kumar",
-      "email": "monu@acme.com",
-      "designation": "Software Engineer",
-      "source": "Local",
-      "userRole": "Employee",
-      "device": "HP EliteBook",
-      "os": "Linux"
+      "name": "New Group to Test"
     },
     {
       "id": 8,
-      "name": "Amit Gupta",
-      "email": "amit@acme.com",
-      "designation": "Software Engineer",
-      "source": "Local",
-      "userRole": "Employee",
-      "device": "Dell Latitude",
-      "os": "Windows"
+      "name": "NewDeviceGrp19May"
     },
     {
-      "id": 9,
-      "name": "Neha Jain",
-      "email": "neha@acme.com",
-      "designation": "HR Executive",
-      "source": "Local",
-      "userRole": "HR",
-      "device": "HP EliteBook",
-      "os": "Windows"
+      "id": 4,
+      "name": "Test12345"
     },
     {
       "id": 10,
-      "name": "Karan Malhotra",
-      "email": "karan@acme.com",
-      "designation": "DevOps Engineer",
-      "source": "Local",
-      "userRole": "DevOps",
-      "device": "Ubuntu Desktop",
-      "os": "Linux"
+      "name": "Routers"
     },
     {
       "id": 11,
-      "name": "Pooja Mehta",
-      "email": "pooja@acme.com",
-      "designation": "Support Engineer",
-      "source": "Local",
-      "userRole": "Support",
-      "device": "Acer Aspire",
-      "os": "Windows"
+      "name": "Device Group Sch"
     },
     {
       "id": 12,
-      "name": "Rohit Singh",
-      "email": "rohit@acme.com",
-      "designation": "UI/UX Designer",
-      "source": "Local",
-      "userRole": "Designer",
-      "device": "MacBook Air M2",
-      "os": "Mac"
+      "name": "Group 1"
+    },
+    {
+      "id": 13,
+      "name": "D1"
+    },
+    {
+      "id": 14,
+      "name": "D2"
+    },
+    {
+      "id": 15,
+      "name": "D3"
+    }
+  ],
+  "frequency-dropdown": [
+    {
+      "id": 1,
+      "name": "DAYS"
+    },
+    {
+      "id": 2,
+      "name": "WEEKS"
+    },
+    {
+      "id": 3,
+      "name": "MONTHS"
+    }
+  ],
+  "emails": [
+    {
+      "username": "Shashank Gupta",
+      "userid": 1,
+      "email": "shashank.gupta@capacity.com"
+    },
+    {
+      "username": "Arjun Singh",
+      "email": "arjun.singh@in2ittech.com",
+      "userid": 2
+    },
+    {
+      "username": "Lokesh Sharma",
+      "userid": 3,
+      "email": "lokesh.sharma@in2ittech.com"
+    },
+    {
+      "email": "rohit.patel@in2ittech.com",
+      "userid": 5,
+      "username": "Rohit Patel"
+    },
+    {
+      "userid": 7,
+      "email": "Sneha.Bhadauria@in2ittech.com",
+      "username": "Sneha Bhadauria"
+    },
+    {
+      "userid": 13,
+      "email": "gautam.yadav@in2ittech.com",
+      "username": "Gautam Yadav"
+    },
+    {
+      "userid": 12,
+      "email": "Shubhank.Srivastava@in2ittech.com",
+      "username": "Shubhank Srivastava"
+    },
+    {
+      "userid": 14,
+      "username": "Inzamam Ul Hasan Khan",
+      "email": "Inzamam.Khan@in2ittech.com"
+    },
+    {
+      "userid": 9,
+      "username": "Sudhir Shukla",
+      "email": "sudhir.shukla@in2ittech.com"
+    },
+    {
+      "email": "prince.agrawal@in2ittech.com",
+      "username": "PRINCE AGRAWAL",
+      "userid": 24
+    },
+    {
+      "userid": 8,
+      "email": "Tarun.kumar@in2ittech.com",
+      "username": "Tarun Kumar"
+    },
+    {
+      "username": "Shiva Mishra",
+      "email": "shiva.mishra@in2ittech.com",
+      "userid": 17
+    },
+    {
+      "username": "ajeet yadav",
+      "email": "ajeet.yadav@in2ittech.com",
+      "userid": 22
+    },
+    {
+      "userid": 20,
+      "email": "piyush.singh@in2ittech.com",
+      "username": "piyush singh"
+    },
+    {
+      "username": "Sagar Mehra",
+      "userid": 21,
+      "email": "sagar.mehra@in2ittech.com"
+    },
+    {
+      "username": "krishanKant kushwaha",
+      "email": "Krishankant.Kushwaha@in2ittech.com",
+      "userid": 33
+    },
+    {
+      "username": "Jitendra Kumar",
+      "email": "Jitendra.Kumar@in2ittech.com",
+      "userid": 16
+    },
+    {
+      "username": "Ankita Srivastava ",
+      "userid": 10,
+      "email": "ankita.srivastava@in2ittech.com"
+    },
+    {
+      "username": "Upendra Yadav",
+      "userid": 11,
+      "email": "upendra.yadav@in2ittech.com"
+    },
+    {
+      "userid": 15,
+      "username": "Shubham Kumar",
+      "email": "Shubham.Kumar@in2ittech.com"
+    },
+    {
+      "userid": 27,
+      "username": "Neeraj Kumar",
+      "email": "Neeraj.Kumar@in2ittech.com"
+    },
+    {
+      "email": "neha.sain@in2ittech.com",
+      "username": "NEHA SAIN",
+      "userid": 34
+    },
+    {
+      "username": "piyush chauhan",
+      "email": "Piyush.Chauhan@in2ittech.com",
+      "userid": 23
+    },
+    {
+      "userid": 25,
+      "email": "Shashank.gupta@in2ittech.com",
+      "username": "Shashank gupta"
+    },
+    {
+      "userid": 31,
+      "email": "Anand.Pandey@in2ittech.com",
+      "username": "anand pandey"
+    },
+    {
+      "userid": 45,
+      "username": "Himanshi Tyagi",
+      "email": "Himanshi.Tyagi@in2ittech.com"
+    },
+    {
+      "username": "gurmeet prajapati",
+      "email": "Gurmeet.Prajapati@in2ittech.com",
+      "userid": 32
+    },
+    {
+      "username": "aditi bhatia",
+      "userid": 53,
+      "email": "Aditi.Bhatia@in2ittech.com"
+    },
+    {
+      "username": "ankush pal",
+      "email": "Ankush.Pal@in2ittech.com",
+      "userid": 35
+    },
+    {
+      "username": "nipur singh",
+      "userid": 41,
+      "email": "nipur.singh@in2ittech.com"
+    },
+    {
+      "email": "Aakarsh.Kamboj@in2ittech.com",
+      "userid": 37,
+      "username": "askarsh kamboj"
+    },
+    {
+      "userid": 46,
+      "email": "Keshav.Kanoongo@in2ittech.com",
+      "username": "Keshav Kanoongo"
+    },
+    {
+      "username": "pratibha sharma",
+      "email": "Pratibha.Sharma@in2ittech.com",
+      "userid": 39
+    },
+    {
+      "username": "Ansh  Tyagi",
+      "email": "Ansh.Tyagi@in2ittech.com",
+      "userid": 38
+    },
+    {
+      "userid": 47,
+      "username": "Vijay Tak",
+      "email": "Vijay.Tak@in2ittech.com"
+    },
+    {
+      "username": "Shubhank  Srivastava",
+      "userid": 49,
+      "email": "Shubhank.Srivastava@in2ittech.com"
+    },
+    {
+      "email": "Piyush.Singh1@in2ittech.com",
+      "userid": 50,
+      "username": "piyush singh"
+    },
+    {
+      "username": "Ankita  Srivastava",
+      "userid": 48,
+      "email": "ankita.srivastava@in2ittech.com"
+    },
+    {
+      "userid": 52,
+      "username": "Shubham  kumar",
+      "email": "Shubham.Kumar@in2ittech.com"
+    },
+    {
+      "username": "Jitendra  Kumar",
+      "email": "Jitendra.Kumar@in2ittech.com",
+      "userid": 51
+    },
+    {
+      "username": "neetanshi singh",
+      "userid": 43,
+      "email": "Neelanshi.Singh@in2ittech.com"
+    },
+    {
+      "username": "gurmeet prajapati",
+      "userid": 55,
+      "email": "gurmeet.prajapati@in2ittech.com"
+    },
+    {
+      "email": "Chandan.Chaudhary@in2ittech.com",
+      "userid": 56,
+      "username": "Chandan Chaudhary"
+    },
+    {
+      "username": "dheeraj kumar",
+      "userid": 54,
+      "email": "dheeraj.kumar@in2ittech.com"
+    },
+    {
+      "userid": 57,
+      "username": "dheeraj mishra",
+      "email": "Dheeraj.Mishra@in2ittech.com"
+    },
+    {
+      "email": "Rudra.Srivastava@in2ittech.com",
+      "userid": 58,
+      "username": "Rudra Srivastava"
+    },
+    {
+      "username": "ajay taak",
+      "userid": 40,
+      "email": "Ajay.Taak@in2ittech.com"
+    },
+    {
+      "username": "gautam kumar",
+      "email": "Gautam.Kumar@in2ittech.com",
+      "userid": 59
+    },
+    {
+      "username": "chandan kumar",
+      "email": "Chandan.Chaudhary@in2ittech.com",
+      "userid": 36
+    },
+    {
+      "email": "divya.kumari@in2ittech.com",
+      "username": "Divya  Kumari",
+      "userid": 42
+    },
+    {
+      "userid": 44,
+      "email": "Nitin@in2ittech.com",
+      "username": "Nitin"
+    },
+    {
+      "username": "Lokesh Sharma",
+      "userid": 85,
+      "email": "lokesh.sharma@in2ittech.com"
+    },
+    {
+      "email": "amit.kumar@in2ittech.com",
+      "userid": 89,
+      "username": "Amit kumar"
+    },
+    {
+      "userid": 91,
+      "username": "Navneet verma",
+      "email": "Navneet.Verma@in2ittech.com"
+    },
+    {
+      "username": "Aniket kaushik",
+      "email": "aniket.kaushik@in2ittech.com",
+      "userid": 87
+    },
+    {
+      "email": "Ashutosh.Tripathi@in2ittech.com",
+      "userid": 92,
+      "username": "Ashutosh Tripathi"
+    },
+    {
+      "email": "Sachin.Gupta01@in2ittech.com",
+      "userid": 86,
+      "username": "Sachin Gupta"
+    },
+    {
+      "username": "Arjun Singh",
+      "email": "arjun.singh@in2ittech.com",
+      "userid": 88
+    },
+    {
+      "userid": 94,
+      "username": "Piyush Chauhan",
+      "email": "Piyush.Chauhan@in2ittech.com"
+    },
+    {
+      "userid": 93,
+      "username": "Aditi Bhatia",
+      "email": "Aditi.Bhatia@in2ittech.com"
+    },
+    {
+      "userid": 90,
+      "username": "Ayush Rawat",
+      "email": "Ayush.Rawat@in2ittech.com"
+    },
+    {
+      "userid": 95,
+      "username": "Ayush Rawat",
+      "email": "Ayush.Rawat@in2ittech.com"
+    }
+  ],
+  "target-dropdown": [
+    {
+      "key": "all_devices",
+      "label": "All Devices",
+      "count": 572
+    },
+    {
+      "key": "device_group",
+      "label": "Device Group",
+      "count": 11
+    }
+  ],
+  "operations-dropdown": [
+    {
+      "key": "backup_and_drift",
+      "label": "Backup & Drift"
+    },
+    {
+      "key": "operational_template",
+      "label": "Operational Template"
+    },
+    {
+      "key": "compliance_template",
+      "label": "Compliance Template"
+    },
+    {
+      "key": "configurational_template",
+      "label": "Configurational Template"
     }
   ]
 }
