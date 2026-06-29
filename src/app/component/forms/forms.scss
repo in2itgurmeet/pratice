@@ -326,18 +326,37 @@
   padding-left: calc(34 * var(--px)) !important;
 }
 
+.check_btn {
+  width: 100%;
+}
+
+.check_btn ::ng-deep cats-ui-checkbox-button {
+  display: block;
+  width: 100%;
+}
+
 .check_btn ::ng-deep .cats-parent-container {
-  display: flex;
+  display: flex !important;
+  flex-wrap: wrap;
+  gap: calc(8 * var(--px));
+  width: 100%;
 }
 
 .check_btn ::ng-deep .cats-parent-container .cats-checkbox-container {
+  display: inline-flex !important;
+  flex: 0 0 auto;
   min-height: calc(48 * var(--px)) !important;
-  width: calc(100% / 3) !important;
+  width: auto !important;
+  min-width: max-content !important;
+  margin-bottom: 0 !important;
 }
 
 .check_btn ::ng-deep .cats-checkbox-container span {
   font-size: var(--fs-16) !important;
   color: #434a51 !important;
+  overflow: visible !important;
+  text-overflow: unset !important;
+  white-space: nowrap !important;
 }
 
 .check_btn ::ng-deep .cats-parent-container .cats-checkbox-container .cats-checkbox-input {

@@ -26,7 +26,7 @@
         }}
       </span>
     </div>
-    <form class="form_section d-flex" [formGroup]="operationalTemplateForm">
+    <form class="form_section d-flex" [formGroup]="operationalTemplateForm" novalidate>
       <div class="left_side">
 
         <div class="row_div d-flex align-items-center">
@@ -37,8 +37,8 @@
             </cats-ui-single-select>
           </div>
         </div>
-        @if(operationalTemplateForm.get('operation')?.value.name == 'Backup & Drift' ||
-        operationalTemplateForm.get('operation')?.value.name == 'Compliance Template'){
+        @if(operationName == 'Backup & Drift' ||
+        operationName == 'Compliance Template'){
         <div class="row_div d-flex align-items-center">
           <label for="scheduleBy"> Schedule By <sup class="red">*</sup> </label>
           <div class="flex-fill">
@@ -56,7 +56,7 @@
           </div>
         </div>
 
-        @if(operationalTemplateForm.get('target')?.value.name == 'Device Group'){
+        @if(isTargetDeviceGroup){
         <div class="row_div d-flex align-items-center">
           <label for="deviceGroup">
             Device Group <sup class="red">*</sup>
@@ -113,8 +113,8 @@
           </label>
           <div class="add_plus_input flex-fill">
             <div class="radio_btn">
-              <cats-ui-radio-button [config]="radioConfig" [optionList]="optionsRadio"
-                formControlName="captureEndDateRadio" (selectionChange)="onRadio($event)">
+              <cats-ui-radio-button [config]="captureEndDateRadioConfig" [optionList]="optionsRadio"
+                formControlName="captureEndDateRadio" >
               </cats-ui-radio-button>
             </div>
             <ng-container *ngIf="captureEndDate">
@@ -144,7 +144,7 @@
         <div class="row_div d-flex align-items-center">
           <label for="frequency"> Frequency <sup class="red">*</sup> </label>
           <div class="d-flex gap-8px flex-fill">
-            @if(operationalTemplateForm.get('operation')?.value.name == 'Backup & Drift' ){
+            @if(operationName == 'Backup & Drift' ){
 
             <div class="w-50">
               <cats-ui-input id="frequency" [inputConfig]="frequencyInputConfig" required formControlName="frequency">
@@ -157,14 +157,14 @@
             </div>
             }@else {
             <div class="radio_btn w-100">
-              <cats-ui-radio-button [config]="radioConfig" [optionList]="frequencyOptions"
-                formControlName="captureEndDateRadio" (selectionChange)="onRadio($event)">
+              <cats-ui-radio-button [config]="frequencyRadioConfig" [optionList]="frequencyOptions"
+                formControlName="frequencyMode"  (radioChange)="onRadio($event)">
               </cats-ui-radio-button>
             </div>
             }
           </div>
         </div>
-        @if(operationalTemplateForm.get('operation')?.value.name == 'Compliance Template' ){
+        @if(operationName == 'Compliance Template' && operationalTemplateForm.get('frequencyMode')?.value == 1 ){
         <div class="row_div d-flex align-items-center">
           <label for="frequency"> Every <sup class="red">*</sup> </label>
           <div class="d-flex gap-8px flex-fill">
@@ -181,36 +181,36 @@
         </div>
         }
         }
-        @if(operationalTemplateForm.get('operation')?.value.name == 'Operational Template'){
+        @if(operationName == 'Operational Template'){
         <div class="row_div d-flex align-items-center">
-          <label for="operation"> Execution Type <sup class="red">*</sup> </label>
+          <label for="executionType"> Execution Type <sup class="red">*</sup> </label>
           <div class="flex-fill">
-            <cats-ui-single-select id="operation" [optionList]="operationListOptions"
-              [singleSelectConfig]="singleConfig">
+            <cats-ui-single-select id="executionType" [optionList]="executionTypeOptions"
+              [singleSelectConfig]="singleConfig" formControlName="executionType">
             </cats-ui-single-select>
           </div>
         </div>
         <div class="row_div d-flex align-items-center">
-          <label for="operation w-50"> Filter Device By Organization </label>
+          <label for="organization"> Filter Device By Organization </label>
           <div class="flex-fill">
-            <cats-ui-single-select id="operation" [optionList]="operationListOptions"
-              [singleSelectConfig]="singleConfig">
+            <cats-ui-single-select id="organization" [optionList]="organizationOptions"
+              [singleSelectConfig]="singleConfig" formControlName="organization">
             </cats-ui-single-select>
           </div>
         </div>
         <div class="row_div d-flex align-items-center">
-          <label for="operation w-50"> Filter Device By Region </label>
+          <label for="region"> Filter Device By Region </label>
           <div class="flex-fill">
-            <cats-ui-single-select id="operation" [optionList]="operationListOptions"
-              [singleSelectConfig]="singleConfig">
+            <cats-ui-single-select id="region" [optionList]="regionOptions"
+              [singleSelectConfig]="singleConfig" formControlName="region">
             </cats-ui-single-select>
           </div>
         </div>
         <div class="row_div d-flex align-items-center">
-          <label for="operation w-50"> Filter Device By Site </label>
+          <label for="site"> Filter Device By Site </label>
           <div class="flex-fill">
-            <cats-ui-single-select id="operation" [optionList]="operationListOptions"
-              [singleSelectConfig]="singleConfig">
+            <cats-ui-single-select id="site" [optionList]="siteOptions"
+              [singleSelectConfig]="singleConfig" formControlName="site">
             </cats-ui-single-select>
           </div>
         </div>
@@ -218,48 +218,48 @@
       </div>
       <div class="vertical_line"></div>
       <div class="right_side">
-        @if(operationalTemplateForm.get('operation')?.value.name == 'Operational Template'){
+        @if(operationName == 'Operational Template'){
         <div class="row_div d-flex align-items-center">
           <label for="deviceGroup">
             Filter Device By Group
           </label>
           <div class="flex-fill">
             <cats-ui-multi-select id="deviceGroup" [optionList]="deviceGroupOptions"
-              [multiSelectConfig]="deviceMultiSelectConfig">
+              [multiSelectConfig]="deviceMultiSelectConfig" formControlName="filterDeviceGroup">
             </cats-ui-multi-select>
           </div>
         </div>
         <div class="row_div d-flex align-items-center">
-          <label for="referencePoint">
+          <label for="deviceType">
             Filter By Device Type <sup class="red">*</sup>
           </label>
           <div class="flex-fill">
-            <cats-ui-single-select id="referencePoint" [optionList]="referencePointOptions"
-              [singleSelectConfig]="singleConfig">
+            <cats-ui-single-select id="deviceType" [optionList]="deviceTypeOptions"
+              [singleSelectConfig]="singleConfig" formControlName="deviceType">
             </cats-ui-single-select>
           </div>
         </div>
         <div class="row_div d-flex align-items-center">
-          <label for="referencePoint">
+          <label for="device">
             Device<sup class="red">*</sup>
           </label>
           <div class="flex-fill">
-            <cats-ui-single-select id="referencePoint" [optionList]="referencePointOptions"
-              [singleSelectConfig]="singleConfig">
+            <cats-ui-single-select id="device" [optionList]="deviceOptions"
+              [singleSelectConfig]="singleConfig" formControlName="device">
             </cats-ui-single-select>
           </div>
         </div>
         <div class="row_div d-flex align-items-center">
-          <label for="referencePoint">
+          <label for="templateTarget">
             Target <sup class="red">*</sup>
           </label>
           <div class="flex-fill">
-            <cats-ui-single-select id="referencePoint" [optionList]="referencePointOptions"
-              [singleSelectConfig]="singleConfig">
+            <cats-ui-single-select id="templateTarget" [optionList]="templateOptions"
+              [singleSelectConfig]="singleConfig" formControlName="templateTarget">
             </cats-ui-single-select>
           </div>
         </div>
-        } @if(operationalTemplateForm.get('operation')?.value.name == 'Backup & Drift'){
+        } @if(operationName == 'Backup & Drift'){
         <div class="row_div d-flex align-items-center">
           <label for="referencePoint">
             Reference Point <sup class="red">*</sup>
@@ -276,7 +276,8 @@
           </label>
           <div class="check_btn flex-fill">
             <cats-ui-checkbox-button id="notifyCheckbox" [checkBoxConfig]="checkBoxConfig" [optionList]="taskOptions"
-              formControlName="notifyChanges" (onCheckBoxSelection)="checkBox($event)">
+              [selectedOptions]="operationalTemplateForm.get('notifyChanges')?.value" formControlName="notifyChanges"
+              (onCheckBoxSelection)="checkBox($event)">
             </cats-ui-checkbox-button>
           </div>
         </div>
@@ -290,14 +291,15 @@
             </cats-ui-multi-select>
           </div>
         </div>
-        }@if(operationalTemplateForm.get('operation')?.value.name == 'Compliance Template'){
+        }@if(operationName == 'Compliance Template'){
         <div class="row_div d-flex align-items-center">
           <label for="notifyCheckbox">
             Notify on Completion <sup class="red">*</sup>
           </label>
           <div class="check_btn flex-fill">
             <cats-ui-checkbox-button id="notifyCheckbox" [checkBoxConfig]="checkBoxConfig" [optionList]="taskOptions"
-              (onCheckBoxSelection)="checkBox($event)">
+              [selectedOptions]="operationalTemplateForm.get('notifyCompletion')?.value"
+              formControlName="notifyCompletion" (onCheckBoxSelection)="checkBox($event)">
             </cats-ui-checkbox-button>
           </div>
         </div>
@@ -307,24 +309,24 @@
           </label>
           <div class="check_btn flex-fill">
             <cats-ui-multi-select id="emailAddresses" [optionList]="emailOptionsList"
-              [multiSelectConfig]="emailMultiSelectConfig">
+              [multiSelectConfig]="emailMultiSelectConfig" formControlName="emailAddresses">
             </cats-ui-multi-select>
           </div>
         </div>
 
         <div class="row_div d-flex align-items-center">
-          <label for="operation"> Compliance Policy Type <sup class="red">*</sup> </label>
+          <label for="compliancePolicyType"> Compliance Policy Type <sup class="red">*</sup> </label>
           <div class="flex-fill">
-            <cats-ui-single-select id="operation" [optionList]="operationListOptions"
-              [singleSelectConfig]="singleConfig">
+            <cats-ui-single-select id="compliancePolicyType" [optionList]="compliancePolicyTypeOptions"
+              [singleSelectConfig]="singleConfig" formControlName="compliancePolicyType">
             </cats-ui-single-select>
           </div>
         </div>
         <div class="row_div d-flex align-items-center">
-          <label for="operation w-50"> Compliance Policy Feature* <sup class="red">*</sup> </label>
+          <label for="compliancePolicyFeature"> Compliance Policy Feature <sup class="red">*</sup> </label>
           <div class="flex-fill">
-            <cats-ui-single-select id="operation" [optionList]="operationListOptions"
-              [singleSelectConfig]="singleConfig">
+            <cats-ui-single-select id="compliancePolicyFeature" [optionList]="compliancePolicyFeatureOptions"
+              [singleSelectConfig]="singleConfig" formControlName="compliancePolicyFeature">
             </cats-ui-single-select>
           </div>
         </div>
@@ -334,7 +336,8 @@
           </label>
           <div class="check_btn flex-fill">
             <cats-ui-checkbox-button id="notifyCheckbox" [checkBoxConfig]="checkBoxConfig" [optionList]="notiFyOnChanges"
-              (onCheckBoxSelection)="checkBox($event)">
+              [selectedOptions]="operationalTemplateForm.get('complianceNotifyChanges')?.value"
+              formControlName="complianceNotifyChanges">
             </cats-ui-checkbox-button>
           </div>
         </div>
@@ -351,8 +354,14 @@
         <button type="button" class="btn btn_clear" (click)="clearForm()" aria-label="Clear all form information">
           Clear Info
         </button>
-        <button type="button" class="btn btn_blue" (click)="goNext()" aria-label="Proceed to next step">
-          Next
+        @if(submitError){
+        <span class="text-danger">{{ submitError }}</span>
+        }
+        @if(submitSuccess){
+        <span class="text-success">{{ submitSuccess }}</span>
+        }
+        <button type="button" class="btn btn_blue" (click)="goNext()" [disabled]="isSubmitting" aria-label="Proceed to next step">
+          {{ isSubmitting ? "Submitting..." : "Next" }}
         </button>
       </div>
     </div>

@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from "@angular/core";
-import { AbstractControl, AsyncValidatorFn, FormControl, FormGroup, ReactiveFormsModule, Validators } from "@angular/forms";
+import { FormControl, FormGroup, ReactiveFormsModule, Validators } from "@angular/forms";
 import {
   CheckBoxConfig,
   CustomDatePickerComponent,
@@ -8,7 +8,7 @@ import {
   RadioButtonConfig,
   SingleSelectConfig,
 } from "cats-ui-lib";
-import { catchError, forkJoin, map, of, Subject, switchMap, takeUntil, timer } from "rxjs";
+import { finalize, forkJoin, Subject, takeUntil } from "rxjs";
 interface SelectOption {
   id: number | string;
   name: string;
@@ -25,7 +25,7 @@ import { CommonModule } from "@angular/common";
   templateUrl: './forms.html',
   styleUrl: './forms.scss',
 })
-export class Forms {
+export class Forms implements OnInit {
   operationControl = new FormControl('', Validators.required);
   schedulerDetailsForm!: FormGroup;
   operationalTemplateForm!: FormGroup;
@@ -36,6 +36,11 @@ export class Forms {
   selectedRadio: any;
   captureEndDate = true;
   schedulerData: any;
+  isSubmitting = false;
+  submitted = false;
+  submitSuccess = '';
+  submitError = '';
+  lastSubmittedPayload: any;
   @Input() isInEditMode: boolean = false;
   targetOptions: SelectOption[] = [];
   frequencyTypeOptions: any[] = [];
@@ -142,9 +147,8 @@ export class Forms {
     placeholder: 'Select Time',
   }
   frequencyInputConfig: any = {
-    idField: 'id',
-    textField: 'name',
-    placeholder: 'Select Frequency',
+    type: 'number',
+    placeholder: 'Enter Frequency',
   }
   readonly frequencyTypeConfig: SingleSelectConfig = {
     idField: 'id',
@@ -153,10 +157,17 @@ export class Forms {
     placeholder: 'Select Frequency Type',
   }
 
-  readonly radioConfig: RadioButtonConfig = {
+  readonly captureEndDateRadioConfig: RadioButtonConfig = {
     valueField: 'id',
     textField: 'name',
-    name: 'Specify End Date',
+    name: 'captureEndDateRadio',
+    layout: 'horizontal',
+  };
+
+  readonly frequencyRadioConfig: RadioButtonConfig = {
+    valueField: 'id',
+    textField: 'name',
+    name: 'frequencyMode',
     layout: 'horizontal',
   };
 
@@ -210,9 +221,10 @@ export class Forms {
 
   ngOnInit(): void {
     this.scheduleByOptions = [
-      { id: 1, name: 'KumarGurmeet096@gmail.com' },
+      { id: 1, name: 'kumargumeet096@gmail.com' },
     ]
     this.initializeSchedulerDetailsForm();
+    this.watchFormChanges();
 
     this.getAllDropDownList();
   }
@@ -227,40 +239,110 @@ export class Forms {
   private initializeSchedulerDetailsForm(): void {
     this.operationalTemplateForm = new FormGroup({
       operation: new FormControl('', Validators.required),
-      scheduleBy: new FormControl({ value: { id: 1, name: 'Device Group' }, disabled: true }, Validators.required),
-      target: new FormControl('', Validators.required),
+      scheduleBy: new FormControl({ value: { id: 'device_group', name: 'Device Group' }, disabled: true }),
+      target: new FormControl(''),
       deviceGroup: new FormControl(''),
-      scheduleName: new FormControl('', Validators.required),
-      captureStartDate: new FormControl('', Validators.required),
-      startTime: new FormControl('', Validators.required),
-      startTimeZone: new FormControl('', Validators.required),
-      captureEndDate: new FormControl('', Validators.required),
-      endTime: new FormControl('', Validators.required),
-      endTimeZone: new FormControl('', Validators.required),
+      scheduleName: new FormControl(''),
+      captureStartDate: new FormControl(''),
+      startTime: new FormControl(''),
+      startTimeZone: new FormControl(''),
+      captureEndDate: new FormControl(''),
+      endTime: new FormControl(''),
+      endTimeZone: new FormControl(''),
       captureEndDateRadio: new FormControl(1, Validators.required),
-      frequency: new FormControl('', [Validators.required, Validators.pattern('^[0-9]+$')]),
-      frequencyType: new FormControl('', Validators.required),
-      referencePoint: new FormControl({ value: { id: 1, name: 'Previous Snapshot' }, disabled: true }, Validators.required),
-      notifyChanges: new FormControl(1, Validators.required),
-      emailAddresses: new FormControl([])
+      frequencyMode: new FormControl(1),
+      frequency: new FormControl(''),
+      frequencyType: new FormControl(''),
+      referencePoint: new FormControl({ value: { id: 1, name: 'Previous Snapshot' }, disabled: true }),
+      notifyChanges: new FormControl(this.getDefaultSelectedOptions(this.taskOptions)),
+      notifyCompletion: new FormControl(this.getDefaultSelectedOptions(this.taskOptions)),
+      emailAddresses: new FormControl([]),
+      executionType: new FormControl(''),
+      organization: new FormControl(''),
+      region: new FormControl(''),
+      site: new FormControl(''),
+      filterDeviceGroup: new FormControl([]),
+      deviceType: new FormControl(''),
+      device: new FormControl(''),
+      templateTarget: new FormControl(''),
+      compliancePolicyType: new FormControl(''),
+      compliancePolicyFeature: new FormControl(''),
+      complianceNotifyChanges: new FormControl(this.getDefaultSelectedOptions(this.notiFyOnChanges)),
+    });
+    this.applyOperationValidators();
+  }
+
+  clearForm(): void {
+    this.submitted = false;
+    this.submitSuccess = '';
+    this.submitError = '';
+    this.notifyChecked = false;
+    this.captureEndDate = true;
+    this.operationalTemplateForm.reset({
+      scheduleBy: { id: 'device_group', name: 'Device Group' },
+      captureEndDateRadio: 1,
+      frequencyMode: 1,
+      referencePoint: { id: 1, name: 'Previous Snapshot' },
+      notifyChanges: this.getDefaultSelectedOptions(this.taskOptions),
+      notifyCompletion: this.getDefaultSelectedOptions(this.taskOptions),
+      emailAddresses: [],
+      filterDeviceGroup: [],
+      complianceNotifyChanges: this.getDefaultSelectedOptions(this.notiFyOnChanges),
+    });
+    this.operationalTemplateForm.get('scheduleBy')?.disable({ emitEvent: false });
+    this.operationalTemplateForm.get('referencePoint')?.disable({ emitEvent: false });
+    this.applyOperationValidators();
+  }
+
+  goNext(): void {
+    this.submitted = true;
+    this.submitSuccess = '';
+    this.submitError = '';
+    this.applyOperationValidators();
+
+    if (this.operationalTemplateForm.invalid) {
+      this.operationalTemplateForm.markAllAsTouched();
+      this.submitError = 'Please fill all required fields before submitting.';
+      return;
+    }
+
+    const payload = this.buildSubmitPayload();
+    this.lastSubmittedPayload = payload;
+    this.isSubmitting = true;
+
+    const request$ =
+      this.schedulerService.isEditMode && payload.id
+        ? this.schedulerService.updateScheduler(payload.id, payload)
+        : this.schedulerService.createScheduler(payload);
+
+    request$.pipe(finalize(() => (this.isSubmitting = false))).subscribe({
+      next: () => {
+        this.submitSuccess = this.schedulerService.isEditMode
+          ? 'Scheduler updated successfully.'
+          : 'Scheduler created successfully.';
+      },
+      error: () => {
+        this.submitError = 'Unable to submit scheduler. Please check API server and try again.';
+      },
     });
   }
 
-  clearForm() {
+  onRadio(value: any): void {
+    this.captureEndDate = this.getRadioId(value) === 1;
+    this.applyOperationValidators();
+  }
 
+  onFrequencyRadio(): void {
+    this.applyOperationValidators();
   }
-  goNext() {
-    console.log(this.operationalTemplateForm.value)
-  }
-  onRadio(value: any) {
 
-  }
   checkBox(event: any): void {
     this.toggleEmailAddress(event);
   }
 
   private toggleEmailAddress(event: any): void {
-    this.notifyChecked = event?.some(
+    const selectedOptions = Array.isArray(event) ? event : [];
+    this.notifyChecked = selectedOptions.some(
       (item: any) => item.name === 'Notify other'
     );
     const emailControl = this.operationalTemplateForm.get('emailAddresses');
@@ -275,6 +357,261 @@ export class Forms {
     emailControl.updateValueAndValidity();
   }
 
+  private watchFormChanges(): void {
+    this.operationalTemplateForm
+      .get('operation')
+      ?.valueChanges.pipe(takeUntil(this.formDestroy$))
+      .subscribe(() => {
+        this.resetOperationSpecificValues();
+        this.applyOperationValidators();
+      });
+
+    this.operationalTemplateForm
+      .get('target')
+      ?.valueChanges.pipe(takeUntil(this.formDestroy$))
+      .subscribe(() => this.applyOperationValidators());
+
+    this.operationalTemplateForm
+      .get('captureEndDateRadio')
+      ?.valueChanges.pipe(takeUntil(this.formDestroy$))
+      .subscribe((value) => {
+        this.captureEndDate = this.getRadioId(value) === 1;
+        this.applyOperationValidators();
+      });
+
+    this.operationalTemplateForm
+      .get('frequencyMode')
+      ?.valueChanges.pipe(takeUntil(this.formDestroy$))
+      .subscribe(() => this.applyOperationValidators());
+  }
+
+  private applyOperationValidators(): void {
+    if (!this.operationalTemplateForm) return;
+
+    Object.keys(this.operationalTemplateForm.controls).forEach((key) => {
+      this.operationalTemplateForm.get(key)?.clearValidators();
+    });
+
+    this.setRequired('operation');
+
+    if (this.isBackupOrCompliance) {
+      this.setRequired([
+        'scheduleBy',
+        'target',
+        'scheduleName',
+        'captureStartDate',
+        'startTime',
+        'startTimeZone',
+        'captureEndDateRadio',
+      ]);
+
+      if (this.captureEndDate) {
+        this.setRequired(['captureEndDate', 'endTime', 'endTimeZone']);
+      } else {
+        this.resetControls(['captureEndDate', 'endTime', 'endTimeZone']);
+      }
+
+      if (this.isTargetDeviceGroup) {
+        this.setRequired('deviceGroup');
+      } else {
+        this.resetControls(['deviceGroup']);
+      }
+    }
+
+    if (this.operationName === 'Backup & Drift') {
+      this.setRequired(['frequency', 'frequencyType', 'referencePoint', 'notifyChanges']);
+      this.operationalTemplateForm
+        .get('frequency')
+        ?.addValidators([Validators.pattern('^[1-9][0-9]*$')]);
+    }
+
+    if (this.operationName === 'Compliance Template') {
+      this.setRequired([
+        'frequencyMode',
+        'notifyCompletion',
+        'compliancePolicyType',
+        'compliancePolicyFeature',
+      ]);
+
+      if (this.getRadioId(this.operationalTemplateForm.get('frequencyMode')?.value) === 1) {
+        this.setRequired(['frequency', 'frequencyType']);
+        this.operationalTemplateForm
+          .get('frequency')
+          ?.addValidators([Validators.pattern('^[1-9][0-9]*$')]);
+      } else {
+        this.resetControls(['frequency', 'frequencyType']);
+      }
+    }
+
+    if (this.operationName === 'Operational Template') {
+      this.setRequired(['executionType', 'deviceType', 'device', 'templateTarget']);
+    }
+
+    if (this.notifyChecked) {
+      this.setRequired('emailAddresses');
+    } else {
+      this.resetControls(['emailAddresses']);
+    }
+
+    Object.keys(this.operationalTemplateForm.controls).forEach((key) => {
+      this.operationalTemplateForm.get(key)?.updateValueAndValidity({ emitEvent: false });
+    });
+  }
+
+  private buildSubmitPayload(): any {
+    const raw = this.operationalTemplateForm.getRawValue();
+    const payload: any = {
+      operation: this.toPayloadValue(raw.operation),
+      createdAt: new Date().toISOString(),
+    };
+
+    if (this.isBackupOrCompliance) {
+      Object.assign(payload, {
+        scheduleBy: this.toPayloadValue(raw.scheduleBy),
+        target: this.toPayloadValue(raw.target),
+        deviceGroup: this.isTargetDeviceGroup ? this.toPayloadValue(raw.deviceGroup) : [],
+        scheduleName: raw.scheduleName,
+        captureStartDate: raw.captureStartDate,
+        startTime: raw.startTime,
+        startTimeZone: this.toPayloadValue(raw.startTimeZone),
+        captureEndDateType: this.toPayloadValue(raw.captureEndDateRadio),
+        captureEndDate: this.captureEndDate ? raw.captureEndDate : null,
+        endTime: this.captureEndDate ? raw.endTime : null,
+        endTimeZone: this.captureEndDate ? this.toPayloadValue(raw.endTimeZone) : null,
+      });
+    }
+
+    if (this.operationName === 'Backup & Drift') {
+      Object.assign(payload, {
+        frequency: Number(raw.frequency),
+        frequencyType: this.toPayloadValue(raw.frequencyType),
+        referencePoint: this.toPayloadValue(raw.referencePoint),
+        notifyChanges: this.toPayloadValue(raw.notifyChanges),
+        emailAddresses: this.notifyChecked ? this.toPayloadValue(raw.emailAddresses) : [],
+      });
+    }
+
+    if (this.operationName === 'Compliance Template') {
+      Object.assign(payload, {
+        frequencyMode: this.toPayloadValue(raw.frequencyMode),
+        frequency: this.getRadioId(raw.frequencyMode) === 1 ? Number(raw.frequency) : null,
+        frequencyType: this.getRadioId(raw.frequencyMode) === 1 ? this.toPayloadValue(raw.frequencyType) : null,
+        notifyCompletion: this.toPayloadValue(raw.notifyCompletion),
+        emailAddresses: this.notifyChecked ? this.toPayloadValue(raw.emailAddresses) : [],
+        compliancePolicyType: this.toPayloadValue(raw.compliancePolicyType),
+        compliancePolicyFeature: this.toPayloadValue(raw.compliancePolicyFeature),
+        complianceNotifyChanges: this.toPayloadValue(raw.complianceNotifyChanges),
+      });
+    }
+
+    if (this.operationName === 'Operational Template') {
+      Object.assign(payload, {
+        executionType: this.toPayloadValue(raw.executionType),
+        organization: this.toPayloadValue(raw.organization),
+        region: this.toPayloadValue(raw.region),
+        site: this.toPayloadValue(raw.site),
+        filterDeviceGroup: this.toPayloadValue(raw.filterDeviceGroup),
+        deviceType: this.toPayloadValue(raw.deviceType),
+        device: this.toPayloadValue(raw.device),
+        target: this.toPayloadValue(raw.templateTarget),
+      });
+    }
+
+    return payload;
+  }
+
+  private resetOperationSpecificValues(): void {
+    this.notifyChecked = false;
+    this.captureEndDate = true;
+    this.resetControls([
+      'target',
+      'deviceGroup',
+      'scheduleName',
+      'captureStartDate',
+      'startTime',
+      'startTimeZone',
+      'captureEndDate',
+      'endTime',
+      'endTimeZone',
+      'frequency',
+      'frequencyType',
+      'emailAddresses',
+      'executionType',
+      'organization',
+      'region',
+      'site',
+      'filterDeviceGroup',
+      'deviceType',
+      'device',
+      'templateTarget',
+      'compliancePolicyType',
+      'compliancePolicyFeature',
+    ]);
+    this.operationalTemplateForm.patchValue(
+      {
+        captureEndDateRadio: 1,
+        frequencyMode: 1,
+        notifyChanges: this.getDefaultSelectedOptions(this.taskOptions),
+        notifyCompletion: this.getDefaultSelectedOptions(this.taskOptions),
+        complianceNotifyChanges: this.getDefaultSelectedOptions(this.notiFyOnChanges),
+      },
+      { emitEvent: false }
+    );
+  }
+
+  private getDefaultSelectedOptions(options: any[]): any[] {
+    return options.filter((option) => option.checked);
+  }
+
+  private setRequired(controlNames: string | string[]): void {
+    const names = Array.isArray(controlNames) ? controlNames : [controlNames];
+    names.forEach((name) => this.operationalTemplateForm.get(name)?.addValidators(Validators.required));
+  }
+
+  private resetControls(controlNames: string[]): void {
+    controlNames.forEach((name) => {
+      const control = this.operationalTemplateForm.get(name);
+      const resetValue = Array.isArray(control?.value) ? [] : '';
+      control?.reset(resetValue, { emitEvent: false });
+    });
+  }
+
+  private toPayloadValue(value: any): any {
+    if (Array.isArray(value)) {
+      return value.map((item) => this.toPayloadValue(item));
+    }
+
+    if (value && typeof value === 'object') {
+      return {
+        id: value.id ?? value.key ?? value.userid ?? value.email ?? value.name,
+        name: value.name ?? value.label ?? value.email,
+      };
+    }
+
+    return value;
+  }
+
+  private getRadioId(value: any): number | string {
+    return value?.id ?? value;
+  }
+
+  get operationName(): string {
+    return this.operationalTemplateForm?.get('operation')?.value?.name ?? '';
+  }
+
+  get isBackupOrCompliance(): boolean {
+    return this.operationName === 'Backup & Drift' || this.operationName === 'Compliance Template';
+  }
+
+  get isTargetDeviceGroup(): boolean {
+    return this.operationalTemplateForm?.get('target')?.value?.name === 'Device Group';
+  }
+
+  isInvalid(controlName: string): boolean {
+    const control = this.operationalTemplateForm.get(controlName);
+    return !!control && control.invalid && (control.touched || this.submitted);
+  }
+
 
 
   getAllDropDownList() {
@@ -284,27 +621,30 @@ export class Forms {
       this.schedulerService.getOperationsDropDown(),
       this.schedulerService.getEmailsList(),
       this.schedulerService.getAllGroupList()
-    ]).subscribe({
+    ])
+      .pipe(takeUntil(this.destroy$))
+      .subscribe({
       next: (res: any[]) => {
         this.targetOptions = res[0].map((item: any, _index: number) => ({
-          key: item.key,
-          name: item.label
+          id: item.key,
+          name: item.label,
         }));
         this.frequencyTypeOptions = res[1].map((item: any, _index: number) => ({
-          key: item.key,
-          name: item.label
+          id: item.key ?? item.id,
+          name: item.label ?? item.name,
         }))
         this.operationListOptions = res[2].map((item: any, _index: number) => ({
-          key: item.key,
-          name: item.label
+          id: item.key,
+          name: item.label,
         }))
         this.emailOptionsList = res[3].map((item: any, _index: number) => ({
-          name: item.email
+          id: item.userid ?? item.email,
+          name: item.email,
         }));
         this.deviceGroupOptions = res[4]
       },
       error: (err) => {
-
+        this.submitError = 'Unable to load form dropdowns.';
       }
     });
   }

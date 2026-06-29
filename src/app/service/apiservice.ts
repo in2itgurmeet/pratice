@@ -1,7 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { jwtDecode } from 'jwt-decode';
 @Injectable({
   providedIn: 'root',
 })
@@ -40,5 +39,17 @@ isEditMode: boolean = false;
 
   getAllGroupList(): Observable<any> {
     return this.http.get(`${this.apiUrl}/device_group`);
+  }
+
+  createScheduler(payload: any): Observable<any> {
+    return this.http.post(`${this.apiUrl}/schedulers`, payload);
+  }
+
+  updateScheduler(id: string | number, payload: any): Observable<any> {
+    return this.http.put(`${this.apiUrl}/schedulers/${id}`, payload);
+  }
+
+  createScduler(payload: any): Observable<any> {
+    return this.http.post(`${this.apiUrl}/scheduler`, payload);
   }
 }

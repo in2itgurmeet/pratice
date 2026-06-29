@@ -1,61 +1,109 @@
 {
+  "schedulers": [
+    {
+      "id": "cdb6",
+      "operation": {
+        "id": "operational_template",
+        "name": "Operational Template"
+      },
+      "createdAt": "2026-06-29T12:33:14.484Z",
+      "executionType": {
+        "id": 1,
+        "name": "Scheduled"
+      },
+      "organization": {
+        "id": 1,
+        "name": "Org 1"
+      },
+      "region": {
+        "id": 1,
+        "name": "Region 1"
+      },
+      "site": {
+        "id": 1,
+        "name": "Site 1"
+      },
+      "filterDeviceGroup": [
+        {
+          "id": "5",
+          "name": "Group of Devices"
+        },
+        {
+          "id": "6",
+          "name": "DeviceGroup5May"
+        }
+      ],
+      "deviceType": {
+        "id": 2,
+        "name": "Switch"
+      },
+      "device": {
+        "id": 1,
+        "name": "Device A"
+      },
+      "target": {
+        "id": 1,
+        "name": "Template 1"
+      }
+    }
+  ],
   "device_group": [
     {
-      "id": 5,
+      "id": "5",
       "name": "Group of Devices"
     },
     {
-      "id": 6,
+      "id": "6",
       "name": "DeviceGroup5May"
     },
     {
-      "id": 7,
+      "id": "7",
       "name": "New Group to Test"
     },
     {
-      "id": 8,
+      "id": "8",
       "name": "NewDeviceGrp19May"
     },
     {
-      "id": 4,
+      "id": "4",
       "name": "Test12345"
     },
     {
-      "id": 10,
+      "id": "10",
       "name": "Routers"
     },
     {
-      "id": 11,
+      "id": "11",
       "name": "Device Group Sch"
     },
     {
-      "id": 12,
+      "id": "12",
       "name": "Group 1"
     },
     {
-      "id": 13,
+      "id": "13",
       "name": "D1"
     },
     {
-      "id": 14,
+      "id": "14",
       "name": "D2"
     },
     {
-      "id": 15,
+      "id": "15",
       "name": "D3"
     }
   ],
   "frequency-dropdown": [
     {
-      "id": 1,
+      "id": "1",
       "name": "DAYS"
     },
     {
-      "id": 2,
+      "id": "2",
       "name": "WEEKS"
     },
     {
-      "id": 3,
+      "id": "3",
       "name": "MONTHS"
     }
   ],
@@ -63,342 +111,410 @@
     {
       "username": "Shashank Gupta",
       "userid": 1,
-      "email": "shashank.gupta@capacity.com"
+      "email": "shashank.gupta@capacity.com",
+      "id": "9ee8"
     },
     {
       "username": "Arjun Singh",
       "email": "arjun.singh@in2ittech.com",
-      "userid": 2
+      "userid": 2,
+      "id": "35dc"
     },
     {
       "username": "Lokesh Sharma",
       "userid": 3,
-      "email": "lokesh.sharma@in2ittech.com"
+      "email": "lokesh.sharma@in2ittech.com",
+      "id": "60ec"
     },
     {
       "email": "rohit.patel@in2ittech.com",
       "userid": 5,
-      "username": "Rohit Patel"
+      "username": "Rohit Patel",
+      "id": "b39b"
     },
     {
       "userid": 7,
       "email": "Sneha.Bhadauria@in2ittech.com",
-      "username": "Sneha Bhadauria"
+      "username": "Sneha Bhadauria",
+      "id": "da06"
     },
     {
       "userid": 13,
       "email": "gautam.yadav@in2ittech.com",
-      "username": "Gautam Yadav"
+      "username": "Gautam Yadav",
+      "id": "1dfe"
     },
     {
       "userid": 12,
       "email": "Shubhank.Srivastava@in2ittech.com",
-      "username": "Shubhank Srivastava"
+      "username": "Shubhank Srivastava",
+      "id": "c322"
     },
     {
       "userid": 14,
       "username": "Inzamam Ul Hasan Khan",
-      "email": "Inzamam.Khan@in2ittech.com"
+      "email": "Inzamam.Khan@in2ittech.com",
+      "id": "7a1c"
     },
     {
       "userid": 9,
       "username": "Sudhir Shukla",
-      "email": "sudhir.shukla@in2ittech.com"
+      "email": "sudhir.shukla@in2ittech.com",
+      "id": "6724"
     },
     {
       "email": "prince.agrawal@in2ittech.com",
       "username": "PRINCE AGRAWAL",
-      "userid": 24
+      "userid": 24,
+      "id": "e33d"
     },
     {
       "userid": 8,
       "email": "Tarun.kumar@in2ittech.com",
-      "username": "Tarun Kumar"
+      "username": "Tarun Kumar",
+      "id": "4998"
     },
     {
       "username": "Shiva Mishra",
       "email": "shiva.mishra@in2ittech.com",
-      "userid": 17
+      "userid": 17,
+      "id": "510b"
     },
     {
       "username": "ajeet yadav",
       "email": "ajeet.yadav@in2ittech.com",
-      "userid": 22
+      "userid": 22,
+      "id": "0ea4"
     },
     {
       "userid": 20,
       "email": "piyush.singh@in2ittech.com",
-      "username": "piyush singh"
+      "username": "piyush singh",
+      "id": "06a5"
     },
     {
       "username": "Sagar Mehra",
       "userid": 21,
-      "email": "sagar.mehra@in2ittech.com"
+      "email": "sagar.mehra@in2ittech.com",
+      "id": "afc6"
     },
     {
       "username": "krishanKant kushwaha",
       "email": "Krishankant.Kushwaha@in2ittech.com",
-      "userid": 33
+      "userid": 33,
+      "id": "bcad"
     },
     {
       "username": "Jitendra Kumar",
       "email": "Jitendra.Kumar@in2ittech.com",
-      "userid": 16
+      "userid": 16,
+      "id": "e75d"
     },
     {
       "username": "Ankita Srivastava ",
       "userid": 10,
-      "email": "ankita.srivastava@in2ittech.com"
+      "email": "ankita.srivastava@in2ittech.com",
+      "id": "6552"
     },
     {
       "username": "Upendra Yadav",
       "userid": 11,
-      "email": "upendra.yadav@in2ittech.com"
+      "email": "upendra.yadav@in2ittech.com",
+      "id": "25ca"
     },
     {
       "userid": 15,
       "username": "Shubham Kumar",
-      "email": "Shubham.Kumar@in2ittech.com"
+      "email": "Shubham.Kumar@in2ittech.com",
+      "id": "c16b"
     },
     {
       "userid": 27,
       "username": "Neeraj Kumar",
-      "email": "Neeraj.Kumar@in2ittech.com"
+      "email": "Neeraj.Kumar@in2ittech.com",
+      "id": "8097"
     },
     {
       "email": "neha.sain@in2ittech.com",
       "username": "NEHA SAIN",
-      "userid": 34
+      "userid": 34,
+      "id": "f6a9"
     },
     {
       "username": "piyush chauhan",
       "email": "Piyush.Chauhan@in2ittech.com",
-      "userid": 23
+      "userid": 23,
+      "id": "0192"
     },
     {
       "userid": 25,
       "email": "Shashank.gupta@in2ittech.com",
-      "username": "Shashank gupta"
+      "username": "Shashank gupta",
+      "id": "cbc0"
     },
     {
       "userid": 31,
       "email": "Anand.Pandey@in2ittech.com",
-      "username": "anand pandey"
+      "username": "anand pandey",
+      "id": "883f"
     },
     {
       "userid": 45,
       "username": "Himanshi Tyagi",
-      "email": "Himanshi.Tyagi@in2ittech.com"
+      "email": "Himanshi.Tyagi@in2ittech.com",
+      "id": "f174"
     },
     {
       "username": "gurmeet prajapati",
       "email": "Gurmeet.Prajapati@in2ittech.com",
-      "userid": 32
+      "userid": 32,
+      "id": "31a9"
     },
     {
       "username": "aditi bhatia",
       "userid": 53,
-      "email": "Aditi.Bhatia@in2ittech.com"
+      "email": "Aditi.Bhatia@in2ittech.com",
+      "id": "946f"
     },
     {
       "username": "ankush pal",
       "email": "Ankush.Pal@in2ittech.com",
-      "userid": 35
+      "userid": 35,
+      "id": "bf00"
     },
     {
       "username": "nipur singh",
       "userid": 41,
-      "email": "nipur.singh@in2ittech.com"
+      "email": "nipur.singh@in2ittech.com",
+      "id": "2680"
     },
     {
       "email": "Aakarsh.Kamboj@in2ittech.com",
       "userid": 37,
-      "username": "askarsh kamboj"
+      "username": "askarsh kamboj",
+      "id": "3f27"
     },
     {
       "userid": 46,
       "email": "Keshav.Kanoongo@in2ittech.com",
-      "username": "Keshav Kanoongo"
+      "username": "Keshav Kanoongo",
+      "id": "3bad"
     },
     {
       "username": "pratibha sharma",
       "email": "Pratibha.Sharma@in2ittech.com",
-      "userid": 39
+      "userid": 39,
+      "id": "af80"
     },
     {
       "username": "Ansh  Tyagi",
       "email": "Ansh.Tyagi@in2ittech.com",
-      "userid": 38
+      "userid": 38,
+      "id": "e916"
     },
     {
       "userid": 47,
       "username": "Vijay Tak",
-      "email": "Vijay.Tak@in2ittech.com"
+      "email": "Vijay.Tak@in2ittech.com",
+      "id": "d1c3"
     },
     {
       "username": "Shubhank  Srivastava",
       "userid": 49,
-      "email": "Shubhank.Srivastava@in2ittech.com"
+      "email": "Shubhank.Srivastava@in2ittech.com",
+      "id": "8290"
     },
     {
       "email": "Piyush.Singh1@in2ittech.com",
       "userid": 50,
-      "username": "piyush singh"
+      "username": "piyush singh",
+      "id": "3156"
     },
     {
       "username": "Ankita  Srivastava",
       "userid": 48,
-      "email": "ankita.srivastava@in2ittech.com"
+      "email": "ankita.srivastava@in2ittech.com",
+      "id": "bc06"
     },
     {
       "userid": 52,
       "username": "Shubham  kumar",
-      "email": "Shubham.Kumar@in2ittech.com"
+      "email": "Shubham.Kumar@in2ittech.com",
+      "id": "7cee"
     },
     {
       "username": "Jitendra  Kumar",
       "email": "Jitendra.Kumar@in2ittech.com",
-      "userid": 51
+      "userid": 51,
+      "id": "9351"
     },
     {
       "username": "neetanshi singh",
       "userid": 43,
-      "email": "Neelanshi.Singh@in2ittech.com"
+      "email": "Neelanshi.Singh@in2ittech.com",
+      "id": "7d54"
     },
     {
       "username": "gurmeet prajapati",
       "userid": 55,
-      "email": "gurmeet.prajapati@in2ittech.com"
+      "email": "gurmeet.prajapati@in2ittech.com",
+      "id": "82a4"
     },
     {
       "email": "Chandan.Chaudhary@in2ittech.com",
       "userid": 56,
-      "username": "Chandan Chaudhary"
+      "username": "Chandan Chaudhary",
+      "id": "0b46"
     },
     {
       "username": "dheeraj kumar",
       "userid": 54,
-      "email": "dheeraj.kumar@in2ittech.com"
+      "email": "dheeraj.kumar@in2ittech.com",
+      "id": "40eb"
     },
     {
       "userid": 57,
       "username": "dheeraj mishra",
-      "email": "Dheeraj.Mishra@in2ittech.com"
+      "email": "Dheeraj.Mishra@in2ittech.com",
+      "id": "a7d6"
     },
     {
       "email": "Rudra.Srivastava@in2ittech.com",
       "userid": 58,
-      "username": "Rudra Srivastava"
+      "username": "Rudra Srivastava",
+      "id": "d966"
     },
     {
       "username": "ajay taak",
       "userid": 40,
-      "email": "Ajay.Taak@in2ittech.com"
+      "email": "Ajay.Taak@in2ittech.com",
+      "id": "89ba"
     },
     {
       "username": "gautam kumar",
       "email": "Gautam.Kumar@in2ittech.com",
-      "userid": 59
+      "userid": 59,
+      "id": "7c23"
     },
     {
       "username": "chandan kumar",
       "email": "Chandan.Chaudhary@in2ittech.com",
-      "userid": 36
+      "userid": 36,
+      "id": "9529"
     },
     {
       "email": "divya.kumari@in2ittech.com",
       "username": "Divya  Kumari",
-      "userid": 42
+      "userid": 42,
+      "id": "22a8"
     },
     {
       "userid": 44,
       "email": "Nitin@in2ittech.com",
-      "username": "Nitin"
+      "username": "Nitin",
+      "id": "f018"
     },
     {
       "username": "Lokesh Sharma",
       "userid": 85,
-      "email": "lokesh.sharma@in2ittech.com"
+      "email": "lokesh.sharma@in2ittech.com",
+      "id": "a9c8"
     },
     {
       "email": "amit.kumar@in2ittech.com",
       "userid": 89,
-      "username": "Amit kumar"
+      "username": "Amit kumar",
+      "id": "cd5a"
     },
     {
       "userid": 91,
       "username": "Navneet verma",
-      "email": "Navneet.Verma@in2ittech.com"
+      "email": "Navneet.Verma@in2ittech.com",
+      "id": "e19a"
     },
     {
       "username": "Aniket kaushik",
       "email": "aniket.kaushik@in2ittech.com",
-      "userid": 87
+      "userid": 87,
+      "id": "fc00"
     },
     {
       "email": "Ashutosh.Tripathi@in2ittech.com",
       "userid": 92,
-      "username": "Ashutosh Tripathi"
+      "username": "Ashutosh Tripathi",
+      "id": "f2ca"
     },
     {
       "email": "Sachin.Gupta01@in2ittech.com",
       "userid": 86,
-      "username": "Sachin Gupta"
+      "username": "Sachin Gupta",
+      "id": "0f0b"
     },
     {
       "username": "Arjun Singh",
       "email": "arjun.singh@in2ittech.com",
-      "userid": 88
+      "userid": 88,
+      "id": "c65c"
     },
     {
       "userid": 94,
       "username": "Piyush Chauhan",
-      "email": "Piyush.Chauhan@in2ittech.com"
+      "email": "Piyush.Chauhan@in2ittech.com",
+      "id": "d3df"
     },
     {
       "userid": 93,
       "username": "Aditi Bhatia",
-      "email": "Aditi.Bhatia@in2ittech.com"
+      "email": "Aditi.Bhatia@in2ittech.com",
+      "id": "7018"
     },
     {
       "userid": 90,
       "username": "Ayush Rawat",
-      "email": "Ayush.Rawat@in2ittech.com"
+      "email": "Ayush.Rawat@in2ittech.com",
+      "id": "b38e"
     },
     {
       "userid": 95,
       "username": "Ayush Rawat",
-      "email": "Ayush.Rawat@in2ittech.com"
+      "email": "Ayush.Rawat@in2ittech.com",
+      "id": "4b78"
     }
   ],
   "target-dropdown": [
     {
       "key": "all_devices",
       "label": "All Devices",
-      "count": 572
+      "count": 572,
+      "id": "811a"
     },
     {
       "key": "device_group",
       "label": "Device Group",
-      "count": 11
+      "count": 11,
+      "id": "3d47"
     }
   ],
   "operations-dropdown": [
     {
       "key": "backup_and_drift",
-      "label": "Backup & Drift"
+      "label": "Backup & Drift",
+      "id": "f19e"
     },
     {
       "key": "operational_template",
-      "label": "Operational Template"
+      "label": "Operational Template",
+      "id": "0ec2"
     },
     {
       "key": "compliance_template",
-      "label": "Compliance Template"
+      "label": "Compliance Template",
+      "id": "57f4"
     },
     {
       "key": "configurational_template",
-      "label": "Configurational Template"
+      "label": "Configurational Template",
+      "id": "104b"
     }
   ]
 }
