@@ -8,7 +8,8 @@
         <span class="title_text">{{
           schedulerService.isEditMode ? "Edit Scheduler" : "Create Scheduler"
           }}</span>
-        <span class="badge blue">Step 1: Scheduler Details</span>
+        <span class="badge blue" >Step 1: Scheduler Details</span>
+        <button (click)="getDataByid(3)">PatchData</button>
       </div>
       <div class="icons_details">
         <img src="assets/svg-icon/expand-screen.svg" alt="expand screen" class="cursor-pointer" />
@@ -114,7 +115,7 @@
           <div class="add_plus_input flex-fill">
             <div class="radio_btn">
               <cats-ui-radio-button [config]="captureEndDateRadioConfig" [optionList]="optionsRadio"
-                formControlName="captureEndDateRadio" >
+                formControlName="captureEndDateRadio">
               </cats-ui-radio-button>
             </div>
             <ng-container *ngIf="captureEndDate">
@@ -158,7 +159,7 @@
             }@else {
             <div class="radio_btn w-100">
               <cats-ui-radio-button [config]="frequencyRadioConfig" [optionList]="frequencyOptions"
-                formControlName="frequencyMode"  (radioChange)="onRadio($event)">
+                formControlName="frequencyMode" >
               </cats-ui-radio-button>
             </div>
             }
@@ -201,16 +202,16 @@
         <div class="row_div d-flex align-items-center">
           <label for="region"> Filter Device By Region </label>
           <div class="flex-fill">
-            <cats-ui-single-select id="region" [optionList]="regionOptions"
-              [singleSelectConfig]="singleConfig" formControlName="region">
+            <cats-ui-single-select id="region" [optionList]="regionOptions" [singleSelectConfig]="singleConfig"
+              formControlName="region">
             </cats-ui-single-select>
           </div>
         </div>
         <div class="row_div d-flex align-items-center">
           <label for="site"> Filter Device By Site </label>
           <div class="flex-fill">
-            <cats-ui-single-select id="site" [optionList]="siteOptions"
-              [singleSelectConfig]="singleConfig" formControlName="site">
+            <cats-ui-single-select id="site" [optionList]="siteOptions" [singleSelectConfig]="singleConfig"
+              formControlName="site">
             </cats-ui-single-select>
           </div>
         </div>
@@ -234,8 +235,8 @@
             Filter By Device Type <sup class="red">*</sup>
           </label>
           <div class="flex-fill">
-            <cats-ui-single-select id="deviceType" [optionList]="deviceTypeOptions"
-              [singleSelectConfig]="singleConfig" formControlName="deviceType">
+            <cats-ui-single-select id="deviceType" [optionList]="deviceTypeOptions" [singleSelectConfig]="singleConfig"
+              formControlName="deviceType">
             </cats-ui-single-select>
           </div>
         </div>
@@ -244,8 +245,8 @@
             Device<sup class="red">*</sup>
           </label>
           <div class="flex-fill">
-            <cats-ui-single-select id="device" [optionList]="deviceOptions"
-              [singleSelectConfig]="singleConfig" formControlName="device">
+            <cats-ui-single-select id="device" [optionList]="deviceOptions" [singleSelectConfig]="singleConfig"
+              formControlName="device">
             </cats-ui-single-select>
           </div>
         </div>
@@ -276,8 +277,7 @@
           </label>
           <div class="check_btn flex-fill">
             <cats-ui-checkbox-button id="notifyCheckbox" [checkBoxConfig]="checkBoxConfig" [optionList]="taskOptions"
-              [selectedOptions]="operationalTemplateForm.get('notifyChanges')?.value" formControlName="notifyChanges"
-              (onCheckBoxSelection)="checkBox($event)">
+              formControlName="notifyChanges" (onCheckBoxSelection)="checkBox($event)">
             </cats-ui-checkbox-button>
           </div>
         </div>
@@ -298,7 +298,6 @@
           </label>
           <div class="check_btn flex-fill">
             <cats-ui-checkbox-button id="notifyCheckbox" [checkBoxConfig]="checkBoxConfig" [optionList]="taskOptions"
-              [selectedOptions]="operationalTemplateForm.get('notifyCompletion')?.value"
               formControlName="notifyCompletion" (onCheckBoxSelection)="checkBox($event)">
             </cats-ui-checkbox-button>
           </div>
@@ -332,11 +331,12 @@
         </div>
         <div class="row_div d-flex align-items-center">
           <label for="notifyCheckbox">
-            Notify on Changes 
+            Notify on Changes
           </label>
           <div class="check_btn flex-fill">
-            <cats-ui-checkbox-button id="notifyCheckbox" [checkBoxConfig]="checkBoxConfig" [optionList]="notiFyOnChanges"
-              [selectedOptions]="operationalTemplateForm.get('complianceNotifyChanges')?.value"
+            <cats-ui-checkbox-button id="notifyCheckbox" [checkBoxConfig]="checkBoxConfig"
+              [optionList]="notiFyOnChanges"
+             
               formControlName="complianceNotifyChanges">
             </cats-ui-checkbox-button>
           </div>
@@ -360,7 +360,8 @@
         @if(submitSuccess){
         <span class="text-success">{{ submitSuccess }}</span>
         }
-        <button type="button" class="btn btn_blue" (click)="goNext()" [disabled]="isSubmitting" aria-label="Proceed to next step">
+        <button type="button" class="btn btn_blue" (click)="goNext()" [disabled]="isSubmitting"
+          aria-label="Proceed to next step">
           {{ isSubmitting ? "Submitting..." : "Next" }}
         </button>
       </div>

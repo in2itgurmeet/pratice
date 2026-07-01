@@ -1,7 +1,7 @@
 {
   "schedulers": [
     {
-      "id": "cdb6",
+      "id": "1",
       "operation": {
         "id": "operational_template",
         "name": "Operational Template"
@@ -45,6 +45,304 @@
         "id": 1,
         "name": "Template 1"
       }
+    },
+    {
+      "id": "2",
+      "operation": {
+        "id": "compliance_template",
+        "name": "Compliance Template"
+      },
+      "createdAt": "2026-06-30T05:08:18.344Z",
+      "scheduleBy": {
+        "id": 1,
+        "name": "kumargumeet096@gmail.com"
+      },
+      "target": {
+        "id": "device_group",
+        "name": "Device Group"
+      },
+      "deviceGroup": [
+        {
+          "id": "5",
+          "name": "Group of Devices"
+        },
+        {
+          "id": "6",
+          "name": "DeviceGroup5May"
+        }
+      ],
+      "scheduleName": "jajkdfasdf",
+      "captureStartDate": "06/18/2026",
+      "startTime": "f343",
+      "startTimeZone": {
+        "id": 2,
+        "name": "UTC"
+      },
+      "captureEndDateType": {
+        "id": 2,
+        "name": "Never"
+      },
+      "captureEndDate": null,
+      "endTime": null,
+      "endTimeZone": null,
+      "frequencyMode": {
+        "id": 2,
+        "name": "Not Repeat"
+      },
+      "frequency": null,
+      "frequencyType": null,
+      "notifyCompletion": [
+        {
+          "id": 1,
+          "name": "Notify Me"
+        },
+        {
+          "id": 2,
+          "name": "Notify other"
+        }
+      ],
+      "emailAddresses": [
+        {
+          "id": 1,
+          "name": "shashank.gupta@capacity.com"
+        },
+        {
+          "id": 2,
+          "name": "arjun.singh@in2ittech.com"
+        },
+        {
+          "id": 3,
+          "name": "lokesh.sharma@in2ittech.com"
+        }
+      ],
+      "compliancePolicyType": {
+        "id": 1,
+        "name": "Policy Type 1"
+      },
+      "compliancePolicyFeature": {
+        "id": 1,
+        "name": "Feature 1"
+      },
+      "complianceNotifyChanges": [
+        {
+          "id": 1,
+          "name": "System Notify"
+        },
+        {
+          "id": 2,
+          "name": "Notify Me"
+        },
+        {
+          "id": 3,
+          "name": "Notify other"
+        }
+      ]
+    },
+    {
+      "id": "3",
+      "operation": {
+        "id": "compliance_template",
+        "name": "Compliance Template"
+      },
+      "createdAt": "2026-07-01T05:14:22.176Z",
+      "scheduleBy": {
+        "id": 1,
+        "name": "kumargumeet096@gmail.com"
+      },
+      "target": {
+        "id": "device_group",
+        "name": "Device Group"
+      },
+      "deviceGroup": [
+        {
+          "id": "5",
+          "name": "Group of Devices"
+        },
+        {
+          "id": "6",
+          "name": "DeviceGroup5May"
+        },
+        {
+          "id": "7",
+          "name": "New Group to Test"
+        }
+      ],
+      "scheduleName": "testing",
+      "captureStartDate": "07/02/2026",
+      "startTime": "22",
+      "startTimeZone": {
+        "id": 1,
+        "name": "IST"
+      },
+      "captureEndDateType": {
+        "id": 1,
+        "name": "Specify End Date"
+      },
+      "captureEndDate": "07/02/2026",
+      "endTime": "22",
+      "endTimeZone": {
+        "id": 1,
+        "name": "IST"
+      },
+      "frequencyMode": {
+        "id": 2,
+        "name": "Not Repeat"
+      },
+      "frequency": null,
+      "frequencyType": null,
+      "notifyCompletion": [
+        {
+          "id": 1,
+          "name": "Notify Me"
+        },
+        {
+          "id": 2,
+          "name": "Notify other"
+        }
+      ],
+      "emailAddresses": [
+        {
+          "id": 2,
+          "name": "arjun.singh@in2ittech.com"
+        },
+        {
+          "id": 1,
+          "name": "shashank.gupta@capacity.com"
+        },
+        {
+          "id": 3,
+          "name": "lokesh.sharma@in2ittech.com"
+        }
+      ],
+      "compliancePolicyType": {
+        "id": 1,
+        "name": "Policy Type 1"
+      },
+      "compliancePolicyFeature": {
+        "id": 1,
+        "name": "Feature 1"
+      },
+      "complianceNotifyChanges": [
+        {
+          "id": 1,
+          "name": "System Notify"
+        },
+        {
+          "id": 2,
+          "name": "Notify Me"
+        },
+        {
+          "id": 3,
+          "name": "Notify other"
+        }
+      ]
+    },
+    {
+      "id": "4",
+      "operation": {
+        "id": "compliance_template",
+        "name": "Compliance Template"
+      },
+      "createdAt": "2026-07-01T12:46:02.905Z",
+      "scheduleBy": {
+        "id": 1,
+        "name": "kumargumeet096@gmail.com"
+      },
+      "target": {
+        "id": "device_group",
+        "name": "Device Group"
+      },
+      "deviceGroup": [
+        {
+          "id": "5",
+          "name": "Group of Devices"
+        },
+        {
+          "id": "6",
+          "name": "DeviceGroup5May"
+        },
+        {
+          "id": "7",
+          "name": "New Group to Test"
+        }
+      ],
+      "scheduleName": "testing",
+      "captureStartDate": "07/02/2026",
+      "startTime": "22",
+      "startTimeZone": {
+        "id": 1,
+        "name": "IST"
+      },
+      "captureEndDateType": {
+        "id": 1,
+        "name": "Specify End Date"
+      },
+      "captureEndDate": "07/02/2026",
+      "endTime": "22",
+      "endTimeZone": {
+        "id": 1,
+        "name": "IST"
+      },
+      "frequencyMode": {
+        "id": 2,
+        "name": "Not Repeat"
+      },
+      "frequency": null,
+      "frequencyType": null,
+      "notifyCompletion": [
+        {
+          "id": 1,
+          "name": "Notify Me"
+        },
+        {
+          "id": 2,
+          "name": "Notify other"
+        }
+      ],
+      "emailAddresses": [
+        {
+          "id": 2,
+          "name": "arjun.singh@in2ittech.com"
+        },
+        {
+          "id": 1,
+          "name": "shashank.gupta@capacity.com"
+        },
+        {
+          "id": 3,
+          "name": "lokesh.sharma@in2ittech.com"
+        },
+        {
+          "id": 5,
+          "name": "rohit.patel@in2ittech.com"
+        },
+        {
+          "id": 7,
+          "name": "Sneha.Bhadauria@in2ittech.com"
+        }
+      ],
+      "compliancePolicyType": {
+        "id": 1,
+        "name": "Policy Type 1"
+      },
+      "compliancePolicyFeature": {
+        "id": 1,
+        "name": "Feature 1"
+      },
+      "complianceNotifyChanges": [
+        {
+          "id": 1,
+          "name": "System Notify"
+        },
+        {
+          "id": 2,
+          "name": "Notify Me"
+        },
+        {
+          "id": 3,
+          "name": "Notify other"
+        }
+      ]
     }
   ],
   "device_group": [

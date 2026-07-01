@@ -52,4 +52,11 @@ isEditMode: boolean = false;
   createScduler(payload: any): Observable<any> {
     return this.http.post(`${this.apiUrl}/scheduler`, payload);
   }
+
+  getAllSchduler(): Observable<any> {
+    return this.http.get(`${this.apiUrl}/schedulers`);
+  }
+  getSchedulerById(id: string | number): Observable<any> {
+    return this.http.get(`${this.apiUrl}/schedulers/${id}`);
+  }
 }

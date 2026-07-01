@@ -13,11 +13,13 @@ interface SelectOption {
   id: number | string;
   name: string;
   disable?: boolean;
+  apiId?: number | string;
 }
 import { CheckboxButtonComponent, InputComponent, MultiSelectComponent, RadioButtonComponent, SingleSelectComponent } from 'cats-ui-lib';
 import { Apiservice } from "../../service/apiservice";
 import { FeatherModule } from "angular-feather";
 import { CommonModule } from "@angular/common";
+import { RouterLink } from "@angular/router";
 
 @Component({
   selector: 'app-forms',
@@ -50,6 +52,8 @@ export class Forms implements OnInit {
   scheduleByOptions: any[] = [];
   private destroy$ = new Subject<void>();
   private formDestroy$ = new Subject<void>();
+  private readonly captureEndDateSpecifyValue = 'capture_specify_end_date';
+  private readonly frequencyRepeatValue = 'frequency_repeat';
 
   readonly referencePointOptions: SelectOption[] = [
     { id: 1, name: 'Previous Snapshot' },
@@ -121,12 +125,12 @@ export class Forms implements OnInit {
   ];
 
   readonly optionsRadio: SelectOption[] = [
-    { id: 1, name: 'Specify End Date' },
-    { id: 2, name: 'Never' },
+    { id: this.captureEndDateSpecifyValue, name: 'Specify End Date', apiId: 1 },
+    { id: 'capture_never', name: 'Never', apiId: 2 },
   ];
   readonly frequencyOptions: SelectOption[] = [
-    { id: 1, name: 'Repeat' },
-    { id: 2, name: 'Not Repeat' },
+    { id: this.frequencyRepeatValue, name: 'Repeat', apiId: 1 },
+    { id: 'frequency_not_repeat', name: 'Not Repeat', apiId: 2 },
   ];
   readonly singleConfig: SingleSelectConfig = {
     idField: 'id',
@@ -220,15 +224,23 @@ export class Forms implements OnInit {
   tokenValue: any
 
   ngOnInit(): void {
+    // console.log('ngOnInit');
     this.scheduleByOptions = [
       { id: 1, name: 'kumargumeet096@gmail.com' },
     ]
     this.initializeSchedulerDetailsForm();
     this.watchFormChanges();
-
+    // this.operationalTemplateForm
+    //   .get('operation')
+    //   ?.valueChanges
+    //   .subscribe(() => {
+    //     this.resetOperationSpecificValues();
+    //     this.applyOperationValidators();
+    //   });
     this.getAllDropDownList();
   }
   ngOnDestroy(): void {
+    // console.log('ngOnDestroy');
     this.destroy$.next();
     this.destroy$.complete();
     this.formDestroy$.next();
@@ -239,7 +251,7 @@ export class Forms implements OnInit {
   private initializeSchedulerDetailsForm(): void {
     this.operationalTemplateForm = new FormGroup({
       operation: new FormControl('', Validators.required),
-      scheduleBy: new FormControl({ value: { id: 'device_group', name: 'Device Group' }, disabled: true }),
+      scheduleBy: new FormControl({ value: this.scheduleByOptions[0], disabled: true }),
       target: new FormControl(''),
       deviceGroup: new FormControl(''),
       scheduleName: new FormControl(''),
@@ -249,13 +261,13 @@ export class Forms implements OnInit {
       captureEndDate: new FormControl(''),
       endTime: new FormControl(''),
       endTimeZone: new FormControl(''),
-      captureEndDateRadio: new FormControl(1, Validators.required),
-      frequencyMode: new FormControl(1),
+      captureEndDateRadio: new FormControl(this.captureEndDateSpecifyValue, Validators.required),
+      frequencyMode: new FormControl(this.frequencyRepeatValue),
       frequency: new FormControl(''),
       frequencyType: new FormControl(''),
       referencePoint: new FormControl({ value: { id: 1, name: 'Previous Snapshot' }, disabled: true }),
-      notifyChanges: new FormControl(this.getDefaultSelectedOptions(this.taskOptions)),
-      notifyCompletion: new FormControl(this.getDefaultSelectedOptions(this.taskOptions)),
+      notifyChanges: new FormControl(),
+      notifyCompletion: new FormControl(),
       emailAddresses: new FormControl([]),
       executionType: new FormControl(''),
       organization: new FormControl(''),
@@ -267,7 +279,7 @@ export class Forms implements OnInit {
       templateTarget: new FormControl(''),
       compliancePolicyType: new FormControl(''),
       compliancePolicyFeature: new FormControl(''),
-      complianceNotifyChanges: new FormControl(this.getDefaultSelectedOptions(this.notiFyOnChanges)),
+      complianceNotifyChanges: new FormControl(),
     });
     this.applyOperationValidators();
   }
@@ -278,16 +290,17 @@ export class Forms implements OnInit {
     this.submitError = '';
     this.notifyChecked = false;
     this.captureEndDate = true;
+    console.log('forms-rest')
     this.operationalTemplateForm.reset({
       scheduleBy: { id: 'device_group', name: 'Device Group' },
-      captureEndDateRadio: 1,
-      frequencyMode: 1,
+      captureEndDateRadio: this.captureEndDateSpecifyValue,
+      frequencyMode: this.frequencyRepeatValue,
       referencePoint: { id: 1, name: 'Previous Snapshot' },
-      notifyChanges: this.getDefaultSelectedOptions(this.taskOptions),
-      notifyCompletion: this.getDefaultSelectedOptions(this.taskOptions),
+      notifyChanges: 1,
+      notifyCompletion: 1,
       emailAddresses: [],
       filterDeviceGroup: [],
-      complianceNotifyChanges: this.getDefaultSelectedOptions(this.notiFyOnChanges),
+      complianceNotifyChanges: 1,
     });
     this.operationalTemplateForm.get('scheduleBy')?.disable({ emitEvent: false });
     this.operationalTemplateForm.get('referencePoint')?.disable({ emitEvent: false });
@@ -327,10 +340,10 @@ export class Forms implements OnInit {
     });
   }
 
-  onRadio(value: any): void {
-    this.captureEndDate = this.getRadioId(value) === 1;
-    this.applyOperationValidators();
-  }
+  // onRadio(value: any): void {
+  //   this.captureEndDate = this.getRadioId(value) === this.captureEndDateSpecifyValue;
+  //   this.applyOperationValidators();
+  // }
 
   onFrequencyRadio(): void {
     this.applyOperationValidators();
@@ -340,32 +353,25 @@ export class Forms implements OnInit {
     this.toggleEmailAddress(event);
   }
 
-  private toggleEmailAddress(event: any): void {
-    const selectedOptions = Array.isArray(event) ? event : [];
-    this.notifyChecked = selectedOptions.some(
-      (item: any) => item.name === 'Notify other'
-    );
-    const emailControl = this.operationalTemplateForm.get('emailAddresses');
-    if (!emailControl) return;
-    if (this.notifyChecked) {
-      emailControl.setValidators([Validators.required]);
-    } else {
-      emailControl.clearValidators();
+private toggleEmailAddress(event: any, isPatch = false): void {
+  const selectedOptions = Array.isArray(event) ? event : [];
+  this.notifyChecked = selectedOptions.some(
+    (item: any) => item.name === 'Notify other' && item.checked
+  );
+  const emailControl = this.operationalTemplateForm.get('emailAddresses');
+  if (!emailControl) return;
+  if (this.notifyChecked) {
+    emailControl.setValidators([Validators.required]);
+  } else {
+    emailControl.clearValidators();
+    if (!isPatch) {
       emailControl.reset([]);
     }
-
-    emailControl.updateValueAndValidity();
   }
+  emailControl.updateValueAndValidity({ emitEvent: false });
+}
 
   private watchFormChanges(): void {
-    this.operationalTemplateForm
-      .get('operation')
-      ?.valueChanges.pipe(takeUntil(this.formDestroy$))
-      .subscribe(() => {
-        this.resetOperationSpecificValues();
-        this.applyOperationValidators();
-      });
-
     this.operationalTemplateForm
       .get('target')
       ?.valueChanges.pipe(takeUntil(this.formDestroy$))
@@ -375,25 +381,17 @@ export class Forms implements OnInit {
       .get('captureEndDateRadio')
       ?.valueChanges.pipe(takeUntil(this.formDestroy$))
       .subscribe((value) => {
-        this.captureEndDate = this.getRadioId(value) === 1;
+        this.captureEndDate = this.getRadioId(value) === this.captureEndDateSpecifyValue;
         this.applyOperationValidators();
       });
-
-    this.operationalTemplateForm
-      .get('frequencyMode')
-      ?.valueChanges.pipe(takeUntil(this.formDestroy$))
-      .subscribe(() => this.applyOperationValidators());
   }
 
   private applyOperationValidators(): void {
     if (!this.operationalTemplateForm) return;
-
     Object.keys(this.operationalTemplateForm.controls).forEach((key) => {
       this.operationalTemplateForm.get(key)?.clearValidators();
     });
-
     this.setRequired('operation');
-
     if (this.isBackupOrCompliance) {
       this.setRequired([
         'scheduleBy',
@@ -417,14 +415,12 @@ export class Forms implements OnInit {
         this.resetControls(['deviceGroup']);
       }
     }
-
     if (this.operationName === 'Backup & Drift') {
       this.setRequired(['frequency', 'frequencyType', 'referencePoint', 'notifyChanges']);
       this.operationalTemplateForm
         .get('frequency')
         ?.addValidators([Validators.pattern('^[1-9][0-9]*$')]);
     }
-
     if (this.operationName === 'Compliance Template') {
       this.setRequired([
         'frequencyMode',
@@ -432,8 +428,7 @@ export class Forms implements OnInit {
         'compliancePolicyType',
         'compliancePolicyFeature',
       ]);
-
-      if (this.getRadioId(this.operationalTemplateForm.get('frequencyMode')?.value) === 1) {
+      if (this.isFrequencyRepeat) {
         this.setRequired(['frequency', 'frequencyType']);
         this.operationalTemplateForm
           .get('frequency')
@@ -442,17 +437,14 @@ export class Forms implements OnInit {
         this.resetControls(['frequency', 'frequencyType']);
       }
     }
-
     if (this.operationName === 'Operational Template') {
       this.setRequired(['executionType', 'deviceType', 'device', 'templateTarget']);
     }
-
     if (this.notifyChecked) {
       this.setRequired('emailAddresses');
     } else {
       this.resetControls(['emailAddresses']);
     }
-
     Object.keys(this.operationalTemplateForm.controls).forEach((key) => {
       this.operationalTemplateForm.get(key)?.updateValueAndValidity({ emitEvent: false });
     });
@@ -464,7 +456,6 @@ export class Forms implements OnInit {
       operation: this.toPayloadValue(raw.operation),
       createdAt: new Date().toISOString(),
     };
-
     if (this.isBackupOrCompliance) {
       Object.assign(payload, {
         scheduleBy: this.toPayloadValue(raw.scheduleBy),
@@ -474,7 +465,7 @@ export class Forms implements OnInit {
         captureStartDate: raw.captureStartDate,
         startTime: raw.startTime,
         startTimeZone: this.toPayloadValue(raw.startTimeZone),
-        captureEndDateType: this.toPayloadValue(raw.captureEndDateRadio),
+        captureEndDateType: this.toRadioPayload(raw.captureEndDateRadio, this.optionsRadio),
         captureEndDate: this.captureEndDate ? raw.captureEndDate : null,
         endTime: this.captureEndDate ? raw.endTime : null,
         endTimeZone: this.captureEndDate ? this.toPayloadValue(raw.endTimeZone) : null,
@@ -493,9 +484,9 @@ export class Forms implements OnInit {
 
     if (this.operationName === 'Compliance Template') {
       Object.assign(payload, {
-        frequencyMode: this.toPayloadValue(raw.frequencyMode),
-        frequency: this.getRadioId(raw.frequencyMode) === 1 ? Number(raw.frequency) : null,
-        frequencyType: this.getRadioId(raw.frequencyMode) === 1 ? this.toPayloadValue(raw.frequencyType) : null,
+        frequencyMode: this.toRadioPayload(raw.frequencyMode, this.frequencyOptions),
+        frequency: this.getRadioId(raw.frequencyMode) === this.frequencyRepeatValue ? Number(raw.frequency) : null,
+        frequencyType: this.getRadioId(raw.frequencyMode) === this.frequencyRepeatValue ? this.toPayloadValue(raw.frequencyType) : null,
         notifyCompletion: this.toPayloadValue(raw.notifyCompletion),
         emailAddresses: this.notifyChecked ? this.toPayloadValue(raw.emailAddresses) : [],
         compliancePolicyType: this.toPayloadValue(raw.compliancePolicyType),
@@ -516,11 +507,11 @@ export class Forms implements OnInit {
         target: this.toPayloadValue(raw.templateTarget),
       });
     }
-
     return payload;
   }
 
   private resetOperationSpecificValues(): void {
+    // console.log('resetOperationSpecificValues');
     this.notifyChecked = false;
     this.captureEndDate = true;
     this.resetControls([
@@ -549,20 +540,12 @@ export class Forms implements OnInit {
     ]);
     this.operationalTemplateForm.patchValue(
       {
-        captureEndDateRadio: 1,
-        frequencyMode: 1,
-        notifyChanges: this.getDefaultSelectedOptions(this.taskOptions),
-        notifyCompletion: this.getDefaultSelectedOptions(this.taskOptions),
-        complianceNotifyChanges: this.getDefaultSelectedOptions(this.notiFyOnChanges),
+        captureEndDateRadio: this.captureEndDateSpecifyValue,
+        frequencyMode: this.frequencyRepeatValue,
       },
       { emitEvent: false }
     );
   }
-
-  private getDefaultSelectedOptions(options: any[]): any[] {
-    return options.filter((option) => option.checked);
-  }
-
   private setRequired(controlNames: string | string[]): void {
     const names = Array.isArray(controlNames) ? controlNames : [controlNames];
     names.forEach((name) => this.operationalTemplateForm.get(name)?.addValidators(Validators.required));
@@ -572,7 +555,7 @@ export class Forms implements OnInit {
     controlNames.forEach((name) => {
       const control = this.operationalTemplateForm.get(name);
       const resetValue = Array.isArray(control?.value) ? [] : '';
-      control?.reset(resetValue, { emitEvent: false });
+      control?.reset();
     });
   }
 
@@ -591,6 +574,20 @@ export class Forms implements OnInit {
     return value;
   }
 
+  private toRadioPayload(value: any, options: SelectOption[]): any {
+    const selectedId = this.getRadioId(value);
+    const selectedOption = options.find((option) => option.id === selectedId);
+
+    if (!selectedOption) {
+      return value;
+    }
+
+    return {
+      id: selectedOption.apiId ?? selectedOption.id,
+      name: selectedOption.name,
+    };
+  }
+
   private getRadioId(value: any): number | string {
     return value?.id ?? value;
   }
@@ -605,6 +602,10 @@ export class Forms implements OnInit {
 
   get isTargetDeviceGroup(): boolean {
     return this.operationalTemplateForm?.get('target')?.value?.name === 'Device Group';
+  }
+
+  get isFrequencyRepeat(): boolean {
+    return this.getRadioId(this.operationalTemplateForm?.get('frequencyMode')?.value) === this.frequencyRepeatValue;
   }
 
   isInvalid(controlName: string): boolean {
@@ -624,28 +625,97 @@ export class Forms implements OnInit {
     ])
       .pipe(takeUntil(this.destroy$))
       .subscribe({
-      next: (res: any[]) => {
-        this.targetOptions = res[0].map((item: any, _index: number) => ({
-          id: item.key,
-          name: item.label,
+        next: (res: any[]) => {
+          this.targetOptions = res[0].map((item: any, _index: number) => ({
+            id: item.key,
+            name: item.label,
+          }));
+          this.frequencyTypeOptions = res[1].map((item: any, _index: number) => ({
+            id: item.key ?? item.id,
+            name: item.label ?? item.name,
+          }))
+          this.operationListOptions = res[2].map((item: any, _index: number) => ({
+            id: item.key,
+            name: item.label,
+          }))
+          this.emailOptionsList = res[3].map((item: any, _index: number) => ({
+            id: item.userid ?? item.email,
+            name: item.email,
+          }));
+          this.deviceGroupOptions = res[4]
+        },
+        error: (err) => {
+          this.submitError = 'Unable to load form dropdowns.';
+        }
+      });
+  }
+
+  isPatching = false;
+  getDataByid(id: number): void {
+    this.isPatching = true;
+    this.schedulerService.getSchedulerById(id).subscribe({
+      next: (res) => {
+        const notifyCompletion = this.taskOptions.map(option => ({
+          ...option,
+          checked: res.notifyCompletion?.some(
+            (x: any) => x.id === option.id
+          ) ?? false
         }));
-        this.frequencyTypeOptions = res[1].map((item: any, _index: number) => ({
-          id: item.key ?? item.id,
-          name: item.label ?? item.name,
-        }))
-        this.operationListOptions = res[2].map((item: any, _index: number) => ({
-          id: item.key,
-          name: item.label,
-        }))
-        this.emailOptionsList = res[3].map((item: any, _index: number) => ({
-          id: item.userid ?? item.email,
-          name: item.email,
+
+        const complianceNotifyChanges = this.notiFyOnChanges.map(option => ({
+          ...option,
+          checked: res.complianceNotifyChanges?.some(
+            (x: any) => x.id === option.id
+          ) ?? false
         }));
-        this.deviceGroupOptions = res[4]
+        this.operationalTemplateForm.patchValue(
+          {
+            operation: res.operation,
+            scheduleBy: res.scheduleBy,
+            target: res.target,
+            deviceGroup: res.deviceGroup,
+            scheduleName: res.scheduleName,
+            captureStartDate: res.captureStartDate,
+            startTime: res.startTime,
+            startTimeZone: res.startTimeZone,
+            captureEndDateRadio:
+              res.captureEndDateType?.id === 1
+                ? this.captureEndDateSpecifyValue
+                : 'capture_never',
+            captureEndDate: res.captureEndDate,
+            endTime: res.endTime,
+            endTimeZone: res.endTimeZone,
+            frequencyMode:
+              res.frequencyMode?.id === 1
+                ? this.frequencyRepeatValue
+                : 'frequency_not_repeat',
+            frequency: res.frequency,
+            frequencyType: res.frequencyType,
+            notifyChanges: res.notifyChanges,
+            notifyCompletion: notifyCompletion,
+            complianceNotifyChanges: complianceNotifyChanges,
+            emailAddresses: res.emailAddresses,
+            compliancePolicyType: res.compliancePolicyType,
+            compliancePolicyFeature: res.compliancePolicyFeature,
+          },
+          { emitEvent: false }
+        );
+        if (res.operation?.name === 'Backup & Drift') {
+          this.toggleEmailAddress(res.notifyChanges ,true);
+        } else if (res.operation?.name === 'Compliance Template') {
+          this.toggleEmailAddress(res.notifyCompletion, true);
+        }
+        this.captureEndDate =
+          res.captureEndDateType?.id === 1;
+        this.notifyChecked =
+          (res.emailAddresses?.length ?? 0) > 0;
+        this.isPatching = false;
+        this.applyOperationValidators();
       },
-      error: (err) => {
-        this.submitError = 'Unable to load form dropdowns.';
-      }
+      error: () => {
+        this.isPatching = false;
+      },
     });
   }
+
 }
